@@ -5,7 +5,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2020-07-01 11:11:14.
+    * Generated on 2020-07-01 11:22:06.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -45,6 +45,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -215,6 +217,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -385,6 +389,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -555,6 +561,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -725,6 +733,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -895,6 +905,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -1065,6 +1077,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
@@ -1235,6 +1249,8 @@ namespace PHPSTORM_META {
         'Illuminate\Notifications\ChannelManager' => \Illuminate\Notifications\ChannelManager::class,
         'Illuminate\Routing\Contracts\ControllerDispatcher' => \Illuminate\Routing\ControllerDispatcher::class,
         'Illuminate\Session\Middleware\StartSession' => \Illuminate\Session\Middleware\StartSession::class,
+        'League\OAuth2\Server\AuthorizationServer' => \League\OAuth2\Server\AuthorizationServer::class,
+        'League\OAuth2\Server\ResourceServer' => \League\OAuth2\Server\ResourceServer::class,
         'NunoMaduro\Collision\Contracts\Provider' => \NunoMaduro\Collision\Provider::class,
         'Psr\Http\Message\ResponseInterface' => \Nyholm\Psr7\Response::class,
         'Psr\Http\Message\ServerRequestInterface' => \Nyholm\Psr7\ServerRequest::class,
