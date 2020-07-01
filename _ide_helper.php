@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 7.18.0 on 2020-07-01 11:48:00.
+ * Generated for Laravel 7.18.0 on 2020-07-01 21:09:21.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -8800,10 +8800,6 @@ namespace Illuminate\Support\Facades {
     /**
      * 
      *
-     * @method static \Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder funnel(string $name)
-     * @method static \Illuminate\Redis\Limiters\DurationLimiterBuilder throttle(string $name)
-     * @see \Illuminate\Redis\RedisManager
-     * @see \Illuminate\Contracts\Redis\Factory
      */ 
     class Redis {
         

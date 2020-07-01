@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8df3c78a70cee73e74bb963c093e673f",
+    "content-hash": "fe5cbc2ef57498938b868bba356ab109",
     "packages": [
         {
             "name": "artesaos/seotools",
@@ -124,6 +124,85 @@
                 "stack"
             ],
             "time": "2019-12-24T22:41:47+00:00"
+        },
+        {
+            "name": "astrotomic/laravel-translatable",
+            "version": "v11.8.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Astrotomic/laravel-translatable.git",
+                "reference": "29d409f5fca2209252c9b6dc135b0994b2cadca0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/29d409f5fca2209252c9b6dc135b0994b2cadca0",
+                "reference": "29d409f5fca2209252c9b6dc135b0994b2cadca0",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "5.8.* || ^6.0 || ^7.0",
+                "illuminate/database": "5.8.* || ^6.0 || ^7.0",
+                "illuminate/support": "5.8.* || ^6.0 || ^7.0",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.8.* || ^4.0 || ^5.0",
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Astrotomic\\Translatable\\TranslatableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Astrotomic\\Translatable\\": "src/Translatable/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Witkowski",
+                    "email": "gummibeer@astrotomic.info",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dimitrios Savvopoulos",
+                    "email": "ds@dimsav.com",
+                    "homepage": "http://dimsav.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package for multilingual models",
+            "homepage": "https://astrotomic.info",
+            "keywords": [
+                "database",
+                "language",
+                "laravel",
+                "translation"
+            ],
+            "funding": [
+                {
+                    "url": "https://offset.earth/treeware",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Gummibeer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://issuehunt.io/r/astrotomic",
+                    "type": "issuehunt"
+                }
+            ],
+            "time": "2020-06-23T15:40:25+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
