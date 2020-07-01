@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Junges\ACL\Traits\UsersTrait;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    use UsersTrait;
     use Notifiable;
 
     /**
