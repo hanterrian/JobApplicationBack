@@ -15,19 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'WelcomeController@index')->name('main');
 
-Auth::routes(['verify' => true]);
-
-Route::get('register', [
-    'as' => 'register',
-    'uses' => 'Auth\RegisterController@selectType'
-]);
-
-Route::get('register/{type?}', [
-    'as' => 'register-type',
-    'uses' => 'Auth\RegisterController@showForm'
-]);
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes(['verify' => true]);
+//
+//Route::get('register', [
+//    'as' => 'register',
+//    'uses' => 'Auth\RegisterController@selectType'
+//]);
+//
+//Route::get('register/{type?}', [
+//    'as' => 'register-type',
+//    'uses' => 'Auth\RegisterController@showForm'
+//]);
+//
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('sitemap.xml', function () {
     // create new sitemap object
