@@ -2,7 +2,9 @@ import React from 'react'
 
 import { Field, reduxForm } from 'redux-form'
 
-import { TextField, FormControlLabel, Checkbox, Button } from '@material-ui/core'
+import { renderTextField, renderCheckbox } from '../_helpers/_fields'
+
+import { Button, Checkbox } from '@material-ui/core'
 import { LockOpen } from '@material-ui/icons'
 
 const validate = values => {
@@ -25,33 +27,8 @@ const validate = values => {
   return errors
 }
 
-const renderTextField = ({
-  input,
-  label,
-  meta: { touched, error },
-  ...custom
-}) => (
-  <TextField
-    label={label}
-    placeholder={label}
-    helperText={touched && error}
-    {...input}
-    {...custom}
-  />
-)
-
-const renderCheckbox = ({ input, label }) => (
-  <FormControlLabel control={
-    <Checkbox
-      label={label}
-      checked={input.value ? true : false}
-      onChange={input.onChange}
-    />
-  } label={label}/>
-)
-
 let LoginForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, pristine, reset, submitting, logining } = props
 
   return (
     <form onSubmit={handleSubmit}>
@@ -65,7 +42,14 @@ let LoginForm = props => {
         <Field name="remember" component={renderCheckbox} label="Remember me"/>
       </div>
       <div>
-        <Button type='submit' variant="contained" color='primary' startIcon={<LockOpen/>}>
+        <Button
+          type='submit'
+          variant="contained"
+          color='primary'
+          startIcon={<LockOpen/>}
+          margin='dense'
+          disabled={logining}
+        >
           Sign in
         </Button>
       </div>
