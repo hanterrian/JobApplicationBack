@@ -2,7 +2,8 @@ import React from 'react'
 
 import { Field, reduxForm } from 'redux-form'
 
-import { TextField, Checkbox } from '@material-ui/core'
+import { TextField, FormControlLabel, Checkbox, Button } from '@material-ui/core'
+import { LockOpen } from '@material-ui/icons'
 
 const validate = values => {
   const errors = {}
@@ -40,11 +41,13 @@ const renderTextField = ({
 )
 
 const renderCheckbox = ({ input, label }) => (
-  <Checkbox
-    label={label}
-    checked={input.value ? true : false}
-    onCheck={input.onChange}
-  />
+  <FormControlLabel control={
+    <Checkbox
+      label={label}
+      checked={input.value ? true : false}
+      onChange={input.onChange}
+    />
+  } label={label}/>
 )
 
 let LoginForm = props => {
@@ -53,10 +56,18 @@ let LoginForm = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <Field type="email" name="email" component={renderTextField} label="Email" required/>
+        <Field type="email" name="email" component={renderTextField} label="Email" fullWidth required/>
       </div>
       <div>
-        <Field type="password" name="password" component={renderTextField} label="Password" required/>
+        <Field type="password" name="password" component={renderTextField} label="Password" fullWidth required/>
+      </div>
+      <div>
+        <Field name="remember" component={renderCheckbox} label="Remember me"/>
+      </div>
+      <div>
+        <Button type='submit' variant="contained" color='primary' startIcon={<LockOpen/>}>
+          Sign in
+        </Button>
       </div>
     </form>
   )
