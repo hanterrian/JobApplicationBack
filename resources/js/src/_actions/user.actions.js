@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { userConstants } from '../_constants'
-import { userService } from '../_services'
 import { alertActions } from './'
 import { history, store } from '../_helpers'
 
@@ -10,22 +9,30 @@ export const userActions = {
 }
 
 function login (email, password, remember) {
-  console.log(email)
-  console.log(password)
-
   store.dispatch(request({ email }))
 
-  userService.login(email, password, remember).then(
-    console.log(111111),
-    // user => {
-    //   store.dispatch(success(user))
-    //   history.push('/')
-    // },
-    // error => {
-    //   store.dispatch(failure(error))
-    //   store.dispatch(alertActions.error(error))
-    // },
-  )
+  axios({
+    method: 'post',
+    url: `/api/auth/login`,
+    data: {
+      email: email,
+      password: password,
+      remember: remember,
+    },
+  }).then(({ data }) => {
+    if (data.token) {
+      store.dispatch(success(data))
+    } else {
+      store.dispatch(failure(data))
+      store.dispatch(alertActions.error(data))
+    }
+  }).catch(error => {
+    if (error.response.status === 422) {
+      store.dispatch(failure(error.response.data))
+    } else {
+      store.dispatch(alertActions.error(error.response.data))
+    }
+  })
 
   function request (user) { return { type: userConstants.LOGIN_REQUEST, user } }
 
