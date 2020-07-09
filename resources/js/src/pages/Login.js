@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-import { authHeader } from '../_helpers'
-
 import {
   Grid,
   Card,
   CardHeader,
   CardContent,
 } from '@material-ui/core'
-import LoginForm from '../forms/login'
-import { userActions } from '../_actions'
+
+import LoginForm from '../_components/_forms/LoginForm'
 
 export default class Login extends Component {
   submit = values => {
-    let { email, password, remember } = values
-    
-    userActions.login(email, password, remember)
+    console.log(values)
   }
 
   render () {

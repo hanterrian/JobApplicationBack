@@ -61,10 +61,10 @@ class AuthController extends Controller
                     'token' => $token
                 ]);
             } else {
-                return response('Password missmatch', 422);
+                return response(['_error' => 'Password missmatch'], 422);
             }
         } else {
-            return response('User does not exist', 422);
+            return response(['_error' => 'User does not exist'], 422);
         }
     }
 
