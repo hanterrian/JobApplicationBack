@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { Container, CssBaseline } from '@material-ui/core'
@@ -22,13 +22,15 @@ class App extends React.Component {
 
   render () {
     return (
-      <Router history={history}>
+      <Router>
         <Container>
           <CssBaseline/>
-          <Route exact={true} path='/' component={Home}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/register' component={Register}/>
-          <PrivateRoute path='/profile' component={Profile}/>
+          <Switch>
+            <Route exact={true} path='/' component={Home}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/register' component={Register}/>
+            <PrivateRoute path='/profile' component={Profile}/>
+          </Switch>
         </Container>
       </Router>
     )
