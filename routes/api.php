@@ -19,12 +19,11 @@ Route::group(['middleware' => ['json.response']], function () {
         return $request->user();
     });
 
-    Route::group(['prefix' => 'auth'], function () {
-        Route::post('/login', 'Api\AuthController@login')->name('login.api');
-        Route::post('/register', 'Api\AuthController@register')->name('register.api');
-
-        Route::middleware('auth:api')->group(function () {
-            Route::get('/logout', 'Api\AuthController@logout')->name('logout');
+    Route::group(['namespace' => 'Api'], function () {
+        Route::group(['namespace' => 'Auth'], function () {
+            Route::post('register', 'RegisterController');
+            Route::post('login', 'LoginController');
+            Route::post('logout', 'LogoutController')->middleware('auth:api');
         });
     });
 });

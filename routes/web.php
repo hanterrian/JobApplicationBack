@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{path?}', 'WelcomeController@index')->name('main');
+Route::get('/', 'WelcomeController@index')->name('home');
 
-//Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true]);
 //
 //Route::get('register', [
 //    'as' => 'register',
