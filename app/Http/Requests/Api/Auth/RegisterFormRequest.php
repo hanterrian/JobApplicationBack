@@ -60,9 +60,9 @@ class RegisterFormRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
             //
-            'country_id' => ['required', 'exists:countries'],
-            'region_id' => ['required', 'exists:regions'],
-            'city_id' => ['required', 'exists:cities'],
+            'country_id' => ['required', 'exists:countries,id'],
+            'region_id' => ['required', 'exists:regions,id'],
+            'city_id' => ['required', 'exists:cities,id'],
             //
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
@@ -72,10 +72,10 @@ class RegisterFormRequest extends FormRequest
             'gender' => ['required', Rule::in([Profile::GENDER_MALE, Profile::GENDER_FEMALE])],
             'date_of_birth' => ['required', 'date_format:Y-m-d'],
             'company_type' => ['required', Rule::in([Profile::COMPANY_TYPE_PERSONAL, Profile::COMPANY_TYPE_COMPANY])],
-            'company_name' => ['required', 'string', 'max:255'],
-            'company_site' => ['required', 'url'],
+            'company_name' => ['string', 'max:255'],
+            'company_site' => ['url'],
             //
-            'verification_token' => ['required', 'string'],
+            'verification_token' => ['string'],
         ];
     }
 }

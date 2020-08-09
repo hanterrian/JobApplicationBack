@@ -58,13 +58,19 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Profile extends Model
 {
-    const GENDER_MALE = 'male';
-    const GENDER_FEMALE = 'male';
-    
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
+
     const COMPANY_TYPE_PERSONAL = 'personal';
     const COMPANY_TYPE_COMPANY = 'company';
 
     public $fillable = [
+        'user_id',
+        //
+        'country_id',
+        'region_id',
+        'city_id',
+        //
         'name',
         'last_name',
         'patronymic',
