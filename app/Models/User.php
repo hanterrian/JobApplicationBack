@@ -46,12 +46,19 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $verification_token
+ * @property int|null $verification_token_expire
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationTokenExpire($value)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use UsersTrait;
     use Notifiable;
+
+    const ROLE_EXECUTOR = 'executor';
+    const ROLE_CUSTOMER = 'customer';
 
     /**
      * The attributes that are mass assignable.

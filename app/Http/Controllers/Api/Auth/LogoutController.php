@@ -12,13 +12,11 @@ use Illuminate\Http\Request;
 class LogoutController extends Controller
 {
     /**
-     * Handle the incoming request.
-     *
-     * @param \Illuminate\Http\Request $request
+     * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke(Request $request)
+    public function index(Request $request)
     {
         $request->user()->token()->revoke();
 

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\EmailValidateTokenSend;
+use App\Events\UserValidateTokenSend;
+use App\Listeners\EmailVerificationCodeSender;
+use App\Listeners\PhoneVerificationCodeSender;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +22,14 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        EmailValidateTokenSend::class => [
+            EmailVerificationCodeSender::class,
+            PhoneVerificationCodeSender::class,
+        ],
+        UserValidateTokenSend::class => [
+            EmailVerificationCodeSender::class,
+            PhoneVerificationCodeSender::class,
+        ],
     ];
 
     /**
@@ -28,7 +40,6 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
         //
     }
 }

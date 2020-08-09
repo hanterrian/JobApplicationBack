@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\Events\UserValidateTokenSend;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Auth\LoginRequest;
+use App\Http\Requests\Api\Auth\LoginTokenRequest;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,26 +15,15 @@ use OpenApi\Annotations\OpenApi;
 /**
  * Class LoginController
  * @package App\Http\Controllers\Api\Auth
- *
- * @OA\Info(
- *     title="User login",
- *     version="1.0"
- * )
  */
 class LoginController extends Controller
 {
     /**
-     * Handle the incoming request.
-     *
-     * @OA/Post(
-     *  path="/api/login"
-     * )
-     *
-     * @param Request $request
+     * @param LoginRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function __invoke(Request $request)
+    public function index(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
 
@@ -50,6 +43,31 @@ class LoginController extends Controller
             'token_type' => 'Bearer',
             'token' => $token->accessToken,
             'expires_at' => Carbon::parse($token->token->expires_at)->toDateTimeString()
+        ], 200);
+    }
+
+    /**
+     * @param LoginTokenRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function token(LoginTokenRequest $request)
+    {
+        $email = $request->input('email');
+
+        /** @var User|null $user */
+        $user = User::where(['email' => $email])->first();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'User not found'
+            ], 401);
+        }
+
+        event(new UserValidateTokenSend($user, UserValidateTokenSend::TYPE_EMAIL_CODE));
+
+        return response()->json([
+            'message' => 'Token send'
         ], 200);
     }
 }

@@ -21,9 +21,12 @@ Route::group(['middleware' => ['json.response']], function () {
 
     Route::group(['namespace' => 'Api'], function () {
         Route::group(['namespace' => 'Auth'], function () {
-            Route::post('register', 'RegisterController');
-            Route::post('login', 'LoginController');
-            Route::post('logout', 'LogoutController')->middleware('auth:api');
+            Route::post('register', 'RegisterController@index');
+            Route::post('register-check', 'RegisterController@check');
+            Route::post('register-token', 'RegisterController@token');
+            Route::post('login', 'LoginController@index');
+            Route::post('login-token', 'LoginController@token');
+            Route::post('logout', 'LogoutController@index')->middleware('auth:api');
         });
     });
 });
