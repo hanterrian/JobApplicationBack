@@ -11,11 +11,10 @@ use App\Models\Group;
 use App\Models\Permission;
 use App\Models\Profile;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-use phpseclib\Crypt\Random;
 
 /**
  * Class RegisterController
@@ -47,6 +46,8 @@ class RegisterController extends Controller
 
             $user->assignGroup($group);
             $user->assignPermissions($permission);
+
+            event(new Registered($user));
         });
 
         return response()->json([
