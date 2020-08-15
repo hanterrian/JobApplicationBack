@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $country_id
  * @property int $region_id
+ * @property string $title
  * @property int $sort
  * @property int $published
  * @property string|null $deleted_at

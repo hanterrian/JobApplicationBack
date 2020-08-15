@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * App\Models\Country
  *
  * @property int $id
+ * @property string $title
  * @property int $sort
  * @property int $published
  * @property string|null $deleted_at

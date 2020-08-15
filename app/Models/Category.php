@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int|null $parent_id
+ * @property string $title
  * @property int $sort
  * @property int $published
  * @property string|null $deleted_at
@@ -43,6 +44,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category withTranslation()
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category notCategory($id = null)
  */
 class Category extends Model implements TranslatableContract
 {
@@ -51,6 +53,21 @@ class Category extends Model implements TranslatableContract
     public $translatedAttributes = ['title'];
 
     protected $fillable = ['sort', 'published'];
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param int|null $id
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNotCategory($query, ?int $id = null)
+    {
+        if (!is_null($id)) {
+            return $query->where('id', '<>', $id);
+        }
+
+        return $query;
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
