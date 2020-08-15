@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\GetItems;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -44,14 +45,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region withTranslation()
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region getItems()
  */
 class Region extends Model implements TranslatableContract
 {
     use Translatable;
+    use GetItems;
 
     public $translatedAttributes = ['title'];
 
-    protected $fillable = ['sort', 'published'];
+    protected $fillable = ['country_id', 'sort', 'published'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

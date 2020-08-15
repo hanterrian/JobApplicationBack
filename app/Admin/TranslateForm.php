@@ -62,8 +62,12 @@ class TranslateForm extends Form
 
         $this->model = $builder->with($relations)->findOrFail($id);
 
-        if ($this->model->hasTranslation($this->getLocale())) {
-            $this->model = $this->model->translate($this->getLocale());
+        $translate = $this->model->translate($this->getLocale());
+
+        foreach ($this->model->translatedAttributes as $attribute) {
+            if ($translate) {
+                $this->model->{$attribute} = $translate->{$attribute};
+            }
         }
 
         $this->callEditing();

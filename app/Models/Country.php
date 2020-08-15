@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\GetItems;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -43,10 +44,12 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country withTranslation()
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country getItems()
  */
 class Country extends Model implements TranslatableContract
 {
     use Translatable;
+    use GetItems;
 
     public $translatedAttributes = ['title'];
 

@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Grid\Displayers\TranslateButtonActions;
 use App\Admin\TranslateForm;
 use App\Models\Country;
 use Encore\Admin\Controllers\AdminController;
@@ -9,6 +10,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+/**
+ * Class CountryController
+ * @package App\Admin\Controllers
+ */
 class CountryController extends AdminController
 {
     /**
@@ -28,11 +33,22 @@ class CountryController extends AdminController
         $grid = new Grid(new Country());
 
         $grid->column('id', __('Id'));
+        $grid->column('title', __('Title'));
         $grid->column('sort', __('Sort'));
-        $grid->column('published', __('Published'));
-        $grid->column('deleted_at', __('Deleted at'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->column('published', __('Published'))->switch();
+
+        $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
+        $grid->column('updated_at', __('Updated at'))->date('Y-m-d H:i:s');
+
+        $grid->filter(function (Grid\Filter $filter) {
+            $filter->like('translation.title', __('Title'));
+            $filter->equal('published', __('Published'))->select([
+                0 => __('No'),
+                1 => __('Yes')
+            ]);
+        });
+
+        $grid->setActionClass(TranslateButtonActions::class);
 
         return $grid;
     }
@@ -67,6 +83,7 @@ class CountryController extends AdminController
     {
         $form = new TranslateForm(new Country());
 
+        $form->text('title', __('Title'))->required();
         $form->number('sort', __('Sort'));
         $form->switch('published', __('Published'))->default(1);
 

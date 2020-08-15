@@ -43,6 +43,7 @@ class CategoryController extends AdminController
         $grid->column('title', __('Title'));
         $grid->column('sort', __('Sort'));
         $grid->column('published', __('Published'))->switch();
+
         $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d H:i:s');
 
@@ -91,7 +92,7 @@ class CategoryController extends AdminController
     {
         $form = new TranslateForm(new Category());
 
-        $form->text('title', __('Label'))->required();
+        $form->text('title', __('Title'))->required();
         $form->select('parent_id', __('Parent'))->options(function ($id, Form\Field\Select $field) {
             /** @var Category $category */
             $category = $this;
