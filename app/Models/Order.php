@@ -64,7 +64,6 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \App\Models\User|null $selectedUser
  * @property-read \App\Models\User $user
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order getItems()
  * @property-read \App\Models\City|null $city
  * @property-read \App\Models\Country|null $country
  * @property-read \App\Models\Currency|null $currency
@@ -77,6 +76,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $responding_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $views
  * @property-read int|null $views_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order getItems($key = 'id', $title = 'title')
  */
 class Order extends Model
 {
@@ -93,6 +93,42 @@ class Order extends Model
     const STATUS_IN_PROGRESS = 'in_progress';
     const STATUS_CLOSED = 'closed';
     const STATUS_CANCEL = 'cancel';
+
+    /**
+     * @return array
+     */
+    public static function getTypes(): array
+    {
+        return [
+            self::TYPE_REQUEST => __('Request'),
+            self::TYPE_SERVICE => __('Service'),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getServiceProvisions(): array
+    {
+        return [
+            self::SERVICE_PROVISION_OFFLINE => __('Offline'),
+            self::SERVICE_PROVISION_ONLINE => __('Online'),
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getStatuses(): array
+    {
+        return [
+            self::STATUS_MODERATE => __('Moderate'),
+            self::STATUS_NEW => __('New'),
+            self::STATUS_IN_PROGRESS => __('In progress'),
+            self::STATUS_CLOSED => __('Closed'),
+            self::STATUS_CANCEL => __('Cancel'),
+        ];
+    }
 
     protected $fillable = [
         'type',

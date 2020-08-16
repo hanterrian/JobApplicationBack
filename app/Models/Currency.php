@@ -22,7 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Currency whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Currency whereUpdatedAt($value)
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Currency getItems()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Currency getItems($key = 'id', $title = 'title')
  */
 class Currency extends Model
 {

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\GetItems;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,12 +51,14 @@ use Laravel\Passport\HasApiTokens;
  * @property int|null $verification_token_expire
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationTokenExpire($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User getItems($key = 'id', $title = 'title')
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens;
     use UsersTrait;
     use Notifiable;
+    use GetItems;
 
     const ROLE_EXECUTOR = 'executor';
     const ROLE_CUSTOMER = 'customer';

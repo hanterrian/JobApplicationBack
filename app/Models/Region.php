@@ -45,7 +45,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region withTranslation()
  * @mixin \Eloquent
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region getItems()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Region getItems($key = 'id', $title = 'title')
  */
 class Region extends Model implements TranslatableContract
 {

@@ -2,6 +2,8 @@
 
 namespace App\Models\Scopes;
 
+use Illuminate\Database\Eloquent\Builder;
+
 /**
  * Trait GetItems
  * @package App\Models\Scopes
@@ -9,14 +11,18 @@ namespace App\Models\Scopes;
 trait GetItems
 {
     /**
+     * @param Builder $builder
+     * @param string $key
+     * @param string $title
+     *
      * @return array
      */
-    public function scopeGetItems(): array
+    public function scopeGetItems(Builder $builder, string $key = 'id', string $title = 'title'): array
     {
-        return parent::get()
-            ->keyBy('id')
-            ->map(function ($model) {
-                return $model->title;
+        return $builder->get()
+            ->keyBy($key)
+            ->map(function ($model) use ($title) {
+                return $model->{$title};
             })
             ->toArray();
     }
