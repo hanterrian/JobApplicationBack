@@ -17,4 +17,5 @@ Route::group([
     $router->resource('cities', 'CityController');
     $router->resource('orders', 'OrderController');
     $router->resource('currencies', 'CurrencyController');
+    $router->resource('users', 'UserController');
 });
