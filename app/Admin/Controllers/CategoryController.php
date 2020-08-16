@@ -97,9 +97,13 @@ class CategoryController extends AdminController
             /** @var Category $category */
             $category = $this;
 
-            return Category::notCategory($category->id)->get()->keyBy('id')->map(function (Category $model) {
-                return $model->title;
-            })->toArray();
+            return Category::notCategory($category->id)
+                ->where(['parent_id' => null])
+                ->get()
+                ->keyBy('id')
+                ->map(function (Category $model) {
+                    return $model->title;
+                })->toArray();
         });
         $form->number('sort', __('Sort'))->required()->default(0);
         $form->switch('published', __('Published'))->default(1);
