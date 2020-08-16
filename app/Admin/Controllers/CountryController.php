@@ -84,7 +84,7 @@ class CountryController extends AdminController
         $form = new TranslateForm(new Country());
 
         $form->text('title', __('Title'))->required();
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->switch('published', __('Published'))->default(1);
 
         return $form;

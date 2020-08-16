@@ -100,7 +100,7 @@ class CityController extends AdminController
         $form->select('country_id', __('Country'))->options(Country::getItems())->required();
         $form->select('region_id', __('Region'))->options(Region::getItems())->required();
         $form->text('title', __('Title'))->required();
-        $form->number('sort', __('Sort'));
+        $form->number('sort', __('Sort'))->default(0);
         $form->switch('published', __('Published'))->default(1);
 
         return $form;
