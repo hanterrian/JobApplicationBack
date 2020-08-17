@@ -858,6 +858,25 @@ ul.nav-tabs {
     }
   }
 };
+    defs["inline_response_422"] = {
+  "properties" : {
+    "message" : {
+      "type" : "string",
+      "description" : "Error message"
+    },
+    "errors" : {
+      "type" : "array",
+      "description" : "Array of fields",
+      "items" : {
+        "type" : "array",
+        "description" : "Array of errors",
+        "items" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+};
 
     var errs = {};
   </script>
@@ -954,7 +973,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String email = ; // String | 
         String password = password_example; // String | 
-        Boolean rememberMe = false; // Boolean | 
+        Boolean rememberMe = true; // Boolean | 
         try {
             inline_response_200 result = apiInstance.apiLoginPost(email, password, rememberMe);
             System.out.println(result);
@@ -976,7 +995,7 @@ public class DefaultApiExample {
         DefaultApi apiInstance = new DefaultApi();
         String email = ; // String | 
         String password = password_example; // String | 
-        Boolean rememberMe = false; // Boolean | 
+        Boolean rememberMe = true; // Boolean | 
         try {
             inline_response_200 result = apiInstance.apiLoginPost(email, password, rememberMe);
             System.out.println(result);
@@ -994,7 +1013,7 @@ public class DefaultApiExample {
                             <div class="tab-pane" id="examples-Default-apiLoginPost-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *email = ; //  (default to null)
 String *password = password_example; //  (default to null)
-Boolean *rememberMe = false; //  (optional) (default to null)
+Boolean *rememberMe = true; //  (optional) (default to null)
 
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
 
@@ -1020,7 +1039,7 @@ var api = new JobApplication.DefaultApi()
 var email = ; // {String} 
 var password = password_example; // {String} 
 var opts = {
-  'rememberMe': false // {Boolean} 
+  'rememberMe': true // {Boolean} 
 };
 
 var callback = function(error, data, response) {
@@ -1054,7 +1073,7 @@ namespace Example
             var apiInstance = new DefaultApi();
             var email = new String(); // String |  (default to null)
             var password = password_example;  // String |  (default to null)
-            var rememberMe = false;  // Boolean |  (optional)  (default to null)
+            var rememberMe = true;  // Boolean |  (optional)  (default to null)
 
             try
             {
@@ -1079,7 +1098,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $email = ; // String | 
 $password = password_example; // String | 
-$rememberMe = false; // Boolean | 
+$rememberMe = true; // Boolean | 
 
 try {
     $result = $api_instance->apiLoginPost($email, $password, $rememberMe);
@@ -1098,7 +1117,7 @@ use WWW::OPenAPIClient::DefaultApi;
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $email = ; # String | 
 my $password = password_example; # String | 
-my $rememberMe = false; # Boolean | 
+my $rememberMe = true; # Boolean | 
 
 eval { 
     my $result = $api_instance->apiLoginPost(email => $email, password => $password, rememberMe => $rememberMe);
@@ -1120,7 +1139,7 @@ from pprint import pprint
 api_instance = openapi_client.DefaultApi()
 email =  # String |  (default to null)
 password = password_example # String |  (default to null)
-rememberMe = false # Boolean |  (optional) (default to null)
+rememberMe = true # Boolean |  (optional) (default to null)
 
 try: 
     # Return auth token
@@ -1136,7 +1155,7 @@ except ApiException as e:
 pub fn main() {
     let email = ; // String
     let password = password_example; // String
-    let rememberMe = false; // Boolean
+    let rememberMe = true; // Boolean
 
     let mut context = DefaultApi::Context::default();
     let result = client.apiLoginPost(email, password, rememberMe, &context).wait();
@@ -1245,12 +1264,56 @@ pub fn main() {
 
 
                             <ul id="responses-detail-Default-apiLoginPost-422" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-apiLoginPost-422-schema">Schema</a>
+                                </li>
+
+
 
 
                             </ul>
 
 
                             <div class="tab-content" id="responses-Default-apiLoginPost-422-wrapper" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-Default-apiLoginPost-422-schema">
+                                  <div id="responses-Default-apiLoginPost-schema-422" class="exampleStyle">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Validation error",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_422"
+      }
+    }
+  }
+};
+                                        var schema = findNode('schema',schemaWrapper).schema;
+                                        if (!schema) {
+                                            schema = schemaWrapper.schema;
+                                        }
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else if (schema.items != null && schema.items.$ref != null) {
+                                            schema.items = defsParser.$refs.get(schema.items.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-Default-apiLoginPost-422-schema-data').val(JSON.stringify(schema));
+                                        var result = $('#responses-Default-apiLoginPost-schema-422');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-Default-apiLoginPost-422-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
                             <h3 id="examples-Default-apiLoginPost-title-200"></h3>
                             <p id="examples-Default-apiLoginPost-description-200" class="marked"></p>

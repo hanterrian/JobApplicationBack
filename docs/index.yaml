@@ -33,6 +33,22 @@ paths:
       responses:
         422:
           description: Validation error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message
+                  errors:
+                    type: array
+                    description: Array of fields
+                    items:
+                      type: array
+                      description: Array of errors
+                      items:
+                        type: string
         200:
           description: Return token parameters
           content:
