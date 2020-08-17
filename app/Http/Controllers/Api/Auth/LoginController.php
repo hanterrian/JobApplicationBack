@@ -64,6 +64,11 @@ class LoginController extends Controller
             ], 401);
         }
 
+        $user->verification_token = rand(111111, 999999);
+        $user->verification_token_expire = time() + 300;
+
+        $user->save();
+
         event(new UserValidateTokenSend($user, UserValidateTokenSend::TYPE_EMAIL_CODE));
 
         return response()->json([
