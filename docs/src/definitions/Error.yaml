@@ -1,0 +1,13 @@
+type: object
+properties:
+  message:
+    type: string
+    description: Error message
+  errors:
+    type: array
+    description: Array of fields
+    items:
+      type: object
+      description: Array of errors
+      items:
+        type: string
