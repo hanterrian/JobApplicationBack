@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Auth;
+namespace App\Http\Controllers\Api\v1\Auth;
 
 use App\Events\UserValidateTokenSend;
 use App\Http\Controllers\Controller;

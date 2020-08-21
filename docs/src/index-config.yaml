@@ -2,15 +2,23 @@ openapi: 3.0.0
 info:
   title: Job application
   description: Job application API doc
-  version: 0.0.1
+  version: 1.0.0
 
 servers:
-  - url: https://job.cijworld.com
-    description: Main API server
+  - url: https://job.cijworld.com/api/v1
+    description: Main v1 API server
+
+tags:
+  - name: register
+    description: Register user
+  - name: login
+    description: Login user
 
 paths:
-  /api/login:
+  /login:
     post:
+      tags:
+        - login
       summary: Return auth token
       parameters:
         - name: email
@@ -55,9 +63,11 @@ paths:
                     type: integer
                     description: Token expires time
 
-  /api/register:
+  /register:
     description: Register user action
     post:
+      tags:
+        - register
       responses:
         200:
           description: Successful register
@@ -69,9 +79,11 @@ paths:
                   message:
                     type: string
 
-  /api/logout:
+  /logout:
     description: Logout user action
     post:
+      tags:
+        - login
       security:
         - bearerAuth: []
       responses:
