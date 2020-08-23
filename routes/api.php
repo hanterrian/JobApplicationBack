@@ -20,7 +20,7 @@ Route::group(['middleware' => ['json.response']], function () {
     });
 
     Route::group(['namespace' => 'Api'], function () {
-        Route::group(['namespace' => 'v1'], function () {
+        Route::group(['prefix' => 'v1', 'namespace' => 'v1'], function () {
             Route::group(['namespace' => 'Auth'], function () {
                 Route::post('register', 'RegisterController@index');
                 Route::post('register-check', 'RegisterController@check');
@@ -28,6 +28,12 @@ Route::group(['middleware' => ['json.response']], function () {
                 Route::post('login', 'LoginController@index');
                 Route::post('login-token', 'LoginController@token');
                 Route::post('logout', 'LogoutController@index')->middleware('auth:api');
+            });
+            Route::group(['namespace' => 'User'], function () {
+                Route::resource('profile', 'ProfileController', ['only' => ['show', 'update']]);
+            });
+            Route::group(['namespace' => 'Order'], function () {
+                Route::resource('order', 'OrderController');
             });
         });
     });

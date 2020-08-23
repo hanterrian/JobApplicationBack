@@ -88,8 +88,8 @@ class Order extends Model
     const SERVICE_PROVISION_OFFLINE = 'offline';
     const SERVICE_PROVISION_ONLINE = 'online';
 
-    const STATUS_MODERATE = 'moderate';
     const STATUS_NEW = 'new';
+    const STATUS_OPEN = 'open';
     const STATUS_IN_PROGRESS = 'in_progress';
     const STATUS_CLOSED = 'closed';
     const STATUS_CANCEL = 'cancel';
@@ -122,8 +122,8 @@ class Order extends Model
     public static function getStatuses(): array
     {
         return [
-            self::STATUS_MODERATE => __('Moderate'),
             self::STATUS_NEW => __('New'),
+            self::STATUS_OPEN => __('Open'),
             self::STATUS_IN_PROGRESS => __('In progress'),
             self::STATUS_CLOSED => __('Closed'),
             self::STATUS_CANCEL => __('Cancel'),

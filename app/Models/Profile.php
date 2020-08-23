@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 /**
  * App\Models\Profile
@@ -63,6 +64,22 @@ class Profile extends Model
 
     const COMPANY_TYPE_PERSONAL = 'personal';
     const COMPANY_TYPE_COMPANY = 'company';
+
+    public static function getGenders(): array
+    {
+        return [
+            self::GENDER_MALE => __('Male'),
+            self::GENDER_FEMALE => __('Female'),
+        ];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getGender(): ?string
+    {
+        return Arr::get(self::getGenders(), $this->gender);
+    }
 
     public $fillable = [
         'user_id',
