@@ -13,6 +13,8 @@ tags:
     description: Register user
   - name: login
     description: Login user
+  - name: category
+    description: Category
 
 paths:
   /login:
@@ -96,6 +98,42 @@ paths:
                 properties:
                   message:
                     type: string
+        401:
+          $ref: '#/components/responses/UnauthorizedError'
+
+  /category:
+    description: Category list
+    get:
+      tags:
+        - category
+      security:
+        - bearerAuth: []
+      responses:
+        200:
+          description: List of category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                        children:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              title:
+                                type: string
         401:
           $ref: '#/components/responses/UnauthorizedError'
 
