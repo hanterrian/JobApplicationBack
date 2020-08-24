@@ -77,7 +77,7 @@ class Category extends Model implements TranslatableContract
      */
     public function parent()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'parent_id');
     }
 
     /**
@@ -85,6 +85,6 @@ class Category extends Model implements TranslatableContract
      */
     public function children()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(Category::class, 'parent_id');
     }
 }

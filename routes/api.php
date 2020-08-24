@@ -29,11 +29,12 @@ Route::group(['middleware' => ['json.response']], function () {
                 Route::post('login-token', 'LoginController@token');
                 Route::post('logout', 'LogoutController@index')->middleware('auth:api');
             });
-            Route::group(['namespace' => 'User'], function () {
+            Route::group(['namespace' => 'User', 'middleware' => ['auth:api']], function () {
                 Route::resource('profile', 'ProfileController', ['only' => ['show', 'update']]);
             });
-            Route::group(['namespace' => 'Order'], function () {
+            Route::group(['namespace' => 'Order', 'middleware' => ['auth:api']], function () {
                 Route::resource('order', 'OrderController');
+                Route::resource('category', 'CategoryController', ['only' => ['index']]);
             });
         });
     });
