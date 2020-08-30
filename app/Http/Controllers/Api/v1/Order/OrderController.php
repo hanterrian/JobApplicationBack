@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Order;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\OrderRequest;
+use App\Http\Requests\Api\Order\OrderRequest;
 use App\Http\Resources\OrdersCollection;
 use App\Models\Order;
 use Illuminate\Http\Request;

@@ -68,7 +68,7 @@ class RegisterFormRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:255'],
             'patronymic' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string', 'max:500'],
             'gender' => ['required', Rule::in([Profile::GENDER_MALE, Profile::GENDER_FEMALE])],
             'date_of_birth' => ['required', 'date_format:Y-m-d'],
             'company_type' => ['required', Rule::in([Profile::COMPANY_TYPE_PERSONAL, Profile::COMPANY_TYPE_COMPANY])],

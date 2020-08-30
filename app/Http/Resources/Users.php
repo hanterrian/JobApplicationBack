@@ -18,6 +18,7 @@ class Users extends JsonResource
             'id' => $this->id,
             'name' => $this->profile->name,
             'email' => $this->email,
+            'phone' => $this->phone,
             'last_name' => $this->profile->last_name,
             'patronymic' => $this->profile->patronymic,
             'description' => $this->profile->description,
@@ -27,7 +28,7 @@ class Users extends JsonResource
             'company_name' => $this->profile->company_name,
             'company_site' => $this->profile->company_site,
             'last_activity' => $this->profile->last_activity,
-            
+
             'country' => new Country($this->profile->country),
             'region' => new Region($this->profile->region),
             'city' => new City($this->profile->city),

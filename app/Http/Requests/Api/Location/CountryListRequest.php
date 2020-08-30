@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Api\Location;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Class ProfileRequest
- * @package App\Http\Requests
- */
-class ProfileRequest extends FormRequest
+class CountryListRequest extends FormRequest
 {
     public function rules()
     {

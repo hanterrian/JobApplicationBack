@@ -52,6 +52,8 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereVerificationTokenExpire($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User getItems($key = 'id', $title = 'title')
+ * @property string|null $phone
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -71,6 +73,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
     ];
 

@@ -30,11 +30,18 @@ Route::group(['middleware' => ['json.response']], function () {
                 Route::post('logout', 'LogoutController@index')->middleware('auth:api');
             });
             Route::group(['namespace' => 'User', 'middleware' => ['auth:api']], function () {
-                Route::resource('profile', 'ProfileController', ['only' => ['show', 'update']]);
+                Route::get('profile', 'ProfileController@show');
+                Route::post('profile', 'ProfileController@update');
             });
-            Route::group(['namespace' => 'Order', 'middleware' => ['auth:api']], function () {
-                Route::resource('order', 'OrderController');
+            Route::group(['namespace' => 'Order'], function () {
+                Route::resource('order', 'OrderController')->only(['index', 'show']);
+                Route::resource('order', 'OrderController')->middleware('auth:api')->except(['index', 'show']);
                 Route::resource('category', 'CategoryController', ['only' => ['index']]);
+            });
+            Route::group(['namespace' => 'Location', 'prefix' => 'location'], function () {
+                Route::resource('countries', 'CountryController', ['only' => ['index']]);
+                Route::resource('regions', 'RegionController', ['only' => ['index']]);
+                Route::resource('cities', 'CityController', ['only' => ['index']]);
             });
         });
     });
