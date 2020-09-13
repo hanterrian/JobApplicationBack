@@ -5,10 +5,8 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin \App\Models\Order */
-class Orders extends JsonResource
+class OrderResource extends JsonResource
 {
-    public $with = ['images'];
-
     /**
      * @param \Illuminate\Http\Request $request
      *
@@ -33,13 +31,14 @@ class Orders extends JsonResource
             'status' => $this->status,
             'created_at' => $this->created_at,
 
-            'author' => new Users($this->user),
+            'author' => new UserResource($this->user),
+            'currency' => new CurrencyResource($this->currency),
 
-            'country' => new Country($this->country),
-            'region' => new Region($this->region),
-            'city' => new City($this->city),
+            'country' => new CountryResource($this->country),
+            'region' => new RegionResource($this->region),
+            'city' => new CityResource($this->city),
 
-            'images' => OrderImages::collection($this->images),
+            'images' => OrderImageResource::collection($this->images),
         ];
     }
 }

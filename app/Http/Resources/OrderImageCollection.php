@@ -2,10 +2,10 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-/** @mixin \App\Models\ProfileSocial */
-class ProfileSocial extends JsonResource
+/** @see \App\Models\OrderImage */
+class OrderImageCollection extends ResourceCollection
 {
     /**
      * @param \Illuminate\Http\Request $request
@@ -15,8 +15,7 @@ class ProfileSocial extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'link' => $this->link,
+            'data' => $this->collection,
         ];
     }
 }

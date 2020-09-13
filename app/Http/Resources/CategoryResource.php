@@ -3,10 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\Facades\Storage;
 
-/** @mixin \App\Models\OrderImage */
-class OrderImages extends JsonResource
+/** @mixin \App\Models\Category */
+class CategoryResource extends JsonResource
 {
     /**
      * @param \Illuminate\Http\Request $request
@@ -17,7 +16,8 @@ class OrderImages extends JsonResource
     {
         return [
             'id' => $this->id,
-            'src' => Storage::url($this->src),
+            'title' => $this->title,
+            'children' => new CategoryCollection($this->whenLoaded('children')),
         ];
     }
 }

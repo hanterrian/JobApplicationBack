@@ -2,10 +2,10 @@
 
 namespace App\Http\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-/** @mixin \App\Models\Country */
-class Country extends JsonResource
+/** @see \App\Models\Order */
+class OrderCollection extends ResourceCollection
 {
     /**
      * @param \Illuminate\Http\Request $request
@@ -15,8 +15,7 @@ class Country extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'title' => $this->title,
+            'data' => $this->collection,
         ];
     }
 }

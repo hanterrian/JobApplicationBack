@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin \App\Models\User */
-class Users extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * @param \Illuminate\Http\Request $request
@@ -29,9 +29,9 @@ class Users extends JsonResource
             'company_site' => $this->profile->company_site,
             'last_activity' => $this->profile->last_activity,
 
-            'country' => new Country($this->profile->country),
-            'region' => new Region($this->profile->region),
-            'city' => new City($this->profile->city),
+            'country' => new CountryResource($this->profile->country),
+            'region' => new RegionResource($this->profile->region),
+            'city' => new CityResource($this->profile->city),
         ];
     }
 }

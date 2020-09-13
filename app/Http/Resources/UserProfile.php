@@ -28,12 +28,12 @@ class UserProfile extends JsonResource
             'company_name' => $this->company_name,
             'company_site' => $this->company_site,
 
-            'country' => new Country($this->country),
-            'region' => new Region($this->region),
-            'city' => new Region($this->city),
+            'country' => new CountryResource($this->country),
+            'region' => new RegionResource($this->region),
+            'city' => new RegionResource($this->city),
 
             'user' => new ShortUser($this->user),
-            'socialLinks' => ProfileSocial::collection($this->socialLinks),
+            'socialLinks' => ProfileSocialResource::collection($this->socialLinks),
         ];
     }
 }
