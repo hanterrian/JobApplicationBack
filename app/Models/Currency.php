@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Scopes\GetItems;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Currency
@@ -27,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
 class Currency extends Model
 {
     use GetItems;
+    use SoftDeletes;
 
     protected $fillable = ['title'];
 }

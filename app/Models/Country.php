@@ -6,6 +6,7 @@ use App\Models\Scopes\GetItems;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Country
@@ -50,6 +51,7 @@ class Country extends Model implements TranslatableContract
 {
     use Translatable;
     use GetItems;
+    use SoftDeletes;
 
     public $translatedAttributes = ['title'];
 

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Scopes\GetItems;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\Order
@@ -81,6 +82,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use GetItems;
+    use SoftDeletes;
 
     const TYPE_REQUEST = 'request';
     const TYPE_SERVICE = 'service';

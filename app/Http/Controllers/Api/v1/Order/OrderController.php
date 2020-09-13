@@ -29,14 +29,15 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $data = Order::whereStatus(Order::STATUS_OPEN)
-            ->with([
-                'user',
-                'country',
-                'region',
-                'city',
-            ])
-            ->paginate();
+        $data = Order::where([
+            'status' => Order::STATUS_OPEN,
+            'deleted_at' => null,
+        ])->with([
+            'user',
+            'country',
+            'region',
+            'city',
+        ])->paginate();
 
         return new OrderCollection($data);
     }
@@ -72,40 +73,54 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
      * @param Order $order
      *
-     * @return \Illuminate\Http\Response
+     * @return OrderResource
      */
     public function show(Order $order)
     {
-        //
+        return new OrderResource($order);
     }
 
     /**
-     * Update the specified resource in storage.
-     *
      * @param OrderRequest $request
      * @param Order $order
      *
-     * @return \Illuminate\Http\Response
+     * @return OrderResource
      */
     public function update(OrderRequest $request, Order $order)
     {
-        //
+        /** @var UploadedFile[] $images */
+        $images = $request->images;
+
+        $images = $this->uploadImages($images);
+        $categories = $this->parseCategories($request->categories);
+
+        $order->update(array_merge($request->all(), [
+            'user_id' => Auth::id(),
+            'status' => Order::STATUS_NEW,
+        ]));
+
+        $order->currency()->associate(Currency::find($request->get('currency')));
+
+        $order->country()->associate(Country::find($request->get('country')))->save();
+        $order->region()->associate(Region::find($request->get('region')))->save();
+        $order->city()->associate(City::find($request->get('city')))->save();
+
+        $order->images()->saveMany($images);
+        $order->categories()->attach($categories);
+
+        return new OrderResource($order);
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
      * @param Order $order
      *
-     * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
     }
 
     /**
