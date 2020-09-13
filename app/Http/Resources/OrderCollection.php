@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 /** @see \App\Models\Order */
 class OrderCollection extends ResourceCollection
 {
+    public $collects = OrderResource::class;
+
     /**
      * @param \Illuminate\Http\Request $request
      *

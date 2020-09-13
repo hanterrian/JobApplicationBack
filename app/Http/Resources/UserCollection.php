@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 /** @see \App\Models\User */
 class UserCollection extends ResourceCollection
 {
+    public $collects = UserResource::class;
+
     /**
      * @param \Illuminate\Http\Request $request
      *

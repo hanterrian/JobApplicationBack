@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\v1\Order;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Order\OrderRequest;
-use App\Http\Resources\OrdersCollection;
+use App\Http\Resources\OrderCollection;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     /**
-     * @return OrdersCollection
+     * @return OrderCollection
      */
     public function index()
     {
@@ -28,7 +28,7 @@ class OrderController extends Controller
             ])
             ->paginate();
 
-        return new OrdersCollection($data);
+        return new OrderCollection($data);
     }
 
     /**
