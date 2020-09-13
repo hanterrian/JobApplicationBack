@@ -17,7 +17,7 @@ class OrderImageResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'src' => Storage::url($this->src),
+            'src' => Storage::disk('order')->url($this->src),
         ];
     }
 }

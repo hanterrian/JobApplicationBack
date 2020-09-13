@@ -39,6 +39,7 @@ class OrderResource extends JsonResource
             'city' => new CityResource($this->city),
 
             'images' => OrderImageResource::collection($this->images),
+            'categories' => CategoryResource::collection($this->categories),
         ];
     }
 }

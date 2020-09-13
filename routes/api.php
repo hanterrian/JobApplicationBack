@@ -36,6 +36,7 @@ Route::group(['middleware' => ['json.response']], function () {
             Route::group(['namespace' => 'Order'], function () {
                 Route::resource('order', 'OrderController')->only(['index', 'show']);
                 Route::resource('order', 'OrderController')->middleware('auth:api')->except(['index', 'show']);
+                Route::resource('currency', 'CurrencyController', ['only' => ['index']]);
                 Route::resource('category', 'CategoryController', ['only' => ['index']]);
             });
             Route::group(['namespace' => 'Location', 'prefix' => 'location'], function () {

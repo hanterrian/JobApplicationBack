@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 /** @mixin \App\Models\Profile */
 class ProfileResource extends JsonResource
@@ -21,7 +22,7 @@ class ProfileResource extends JsonResource
             'patronymic' => $this->patronymic,
             'description' => $this->description,
             'gender' => $this->gender,
-            'photo' => $this->photo,
+            'photo' => Storage::disk('profile')->url($this->photo),
             'date_of_birth' => $this->date_of_birth,
             'company_type' => $this->company_type,
             'company_name' => $this->company_name,
