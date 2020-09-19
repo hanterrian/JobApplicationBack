@@ -1,5 +1,15 @@
 <?php
 
+use App\Http\Controllers\Api\v1\Auth\LoginController;
+use App\Http\Controllers\Api\v1\Auth\LogoutController;
+use App\Http\Controllers\Api\v1\Auth\RegisterController;
+use App\Http\Controllers\Api\v1\Location\CityController;
+use App\Http\Controllers\Api\v1\Location\CountryController;
+use App\Http\Controllers\Api\v1\Location\RegionController;
+use App\Http\Controllers\Api\v1\Order\CategoryController;
+use App\Http\Controllers\Api\v1\Order\CurrencyController;
+use App\Http\Controllers\Api\v1\Order\OrderController;
+use App\Http\Controllers\Api\v1\User\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,31 +29,29 @@ Route::group(['middleware' => ['json.response']], function () {
         return $request->user();
     });
 
-    Route::group(['namespace' => 'Api'], function () {
-        Route::group(['prefix' => 'v1', 'namespace' => 'v1'], function () {
-            Route::group(['namespace' => 'Auth'], function () {
-                Route::post('register', 'RegisterController@index');
-                Route::post('register-check', 'RegisterController@check');
-                Route::post('register-token', 'RegisterController@token');
-                Route::post('login', 'LoginController@index');
-                Route::post('login-token', 'LoginController@token');
-                Route::post('logout', 'LogoutController@index')->middleware('auth:api');
-            });
-            Route::group(['namespace' => 'User', 'middleware' => ['auth:api']], function () {
-                Route::get('profile', 'ProfileController@show');
-                Route::post('profile', 'ProfileController@update');
-            });
-            Route::group(['namespace' => 'Order'], function () {
-                Route::resource('order', 'OrderController')->only(['index', 'show']);
-                Route::resource('order', 'OrderController')->middleware('auth:api')->except(['index', 'show']);
-                Route::resource('currency', 'CurrencyController', ['only' => ['index']]);
-                Route::resource('category', 'CategoryController', ['only' => ['index']]);
-            });
-            Route::group(['namespace' => 'Location', 'prefix' => 'location'], function () {
-                Route::resource('countries', 'CountryController', ['only' => ['index']]);
-                Route::resource('regions', 'RegionController', ['only' => ['index']]);
-                Route::resource('cities', 'CityController', ['only' => ['index']]);
-            });
+    Route::group(['prefix' => 'v1'], function () {
+        Route::group(['prefix' => 'auth'], function () {
+            Route::post('register', [RegisterController::class, 'index']);
+            Route::post('register-check', [RegisterController::class, 'check']);
+            Route::post('register-token', [RegisterController::class, 'token']);
+            Route::post('login', [LoginController::class, 'index']);
+            Route::post('login-token', [LoginController::class, 'token']);
+            Route::post('logout', [LogoutController::class, 'index'])->middleware('auth:api');
+        });
+        Route::group(['prefix' => 'user', 'middleware' => ['auth:api']], function () {
+            Route::get('profile', [ProfileController::class, 'show']);
+            Route::post('profile', [ProfileController::class, 'update']);
+        });
+        Route::group(['prefix' => 'order'], function () {
+            Route::apiResource('order', OrderController::class)->only(['index', 'show']);
+            Route::apiResource('order', OrderController::class)->middleware('auth:api')->except(['index', 'show']);
+            Route::apiResource('currency', CurrencyController::class)->only(['index']);
+            Route::apiResource('category', CategoryController::class)->only(['index']);
+        });
+        Route::group(['prefix' => 'location'], function () {
+            Route::resource('countries', CountryController::class)->only(['index']);
+            Route::resource('regions', RegionController::class)->only(['index']);
+            Route::resource('cities', CityController::class)->only(['index']);
         });
     });
 });
