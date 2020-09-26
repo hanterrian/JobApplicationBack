@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Storage;
 
 /**
  * Class OrderController
+ *
+ * @group Order
+ *
  * @package App\Http\Controllers\Api\v1\Order
  */
 class OrderController extends Controller
@@ -43,6 +46,8 @@ class OrderController extends Controller
     }
 
     /**
+     * @authenticated
+     *
      * @param OrderRequest $request
      *
      * @return OrderResource
@@ -83,6 +88,8 @@ class OrderController extends Controller
     }
 
     /**
+     * @authenticated
+     *
      * @param OrderRequest $request
      * @param Order $order
      *
@@ -114,6 +121,8 @@ class OrderController extends Controller
     }
 
     /**
+     * @authenticated
+     *
      * @param Order $order
      *
      * @throws \Exception

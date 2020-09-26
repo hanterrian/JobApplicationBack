@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 /**
  * Class CategoryController
+ *
+ * @group Order
+ *
  * @package App\Http\Controllers\Api\v1\Order
  */
 class CategoryController extends Controller

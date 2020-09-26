@@ -10,10 +10,12 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use OpenApi\Annotations\OpenApi;
 
 /**
  * Class LoginController
+ *
+ * @group Auth
+ *
  * @package App\Http\Controllers\Api\Auth
  */
 class LoginController extends Controller

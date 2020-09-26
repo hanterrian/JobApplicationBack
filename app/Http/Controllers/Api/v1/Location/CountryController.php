@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 /**
  * Class CountryController
+ *
+ * @group Location
+ *
  * @package App\Http\Controllers\Api\v1\Location
  */
 class CountryController extends Controller

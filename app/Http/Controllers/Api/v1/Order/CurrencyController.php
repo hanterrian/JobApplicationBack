@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 /**
  * Class CurrencyController
+ *
+ * @group Order
+ *
  * @package App\Http\Controllers\Api\v1\Order
  */
 class CurrencyController extends Controller

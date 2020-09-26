@@ -1,0 +1,665 @@
+{
+    "variable": [],
+    "info": {
+        "name": "Laravel API",
+        "_postman_id": "b83a6279-fc0b-428f-beb5-8d9f89469b71",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/v1\/auth\/register",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/auth\/register",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"ymarks@example.com\",\n    \"password\": \"qui\",\n    \"country_id\": \"quia\",\n    \"region_id\": \"corporis\",\n    \"city_id\": \"laborum\",\n    \"name\": \"reprehenderit\",\n    \"last_name\": \"aut\",\n    \"patronymic\": \"fuga\",\n    \"phone\": \"perspiciatis\",\n    \"description\": \"et\",\n    \"gender\": \"2\",\n    \"date_of_birth\": \"2020-09-26\",\n    \"company_type\": \"personal\",\n    \"company_name\": \"quam\",\n    \"company_site\": \"http:\\\/\\\/tromp.com\\\/\",\n    \"verification_token\": \"voluptas\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/auth\/register-check",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/auth\/register-check",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/register-check"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/auth\/register-token",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/auth\/register-token",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/register-token"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"velva08@example.net\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/auth\/login",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/auth\/login",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"autem\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/auth\/login-token",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/auth\/login-token",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/login-token"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"gulgowski.kelvin@example.org\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/auth\/logout",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/auth\/logout",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/v1\/location\/countries",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/location\/countries",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/location\/countries"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/location\/regions",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/location\/regions",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/location\/regions"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"country_id\": \"qui\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/location\/cities",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/location\/cities",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/location\/cities"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"country_id\": \"quibusdam\",\n    \"region_id\": \"soluta\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Order",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/v1\/order\/order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/order\/order\/{order}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order\/:order",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/:order"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/order\/order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": false
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/order\/order\/{order}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order\/:order",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/:order"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": false
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/order\/order\/{order}",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order\/:order",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/:order"
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/order\/currency",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/currency",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/currency"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "api\/v1\/order\/category",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/category",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/category"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "description": "",
+            "item": [
+                {
+                    "name": "api\/v1\/user\/profile",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/user\/profile",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/user\/profile",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "nihil",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "last_name",
+                                    "value": "consequatur",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "patronymic",
+                                    "value": "quia",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "natus",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "gender",
+                                    "value": "2",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "date_of_birth",
+                                    "value": "2020-09-26",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "company_type",
+                                    "value": "personal",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "company_name",
+                                    "value": "consequatur",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "company_site",
+                                    "value": "http:\/\/borer.com\/velit-quibusdam-aut-magnam-et-quasi-culpa-qui.html",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "country",
+                                    "value": "corporis",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "region",
+                                    "value": "ullam",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "molestias",
+                                    "type": "text"
+                                },
+                                {
+                                    "key": "photo",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}

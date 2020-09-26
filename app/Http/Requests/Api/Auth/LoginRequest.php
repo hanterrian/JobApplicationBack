@@ -12,6 +12,11 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property string $password
  * @property bool $remember_me
  * @property string $verification_token
+ *
+ * @bodyParam email string User email. Example: user@dev.dev
+ * @bodyParam password string User password. Example: ********
+ * @bodyParam remember_me boolean Remember user to month.
+ * @bodyParam verification_token string Do nothing.
  */
 class LoginRequest extends FormRequest
 {

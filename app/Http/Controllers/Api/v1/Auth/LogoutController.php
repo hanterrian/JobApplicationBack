@@ -7,11 +7,16 @@ use Illuminate\Http\Request;
 
 /**
  * Class LogoutController
+ *
+ * @group Auth
+ *
  * @package App\Http\Controllers\Api\Auth
  */
 class LogoutController extends Controller
 {
     /**
+     * @authenticated
+     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse

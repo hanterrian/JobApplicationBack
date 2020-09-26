@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Hash;
 
 /**
  * Class RegisterController
+ *
+ * @group Auth
+ *
  * @package App\Http\Controllers\Api\Auth
  */
 class RegisterController extends Controller
