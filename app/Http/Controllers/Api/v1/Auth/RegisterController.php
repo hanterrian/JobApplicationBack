@@ -26,6 +26,8 @@ use Illuminate\Support\Facades\Hash;
 class RegisterController extends Controller
 {
     /**
+     * Register new user
+     *
      * @param RegisterFormRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -55,15 +57,24 @@ class RegisterController extends Controller
 
         return response()->json([
             'message' => 'You were successfully registered. Use your email and password to sign in.'
-        ], 200);
-    }
-
-    public function check()
-    {
-
+        ]);
     }
 
     /**
+     * Check email|phone token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function check()
+    {
+        return response()->json([
+            'message' => 'Do nothing'
+        ]);
+    }
+
+    /**
+     * Resend register email|phone token
+     *
      * @param RegisterTokenRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -95,6 +106,6 @@ class RegisterController extends Controller
 
         return response()->json([
             'message' => 'Token send'
-        ], 200);
+        ]);
     }
 }

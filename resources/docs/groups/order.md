@@ -1,7 +1,7 @@
 # Order
 
 
-## api/v1/order/order
+## Get list orders
 
 
 
@@ -412,7 +412,7 @@ fetch(url, {
 
 
 
-## api/v1/order/order/{order}
+## Show order
 
 
 
@@ -460,7 +460,7 @@ fetch(url, {
 
 
 
-## api/v1/order/order
+## Create new order
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -602,7 +602,7 @@ fetch(url, {
 
 
 
-## api/v1/order/order/{order}
+## Update order
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -709,7 +709,7 @@ fetch(url, {
 
 
 
-## api/v1/order/order/{order}
+## Delete order
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -760,7 +760,7 @@ fetch(url, {
 
 
 
-## api/v1/order/currency
+## Currency list
 
 
 
@@ -813,7 +813,7 @@ fetch(url, {
 
 
 
-## api/v1/order/category
+## Get category list
 
 
 

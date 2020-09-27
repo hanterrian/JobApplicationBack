@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     /**
+     * Get category list
+     *
      * @return CategoryCollection
      */
     public function index()

@@ -9,7 +9,7 @@ servers:
 paths:
     /api/v1/auth/register:
         post:
-            summary: ''
+            summary: 'Register new user'
             description: ''
             parameters:
                 -
@@ -35,10 +35,10 @@ paths:
                                 type: object
                                 example:
                                     message: 'The given data was invalid.'
-                                    errors: { password: ['The password must be at least 8 characters.', 'The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] }
+                                    errors: { password: ['The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] }
                                 properties:
                                     message: { type: string, example: 'The given data was invalid.' }
-                                    errors: { type: object, example: { password: ['The password must be at least 8 characters.', 'The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] } }
+                                    errors: { type: object, example: { password: ['The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] } }
             tags:
                 - Auth
             requestBody:
@@ -55,43 +55,43 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: ymarks@example.com
+                                    example: kris.shane@example.org
                                 password:
                                     type: string
                                     description: ''
-                                    example: qui
+                                    example: deleniti
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: assumenda
                                 region_id:
                                     type: string
                                     description: ''
-                                    example: corporis
+                                    example: quo
                                 city_id:
                                     type: string
                                     description: ''
-                                    example: laborum
+                                    example: velit
                                 name:
                                     type: string
                                     description: ''
-                                    example: reprehenderit
+                                    example: consectetur
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: a
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: fuga
+                                    example: atque
                                 phone:
                                     type: string
                                     description: ''
-                                    example: perspiciatis
+                                    example: facere
                                 description:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: voluptatem
                                 gender:
                                     type: string
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
@@ -99,23 +99,23 @@ paths:
                                 date_of_birth:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-26'
+                                    example: '2020-09-27'
                                 company_type:
                                     type: string
                                     description: 'The value must be one of <code>personal</code> or <code>company</code>.'
-                                    example: personal
+                                    example: company
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: quam
+                                    example: repudiandae
                                 company_site:
                                     type: string
                                     description: 'The value must be a valid URL.'
-                                    example: 'http://tromp.com/'
+                                    example: 'http://www.crooks.com/vel-repellat-optio-dolorum-consequuntur-id-aut'
                                 verification_token:
                                     type: string
                                     description: ''
-                                    example: voluptas
+                                    example: corporis
                             required:
                                 - role
                                 - email
@@ -134,7 +134,7 @@ paths:
             security: []
     /api/v1/auth/register-check:
         post:
-            summary: ''
+            summary: 'Check email|phone token'
             description: ''
             parameters:
                 -
@@ -151,13 +151,23 @@ paths:
                     example: application/json
                     schema:
                         type: string
-            responses: {  }
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'Do nothing'
+                                properties:
+                                    message: { type: string, example: 'Do nothing' }
             tags:
                 - Auth
             security: []
     /api/v1/auth/register-token:
         post:
-            summary: ''
+            summary: 'Resend register email|phone token'
             description: ''
             parameters:
                 -
@@ -197,13 +207,13 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: velva08@example.net
+                                    example: hershel.abernathy@example.com
                             required:
                                 - email
             security: []
     /api/v1/auth/login:
         post:
-            summary: ''
+            summary: 'Login user'
             description: ''
             parameters:
                 -
@@ -257,11 +267,11 @@ paths:
                                 verification_token:
                                     type: string
                                     description: 'Do nothing.'
-                                    example: autem
+                                    example: quos
             security: []
     /api/v1/auth/login-token:
         post:
-            summary: ''
+            summary: 'Check login email|phone token'
             description: ''
             parameters:
                 -
@@ -301,13 +311,13 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: gulgowski.kelvin@example.org
+                                    example: ritchie.zoie@example.com
                             required:
                                 - email
             security: []
     /api/v1/auth/logout:
         post:
-            summary: ''
+            summary: 'Logout user'
             description: ''
             parameters:
                 -
@@ -346,7 +356,7 @@ paths:
                 - Auth
     /api/v1/location/countries:
         get:
-            summary: ''
+            summary: 'Get country list'
             description: ''
             parameters:
                 -
@@ -379,7 +389,7 @@ paths:
             security: []
     /api/v1/location/regions:
         get:
-            summary: ''
+            summary: 'Get region list'
             description: ''
             parameters:
                 -
@@ -421,13 +431,13 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: qui
+                                    example: voluptatem
                             required:
                                 - country_id
             security: []
     /api/v1/location/cities:
         get:
-            summary: ''
+            summary: 'Get city list'
             description: ''
             parameters:
                 -
@@ -469,18 +479,18 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: quibusdam
+                                    example: sed
                                 region_id:
                                     type: string
                                     description: ''
-                                    example: soluta
+                                    example: amet
                             required:
                                 - country_id
                                 - region_id
             security: []
     /api/v1/order/order:
         get:
-            summary: ''
+            summary: 'Get list orders'
             description: ''
             parameters:
                 -
@@ -516,7 +526,7 @@ paths:
                 - Order
             security: []
         post:
-            summary: ''
+            summary: 'Create new order'
             description: ''
             parameters:
                 -
@@ -565,35 +575,35 @@ paths:
                                 type:
                                     type: string
                                     description: 'The value must be one of <code>request</code> or <code>service</code>.'
-                                    example: service
+                                    example: request
                                 title:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: nisi
                                 description:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: amet
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
-                                    example: online
+                                    example: offline
                                 price:
                                     type: number
                                     description: ''
-                                    example: 610145.2375531
+                                    example: 48198639.77314
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-26'
+                                    example: '2020-09-27'
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '04:54:07'
+                                    example: '08:51:28'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '04:54:07'
+                                    example: '08:51:28'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -605,19 +615,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: enim
+                                    example: quod
                                 country:
                                     type: string
                                     description: ''
-                                    example: non
+                                    example: temporibus
                                 region:
                                     type: string
                                     description: ''
-                                    example: totam
+                                    example: molestiae
                                 city:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: sed
                                 'images.*':
                                     type: string
                                     format: binary
@@ -625,7 +635,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: ab
+                                    example: nihil
                             required:
                                 - type
                                 - title
@@ -642,7 +652,7 @@ paths:
                                 - 'categories.*'
     '/api/v1/order/order/{order}':
         get:
-            summary: ''
+            summary: 'Show order'
             description: ''
             parameters:
                 -
@@ -674,7 +684,7 @@ paths:
                 - Order
             security: []
         put:
-            summary: ''
+            summary: 'Update order'
             description: ''
             parameters:
                 -
@@ -721,15 +731,15 @@ paths:
                                 type:
                                     type: string
                                     description: 'The value must be one of <code>request</code> or <code>service</code>.'
-                                    example: request
+                                    example: service
                                 title:
                                     type: string
                                     description: ''
-                                    example: veritatis
+                                    example: eaque
                                 description:
                                     type: string
                                     description: ''
-                                    example: cum
+                                    example: tenetur
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
@@ -737,19 +747,19 @@ paths:
                                 price:
                                     type: number
                                     description: ''
-                                    example: !!float 14760
+                                    example: 19545474.377945
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-26'
+                                    example: '2020-09-27'
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '04:54:07'
+                                    example: '08:51:28'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '04:54:07'
+                                    example: '08:51:28'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -761,19 +771,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: enim
                                 country:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: voluptatem
                                 region:
                                     type: string
                                     description: ''
-                                    example: consectetur
+                                    example: aut
                                 city:
                                     type: string
                                     description: ''
-                                    example: soluta
+                                    example: illum
                                 'images.*':
                                     type: string
                                     format: binary
@@ -781,7 +791,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: quis
                             required:
                                 - type
                                 - title
@@ -797,7 +807,7 @@ paths:
                                 - city
                                 - 'categories.*'
         delete:
-            summary: ''
+            summary: 'Delete order'
             description: ''
             parameters:
                 -
@@ -836,7 +846,7 @@ paths:
                 - Order
     /api/v1/order/currency:
         get:
-            summary: ''
+            summary: 'Currency list'
             description: ''
             parameters:
                 -
@@ -869,7 +879,7 @@ paths:
             security: []
     /api/v1/order/category:
         get:
-            summary: ''
+            summary: 'Get category list'
             description: ''
             parameters:
                 -
@@ -902,7 +912,7 @@ paths:
             security: []
     /api/v1/user/profile:
         get:
-            summary: ''
+            summary: 'Get current user profile'
             description: ''
             parameters:
                 -
@@ -940,7 +950,7 @@ paths:
             tags:
                 - User
         post:
-            summary: 'Update the specified resource in storage.'
+            summary: 'Update current user profile'
             description: ''
             parameters:
                 -
@@ -987,23 +997,23 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: nihil
+                                    example: ad
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: consequatur
+                                    example: omnis
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: nostrum
                                 description:
                                     type: string
                                     description: ''
-                                    example: natus
+                                    example: eaque
                                 gender:
                                     type: string
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
-                                    example: '2'
+                                    example: '1'
                                 photo:
                                     type: string
                                     format: binary
@@ -1011,7 +1021,7 @@ paths:
                                 date_of_birth:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-26'
+                                    example: '2020-09-27'
                                 company_type:
                                     type: string
                                     description: 'The value must be one of <code>personal</code> or <code>company</code>.'
@@ -1019,23 +1029,23 @@ paths:
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: consequatur
+                                    example: cumque
                                 company_site:
                                     type: string
                                     description: 'The value must be a valid URL.'
-                                    example: 'http://borer.com/velit-quibusdam-aut-magnam-et-quasi-culpa-qui.html'
+                                    example: 'http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html'
                                 country:
                                     type: string
                                     description: ''
-                                    example: corporis
+                                    example: sequi
                                 region:
                                     type: string
                                     description: ''
-                                    example: ullam
+                                    example: aut
                                 city:
                                     type: string
                                     description: ''
-                                    example: molestias
+                                    example: cum
                             required:
                                 - name
                                 - last_name

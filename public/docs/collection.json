@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "b83a6279-fc0b-428f-beb5-8d9f89469b71",
+        "_postman_id": "bcbda5ee-a695-4a1f-b221-6a83595bfa06",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -12,7 +12,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "api\/v1\/auth\/register",
+                    "name": "Register new user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"ymarks@example.com\",\n    \"password\": \"qui\",\n    \"country_id\": \"quia\",\n    \"region_id\": \"corporis\",\n    \"city_id\": \"laborum\",\n    \"name\": \"reprehenderit\",\n    \"last_name\": \"aut\",\n    \"patronymic\": \"fuga\",\n    \"phone\": \"perspiciatis\",\n    \"description\": \"et\",\n    \"gender\": \"2\",\n    \"date_of_birth\": \"2020-09-26\",\n    \"company_type\": \"personal\",\n    \"company_name\": \"quam\",\n    \"company_site\": \"http:\\\/\\\/tromp.com\\\/\",\n    \"verification_token\": \"voluptas\"\n}"
+                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"kris.shane@example.org\",\n    \"password\": \"deleniti\",\n    \"country_id\": \"assumenda\",\n    \"region_id\": \"quo\",\n    \"city_id\": \"velit\",\n    \"name\": \"consectetur\",\n    \"last_name\": \"a\",\n    \"patronymic\": \"atque\",\n    \"phone\": \"facere\",\n    \"description\": \"voluptatem\",\n    \"gender\": \"2\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"repudiandae\",\n    \"company_site\": \"http:\\\/\\\/www.crooks.com\\\/vel-repellat-optio-dolorum-consequuntur-id-aut\",\n    \"verification_token\": \"corporis\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -44,7 +44,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/auth\/register-check",
+                    "name": "Check email|phone token",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -73,7 +73,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/auth\/register-token",
+                    "name": "Resend register email|phone token",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -95,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"velva08@example.net\"\n}"
+                            "raw": "{\n    \"email\": \"hershel.abernathy@example.com\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -105,7 +105,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/auth\/login",
+                    "name": "Login user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"autem\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"quos\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -137,7 +137,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/auth\/login-token",
+                    "name": "Check login email|phone token",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -159,7 +159,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"gulgowski.kelvin@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"ritchie.zoie@example.com\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -169,7 +169,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/auth\/logout",
+                    "name": "Logout user",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -206,7 +206,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "api\/v1\/location\/countries",
+                    "name": "Get country list",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -235,7 +235,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/location\/regions",
+                    "name": "Get region list",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"qui\"\n}"
+                            "raw": "{\n    \"country_id\": \"voluptatem\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -267,7 +267,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/location\/cities",
+                    "name": "Get city list",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"quibusdam\",\n    \"region_id\": \"soluta\"\n}"
+                            "raw": "{\n    \"country_id\": \"sed\",\n    \"region_id\": \"amet\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -305,7 +305,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "api\/v1\/order\/order",
+                    "name": "Get list orders",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -334,7 +334,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/order\/order\/{order}",
+                    "name": "Show order",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -363,7 +363,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/order\/order",
+                    "name": "Create new order",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -397,7 +397,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/order\/order\/{order}",
+                    "name": "Update order",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -431,7 +431,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/order\/order\/{order}",
+                    "name": "Delete order",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -462,7 +462,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/order\/currency",
+                    "name": "Currency list",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -491,7 +491,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/order\/category",
+                    "name": "Get category list",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -526,7 +526,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "api\/v1\/user\/profile",
+                    "name": "Get current user profile",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -557,7 +557,7 @@
                     "response": []
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Update current user profile",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -586,32 +586,32 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "nihil",
+                                    "value": "ad",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "consequatur",
+                                    "value": "omnis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "quia",
+                                    "value": "nostrum",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "natus",
+                                    "value": "eaque",
                                     "type": "text"
                                 },
                                 {
                                     "key": "gender",
-                                    "value": "2",
+                                    "value": "1",
                                     "type": "text"
                                 },
                                 {
                                     "key": "date_of_birth",
-                                    "value": "2020-09-26",
+                                    "value": "2020-09-27",
                                     "type": "text"
                                 },
                                 {
@@ -621,27 +621,27 @@
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "consequatur",
+                                    "value": "cumque",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/borer.com\/velit-quibusdam-aut-magnam-et-quasi-culpa-qui.html",
+                                    "value": "http:\/\/cassin.com\/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "corporis",
+                                    "value": "sequi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "ullam",
+                                    "value": "aut",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "molestias",
+                                    "value": "cum",
                                     "type": "text"
                                 },
                                 {

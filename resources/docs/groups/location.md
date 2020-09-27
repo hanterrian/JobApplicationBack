@@ -1,7 +1,7 @@
 # Location
 
 
-## api/v1/location/countries
+## Get country list
 
 
 
@@ -58,7 +58,7 @@ fetch(url, {
 
 
 
-## api/v1/location/regions
+## Get region list
 
 
 
@@ -70,7 +70,7 @@ curl -X GET \
     -G "http://job.locale/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"qui"}'
+    -d '{"country_id":"voluptatem"}'
 
 ```
 
@@ -85,7 +85,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "qui"
+    "country_id": "voluptatem"
 }
 
 fetch(url, {
@@ -121,7 +121,7 @@ fetch(url, {
 
 
 
-## api/v1/location/cities
+## Get city list
 
 
 
@@ -133,7 +133,7 @@ curl -X GET \
     -G "http://job.locale/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"quibusdam","region_id":"soluta"}'
+    -d '{"country_id":"sed","region_id":"amet"}'
 
 ```
 
@@ -148,8 +148,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "quibusdam",
-    "region_id": "soluta"
+    "country_id": "sed",
+    "region_id": "amet"
 }
 
 fetch(url, {

@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 class RegionController extends Controller
 {
     /**
+     * Get region list
+     *
      * @param RegionListRequest $request
      *
      * @return RegionCollection

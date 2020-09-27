@@ -1,7 +1,7 @@
 # User
 
 
-## api/v1/user/profile
+## Get current user profile
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -73,7 +73,7 @@ fetch(url, {
 
 
 
-## Update the specified resource in storage.
+## Update current user profile
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -87,19 +87,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=nihil" \
-    -F "last_name=consequatur" \
-    -F "patronymic=quia" \
-    -F "description=natus" \
-    -F "gender=2" \
-    -F "date_of_birth=2020-09-26" \
+    -F "name=ad" \
+    -F "last_name=omnis" \
+    -F "patronymic=nostrum" \
+    -F "description=eaque" \
+    -F "gender=1" \
+    -F "date_of_birth=2020-09-27" \
     -F "company_type=personal" \
-    -F "company_name=consequatur" \
-    -F "company_site=http://borer.com/velit-quibusdam-aut-magnam-et-quasi-culpa-qui.html" \
-    -F "country=corporis" \
-    -F "region=ullam" \
-    -F "city=molestias" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpF8B1.tmp" 
+    -F "company_name=cumque" \
+    -F "company_site=http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html" \
+    -F "country=sequi" \
+    -F "region=aut" \
+    -F "city=cum" \
+    -F "photo=@C:\OpenServer\userdata\temp\phpA3BC.tmp" 
 ```
 
 ```javascript
@@ -114,18 +114,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'nihil');
-body.append('last_name', 'consequatur');
-body.append('patronymic', 'quia');
-body.append('description', 'natus');
-body.append('gender', '2');
-body.append('date_of_birth', '2020-09-26');
+body.append('name', 'ad');
+body.append('last_name', 'omnis');
+body.append('patronymic', 'nostrum');
+body.append('description', 'eaque');
+body.append('gender', '1');
+body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'personal');
-body.append('company_name', 'consequatur');
-body.append('company_site', 'http://borer.com/velit-quibusdam-aut-magnam-et-quasi-culpa-qui.html');
-body.append('country', 'corporis');
-body.append('region', 'ullam');
-body.append('city', 'molestias');
+body.append('company_name', 'cumque');
+body.append('company_site', 'http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html');
+body.append('country', 'sequi');
+body.append('region', 'aut');
+body.append('city', 'cum');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

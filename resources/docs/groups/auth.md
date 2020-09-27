@@ -1,7 +1,7 @@
 # Auth
 
 
-## api/v1/auth/register
+## Register new user
 
 
 
@@ -13,7 +13,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"ymarks@example.com","password":"qui","country_id":"quia","region_id":"corporis","city_id":"laborum","name":"reprehenderit","last_name":"aut","patronymic":"fuga","phone":"perspiciatis","description":"et","gender":"2","date_of_birth":"2020-09-26","company_type":"personal","company_name":"quam","company_site":"http:\/\/tromp.com\/","verification_token":"voluptas"}'
+    -d '{"role":"executor","email":"kris.shane@example.org","password":"deleniti","country_id":"assumenda","region_id":"quo","city_id":"velit","name":"consectetur","last_name":"a","patronymic":"atque","phone":"facere","description":"voluptatem","gender":"2","date_of_birth":"2020-09-27","company_type":"company","company_name":"repudiandae","company_site":"http:\/\/www.crooks.com\/vel-repellat-optio-dolorum-consequuntur-id-aut","verification_token":"corporis"}'
 
 ```
 
@@ -29,22 +29,22 @@ let headers = {
 
 let body = {
     "role": "executor",
-    "email": "ymarks@example.com",
-    "password": "qui",
-    "country_id": "quia",
-    "region_id": "corporis",
-    "city_id": "laborum",
-    "name": "reprehenderit",
-    "last_name": "aut",
-    "patronymic": "fuga",
-    "phone": "perspiciatis",
-    "description": "et",
+    "email": "kris.shane@example.org",
+    "password": "deleniti",
+    "country_id": "assumenda",
+    "region_id": "quo",
+    "city_id": "velit",
+    "name": "consectetur",
+    "last_name": "a",
+    "patronymic": "atque",
+    "phone": "facere",
+    "description": "voluptatem",
     "gender": "2",
-    "date_of_birth": "2020-09-26",
-    "company_type": "personal",
-    "company_name": "quam",
-    "company_site": "http:\/\/tromp.com\/",
-    "verification_token": "voluptas"
+    "date_of_birth": "2020-09-27",
+    "company_type": "company",
+    "company_name": "repudiandae",
+    "company_site": "http:\/\/www.crooks.com\/vel-repellat-optio-dolorum-consequuntur-id-aut",
+    "verification_token": "corporis"
 }
 
 fetch(url, {
@@ -64,7 +64,6 @@ fetch(url, {
     "message": "The given data was invalid.",
     "errors": {
         "password": [
-            "The password must be at least 8 characters.",
             "The password confirmation does not match."
         ],
         "country_id": [
@@ -138,7 +137,7 @@ fetch(url, {
 
 
 
-## api/v1/auth/register-check
+## Check email|phone token
 
 
 
@@ -172,6 +171,13 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "message": "Do nothing"
+}
+```
 
 ### Request
 <small class="badge badge-black">POST</small>
@@ -179,7 +185,7 @@ fetch(url, {
 
 
 
-## api/v1/auth/register-token
+## Resend register email|phone token
 
 
 
@@ -191,7 +197,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"velva08@example.net"}'
+    -d '{"email":"hershel.abernathy@example.com"}'
 
 ```
 
@@ -206,7 +212,7 @@ let headers = {
 };
 
 let body = {
-    "email": "velva08@example.net"
+    "email": "hershel.abernathy@example.com"
 }
 
 fetch(url, {
@@ -237,7 +243,7 @@ fetch(url, {
 
 
 
-## api/v1/auth/login
+## Login user
 
 
 
@@ -249,7 +255,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"autem"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"quos"}'
 
 ```
 
@@ -267,7 +273,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "autem"
+    "verification_token": "quos"
 }
 
 fetch(url, {
@@ -308,7 +314,7 @@ fetch(url, {
 
 
 
-## api/v1/auth/login-token
+## Check login email|phone token
 
 
 
@@ -320,7 +326,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"gulgowski.kelvin@example.org"}'
+    -d '{"email":"ritchie.zoie@example.com"}'
 
 ```
 
@@ -335,7 +341,7 @@ let headers = {
 };
 
 let body = {
-    "email": "gulgowski.kelvin@example.org"
+    "email": "ritchie.zoie@example.com"
 }
 
 fetch(url, {
@@ -366,7 +372,7 @@ fetch(url, {
 
 
 
-## api/v1/auth/logout
+## Logout user
 
 <small class="badge badge-darkred">requires authentication</small>
 

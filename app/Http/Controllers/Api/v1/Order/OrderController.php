@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\Storage;
 class OrderController extends Controller
 {
     /**
+     * Get list orders
+     *
      * @return OrderCollection
      */
     public function index()
@@ -46,6 +48,8 @@ class OrderController extends Controller
     }
 
     /**
+     * Create new order
+     *
      * @authenticated
      *
      * @param OrderRequest $request
@@ -78,6 +82,8 @@ class OrderController extends Controller
     }
 
     /**
+     * Show order
+     *
      * @param Order $order
      *
      * @return OrderResource
@@ -88,6 +94,8 @@ class OrderController extends Controller
     }
 
     /**
+     * Update order
+     *
      * @authenticated
      *
      * @param OrderRequest $request
@@ -121,15 +129,22 @@ class OrderController extends Controller
     }
 
     /**
+     * Delete order
+     *
      * @authenticated
      *
      * @param Order $order
      *
+     * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
     public function destroy(Order $order)
     {
         $order->delete();
+
+        return response()->json([
+            'message' => 'Record delete'
+        ]);
     }
 
     /**

@@ -17,6 +17,8 @@ use Illuminate\Http\Request;
 class CurrencyController extends Controller
 {
     /**
+     * Currency list
+     *
      * @return CurrencyCollection
      */
     public function index()

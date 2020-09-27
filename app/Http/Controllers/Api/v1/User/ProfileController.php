@@ -21,14 +21,26 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ProfileController extends Controller
 {
     /**
+     * Get current user profile
+     *
      * @authenticated
      *
-     * @return UserProfile
+     * @param int|null $user_id
+     *
+     * @return UserProfile|\Illuminate\Http\JsonResponse
      */
-    public function show()
+    public function show(?int $user_id = null)
     {
-        /** @var User $user */
-        $user = Auth::user();
+        if ($user_id) {
+            $user = User::whereId($user_id)->first();
+        } else {
+            /** @var User $user */
+            $user = Auth::user();
+        }
+
+        if (!$user) {
+            return notFound();
+        }
 
         /** @var Profile $profile */
         $profile = Profile::whereUserId($user->id)->first();
@@ -44,17 +56,24 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update current user profile
      *
      * @authenticated
      *
      * @param ProfileRequest $request
-     * @param Profile $profile
      *
-     * @return \Illuminate\Http\Response
+     * @return UserProfile
      */
     public function update(ProfileRequest $request)
     {
-        //
+        /** @var User $user */
+        $user = Auth::user();
+
+        /** @var Profile $profile */
+        $profile = Profile::whereUserId($user->id)->first();
+
+        $profile->update($request->all());
+
+        return new UserProfile($profile);
     }
 }

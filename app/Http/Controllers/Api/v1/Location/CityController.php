@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 class CityController extends Controller
 {
     /**
+     * Get city list
+     *
      * @param CityListRequest $request
      *
      * @return CityCollection

@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 class LogoutController extends Controller
 {
     /**
+     * Logout user
+     *
      * @authenticated
      *
      * @param Request $request
