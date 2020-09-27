@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "7629ff95-f0ac-418b-972b-7329013887bd",
+        "_postman_id": "ca92e325-01b6-4aee-a1fe-fd833fafa708",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"customer\",\n    \"email\": \"lina.lubowitz@example.com\",\n    \"password\": \"ut\",\n    \"country_id\": \"qui\",\n    \"region_id\": \"assumenda\",\n    \"city_id\": \"omnis\",\n    \"name\": \"culpa\",\n    \"last_name\": \"vel\",\n    \"patronymic\": \"culpa\",\n    \"phone\": \"laudantium\",\n    \"description\": \"vitae\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"deserunt\",\n    \"company_site\": \"http:\\\/\\\/feeney.com\\\/\",\n    \"verification_token\": \"tempore\"\n}"
+                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"hoppe.hayley@example.org\",\n    \"password\": \"repudiandae\",\n    \"country_id\": \"hic\",\n    \"region_id\": \"non\",\n    \"city_id\": \"est\",\n    \"name\": \"dolorum\",\n    \"last_name\": \"delectus\",\n    \"patronymic\": \"reiciendis\",\n    \"phone\": \"animi\",\n    \"description\": \"consectetur\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"et\",\n    \"company_site\": \"http:\\\/\\\/www.mante.com\\\/\",\n    \"verification_token\": \"rerum\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -95,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"ofahey@example.net\"\n}"
+                            "raw": "{\n    \"email\": \"hvon@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"cum\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"rem\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -159,7 +159,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"dickens.dion@example.net\"\n}"
+                            "raw": "{\n    \"email\": \"haufderhar@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"et\"\n}"
+                            "raw": "{\n    \"country_id\": \"omnis\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"quis\",\n    \"region_id\": \"ducimus\"\n}"
+                            "raw": "{\n    \"country_id\": \"officiis\",\n    \"region_id\": \"quia\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -615,22 +615,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "quia",
+                                    "value": "sed",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "ut",
+                                    "value": "nesciunt",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "vero",
+                                    "value": "omnis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "quidem",
+                                    "value": "est",
                                     "type": "text"
                                 },
                                 {
@@ -645,32 +645,32 @@
                                 },
                                 {
                                     "key": "company_type",
-                                    "value": "company",
+                                    "value": "personal",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "quia",
+                                    "value": "nihil",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/www.bauch.com\/",
+                                    "value": "http:\/\/www.smitham.net\/",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "ipsam",
+                                    "value": "id",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "animi",
+                                    "value": "omnis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "rerum",
+                                    "value": "recusandae",
                                     "type": "text"
                                 },
                                 {

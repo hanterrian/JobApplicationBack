@@ -135,19 +135,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=quia" \
-    -F "last_name=ut" \
-    -F "patronymic=vero" \
-    -F "description=quidem" \
+    -F "name=sed" \
+    -F "last_name=nesciunt" \
+    -F "patronymic=omnis" \
+    -F "description=est" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
-    -F "company_type=company" \
-    -F "company_name=quia" \
-    -F "company_site=http://www.bauch.com/" \
-    -F "country=ipsam" \
-    -F "region=animi" \
-    -F "city=rerum" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpCFEA.tmp" 
+    -F "company_type=personal" \
+    -F "company_name=nihil" \
+    -F "company_site=http://www.smitham.net/" \
+    -F "country=id" \
+    -F "region=omnis" \
+    -F "city=recusandae" \
+    -F "photo=@C:\OpenServer\userdata\temp\php72C2.tmp" 
 ```
 
 ```javascript
@@ -162,18 +162,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'quia');
-body.append('last_name', 'ut');
-body.append('patronymic', 'vero');
-body.append('description', 'quidem');
+body.append('name', 'sed');
+body.append('last_name', 'nesciunt');
+body.append('patronymic', 'omnis');
+body.append('description', 'est');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
-body.append('company_type', 'company');
-body.append('company_name', 'quia');
-body.append('company_site', 'http://www.bauch.com/');
-body.append('country', 'ipsam');
-body.append('region', 'animi');
-body.append('city', 'rerum');
+body.append('company_type', 'personal');
+body.append('company_name', 'nihil');
+body.append('company_site', 'http://www.smitham.net/');
+body.append('country', 'id');
+body.append('region', 'omnis');
+body.append('city', 'recusandae');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

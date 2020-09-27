@@ -70,7 +70,7 @@ curl -X GET \
     -G "http://job.locale/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"et"}'
+    -d '{"country_id":"omnis"}'
 
 ```
 
@@ -85,7 +85,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "et"
+    "country_id": "omnis"
 }
 
 fetch(url, {
@@ -133,7 +133,7 @@ curl -X GET \
     -G "http://job.locale/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"quis","region_id":"ducimus"}'
+    -d '{"country_id":"officiis","region_id":"quia"}'
 
 ```
 
@@ -148,8 +148,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "quis",
-    "region_id": "ducimus"
+    "country_id": "officiis",
+    "region_id": "quia"
 }
 
 fetch(url, {

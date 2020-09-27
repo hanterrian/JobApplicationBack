@@ -13,7 +13,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"customer","email":"lina.lubowitz@example.com","password":"ut","country_id":"qui","region_id":"assumenda","city_id":"omnis","name":"culpa","last_name":"vel","patronymic":"culpa","phone":"laudantium","description":"vitae","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"deserunt","company_site":"http:\/\/feeney.com\/","verification_token":"tempore"}'
+    -d '{"role":"executor","email":"hoppe.hayley@example.org","password":"repudiandae","country_id":"hic","region_id":"non","city_id":"est","name":"dolorum","last_name":"delectus","patronymic":"reiciendis","phone":"animi","description":"consectetur","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"et","company_site":"http:\/\/www.mante.com\/","verification_token":"rerum"}'
 
 ```
 
@@ -28,23 +28,23 @@ let headers = {
 };
 
 let body = {
-    "role": "customer",
-    "email": "lina.lubowitz@example.com",
-    "password": "ut",
-    "country_id": "qui",
-    "region_id": "assumenda",
-    "city_id": "omnis",
-    "name": "culpa",
-    "last_name": "vel",
-    "patronymic": "culpa",
-    "phone": "laudantium",
-    "description": "vitae",
+    "role": "executor",
+    "email": "hoppe.hayley@example.org",
+    "password": "repudiandae",
+    "country_id": "hic",
+    "region_id": "non",
+    "city_id": "est",
+    "name": "dolorum",
+    "last_name": "delectus",
+    "patronymic": "reiciendis",
+    "phone": "animi",
+    "description": "consectetur",
     "gender": "1",
     "date_of_birth": "2020-09-27",
     "company_type": "company",
-    "company_name": "deserunt",
-    "company_site": "http:\/\/feeney.com\/",
-    "verification_token": "tempore"
+    "company_name": "et",
+    "company_site": "http:\/\/www.mante.com\/",
+    "verification_token": "rerum"
 }
 
 fetch(url, {
@@ -64,7 +64,6 @@ fetch(url, {
     "message": "The given data was invalid.",
     "errors": {
         "password": [
-            "The password must be at least 8 characters.",
             "The password confirmation does not match."
         ],
         "country_id": [
@@ -198,7 +197,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ofahey@example.net"}'
+    -d '{"email":"hvon@example.org"}'
 
 ```
 
@@ -213,7 +212,7 @@ let headers = {
 };
 
 let body = {
-    "email": "ofahey@example.net"
+    "email": "hvon@example.org"
 }
 
 fetch(url, {
@@ -256,7 +255,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"cum"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"rem"}'
 
 ```
 
@@ -274,7 +273,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "cum"
+    "verification_token": "rem"
 }
 
 fetch(url, {
@@ -327,7 +326,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"dickens.dion@example.net"}'
+    -d '{"email":"haufderhar@example.org"}'
 
 ```
 
@@ -342,7 +341,7 @@ let headers = {
 };
 
 let body = {
-    "email": "dickens.dion@example.net"
+    "email": "haufderhar@example.org"
 }
 
 fetch(url, {

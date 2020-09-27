@@ -38,10 +38,10 @@ Route::group(['middleware' => ['json.response']], function () {
             Route::post('login-token', [LoginController::class, 'token']);
             Route::post('logout', [LogoutController::class, 'index'])->middleware('auth:api');
         });
-        Route::group(['prefix' => 'user', 'middleware' => ['auth:api']], function () {
-            Route::get('profile', [ProfileController::class, 'current']);
+        Route::group(['prefix' => 'user'], function () {
+            Route::get('profile', [ProfileController::class, 'current'])->middleware('auth:api');
             Route::get('profile/{profile}', [ProfileController::class, 'show']);
-            Route::post('profile', [ProfileController::class, 'update']);
+            Route::post('profile', [ProfileController::class, 'update'])->middleware('auth:api');
         });
         Route::group(['prefix' => 'order'], function () {
             Route::apiResource('order', OrderController::class)->only(['index', 'show']);
