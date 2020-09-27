@@ -48,8 +48,6 @@ class ProfileController extends Controller
     /**
      * Get user profile
      *
-     * @authenticated
-     *
      * @param Profile $profile
      *
      * @return UserProfile

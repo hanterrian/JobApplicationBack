@@ -13,7 +13,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"jonas.lakin@example.net","password":"tempora","country_id":"aut","region_id":"et","city_id":"perferendis","name":"rem","last_name":"eaque","patronymic":"sunt","phone":"voluptas","description":"pariatur","gender":"1","date_of_birth":"2020-09-27","company_type":"personal","company_name":"eos","company_site":"http:\/\/orn.com\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html","verification_token":"molestiae"}'
+    -d '{"role":"customer","email":"lina.lubowitz@example.com","password":"ut","country_id":"qui","region_id":"assumenda","city_id":"omnis","name":"culpa","last_name":"vel","patronymic":"culpa","phone":"laudantium","description":"vitae","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"deserunt","company_site":"http:\/\/feeney.com\/","verification_token":"tempore"}'
 
 ```
 
@@ -28,23 +28,23 @@ let headers = {
 };
 
 let body = {
-    "role": "executor",
-    "email": "jonas.lakin@example.net",
-    "password": "tempora",
-    "country_id": "aut",
-    "region_id": "et",
-    "city_id": "perferendis",
-    "name": "rem",
-    "last_name": "eaque",
-    "patronymic": "sunt",
-    "phone": "voluptas",
-    "description": "pariatur",
+    "role": "customer",
+    "email": "lina.lubowitz@example.com",
+    "password": "ut",
+    "country_id": "qui",
+    "region_id": "assumenda",
+    "city_id": "omnis",
+    "name": "culpa",
+    "last_name": "vel",
+    "patronymic": "culpa",
+    "phone": "laudantium",
+    "description": "vitae",
     "gender": "1",
     "date_of_birth": "2020-09-27",
-    "company_type": "personal",
-    "company_name": "eos",
-    "company_site": "http:\/\/orn.com\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html",
-    "verification_token": "molestiae"
+    "company_type": "company",
+    "company_name": "deserunt",
+    "company_site": "http:\/\/feeney.com\/",
+    "verification_token": "tempore"
 }
 
 fetch(url, {
@@ -198,7 +198,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"efrain34@example.com"}'
+    -d '{"email":"ofahey@example.net"}'
 
 ```
 
@@ -213,7 +213,7 @@ let headers = {
 };
 
 let body = {
-    "email": "efrain34@example.com"
+    "email": "ofahey@example.net"
 }
 
 fetch(url, {
@@ -256,7 +256,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"ipsum"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"cum"}'
 
 ```
 
@@ -274,7 +274,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "ipsum"
+    "verification_token": "cum"
 }
 
 fetch(url, {
@@ -327,7 +327,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"dulce.west@example.com"}'
+    -d '{"email":"dickens.dion@example.net"}'
 
 ```
 
@@ -342,7 +342,7 @@ let headers = {
 };
 
 let body = {
-    "email": "dulce.west@example.com"
+    "email": "dickens.dion@example.net"
 }
 
 fetch(url, {

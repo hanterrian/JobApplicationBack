@@ -75,7 +75,6 @@ fetch(url, {
 
 ## Get user profile
 
-<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -83,19 +82,17 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/user/show" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -G "http://job.locale/api/v1/user/profile/{profile}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/user/show"
+    "http://job.locale/api/v1/user/profile/{profile}"
 );
 
 let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -110,34 +107,17 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (404):
 
 ```json
 {
-    "data": {
-        "id": null,
-        "name": null,
-        "last_name": null,
-        "patronymic": null,
-        "description": null,
-        "gender": null,
-        "photo": null,
-        "date_of_birth": null,
-        "company_type": null,
-        "company_name": null,
-        "company_site": null,
-        "country": null,
-        "region": null,
-        "city": null,
-        "user": null,
-        "socialLinks": []
-    }
+    "message": "No query results for model [App\\Models\\Profile] {profile}"
 }
 ```
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/v1/user/show`**
+ **`api/v1/user/profile/{profile}`**
 
 
 
@@ -155,19 +135,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=tenetur" \
-    -F "last_name=eius" \
-    -F "patronymic=aliquid" \
-    -F "description=qui" \
+    -F "name=quia" \
+    -F "last_name=ut" \
+    -F "patronymic=vero" \
+    -F "description=quidem" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
-    -F "company_type=personal" \
-    -F "company_name=asperiores" \
-    -F "company_site=http://www.funk.net/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html" \
-    -F "country=minus" \
-    -F "region=non" \
-    -F "city=consequatur" \
-    -F "photo=@C:\OpenServer\userdata\temp\php5214.tmp" 
+    -F "company_type=company" \
+    -F "company_name=quia" \
+    -F "company_site=http://www.bauch.com/" \
+    -F "country=ipsam" \
+    -F "region=animi" \
+    -F "city=rerum" \
+    -F "photo=@C:\OpenServer\userdata\temp\phpCFEA.tmp" 
 ```
 
 ```javascript
@@ -182,18 +162,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'tenetur');
-body.append('last_name', 'eius');
-body.append('patronymic', 'aliquid');
-body.append('description', 'qui');
+body.append('name', 'quia');
+body.append('last_name', 'ut');
+body.append('patronymic', 'vero');
+body.append('description', 'quidem');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
-body.append('company_type', 'personal');
-body.append('company_name', 'asperiores');
-body.append('company_site', 'http://www.funk.net/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html');
-body.append('country', 'minus');
-body.append('region', 'non');
-body.append('city', 'consequatur');
+body.append('company_type', 'company');
+body.append('company_name', 'quia');
+body.append('company_site', 'http://www.bauch.com/');
+body.append('country', 'ipsam');
+body.append('region', 'animi');
+body.append('city', 'rerum');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

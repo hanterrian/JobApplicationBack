@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "6e650c2a-ea26-4952-ac88-e3d09aa014fa",
+        "_postman_id": "7629ff95-f0ac-418b-972b-7329013887bd",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"jonas.lakin@example.net\",\n    \"password\": \"tempora\",\n    \"country_id\": \"aut\",\n    \"region_id\": \"et\",\n    \"city_id\": \"perferendis\",\n    \"name\": \"rem\",\n    \"last_name\": \"eaque\",\n    \"patronymic\": \"sunt\",\n    \"phone\": \"voluptas\",\n    \"description\": \"pariatur\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"personal\",\n    \"company_name\": \"eos\",\n    \"company_site\": \"http:\\\/\\\/orn.com\\\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html\",\n    \"verification_token\": \"molestiae\"\n}"
+                            "raw": "{\n    \"role\": \"customer\",\n    \"email\": \"lina.lubowitz@example.com\",\n    \"password\": \"ut\",\n    \"country_id\": \"qui\",\n    \"region_id\": \"assumenda\",\n    \"city_id\": \"omnis\",\n    \"name\": \"culpa\",\n    \"last_name\": \"vel\",\n    \"patronymic\": \"culpa\",\n    \"phone\": \"laudantium\",\n    \"description\": \"vitae\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"deserunt\",\n    \"company_site\": \"http:\\\/\\\/feeney.com\\\/\",\n    \"verification_token\": \"tempore\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -95,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"efrain34@example.com\"\n}"
+                            "raw": "{\n    \"email\": \"ofahey@example.net\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"ipsum\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"cum\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -159,7 +159,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"dulce.west@example.com\"\n}"
+                            "raw": "{\n    \"email\": \"dickens.dion@example.net\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"similique\"\n}"
+                            "raw": "{\n    \"country_id\": \"et\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"itaque\",\n    \"region_id\": \"illo\"\n}"
+                            "raw": "{\n    \"country_id\": \"quis\",\n    \"region_id\": \"ducimus\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -562,16 +562,12 @@
                         "url": {
                             "protocol": "http",
                             "host": "job.locale",
-                            "path": "api\/v1\/user\/show",
+                            "path": "api\/v1\/user\/profile\/:profile",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/user\/show"
+                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile\/:profile"
                         },
                         "method": "GET",
                         "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {YOUR_AUTH_KEY}"
-                            },
                             {
                                 "key": "Content-Type",
                                 "value": "application\/json"
@@ -583,7 +579,9 @@
                         ],
                         "body": null,
                         "description": "",
-                        "auth": null
+                        "auth": {
+                            "type": "noauth"
+                        }
                     },
                     "response": []
                 },
@@ -617,22 +615,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "tenetur",
+                                    "value": "quia",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "eius",
+                                    "value": "ut",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "aliquid",
+                                    "value": "vero",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "qui",
+                                    "value": "quidem",
                                     "type": "text"
                                 },
                                 {
@@ -647,32 +645,32 @@
                                 },
                                 {
                                     "key": "company_type",
-                                    "value": "personal",
+                                    "value": "company",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "asperiores",
+                                    "value": "quia",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/www.funk.net\/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html",
+                                    "value": "http:\/\/www.bauch.com\/",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "minus",
+                                    "value": "ipsam",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "non",
+                                    "value": "animi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "consequatur",
+                                    "value": "rerum",
                                     "type": "text"
                                 },
                                 {

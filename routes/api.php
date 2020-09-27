@@ -40,7 +40,7 @@ Route::group(['middleware' => ['json.response']], function () {
         });
         Route::group(['prefix' => 'user', 'middleware' => ['auth:api']], function () {
             Route::get('profile', [ProfileController::class, 'current']);
-            Route::get('show', [ProfileController::class, 'show']);
+            Route::get('profile/{profile}', [ProfileController::class, 'show']);
             Route::post('profile', [ProfileController::class, 'update']);
         });
         Route::group(['prefix' => 'order'], function () {
