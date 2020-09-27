@@ -70,7 +70,7 @@ curl -X GET \
     -G "http://job.locale/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"omnis"}'
+    -d '{"country_id":"voluptas"}'
 
 ```
 
@@ -85,7 +85,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "omnis"
+    "country_id": "voluptas"
 }
 
 fetch(url, {
@@ -107,7 +107,8 @@ fetch(url, {
         "country_id": [
             "The selected country id is invalid."
         ]
-    }
+    },
+    "status": 422
 }
 ```
 
@@ -133,7 +134,7 @@ curl -X GET \
     -G "http://job.locale/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"officiis","region_id":"quia"}'
+    -d '{"country_id":"hic","region_id":"omnis"}'
 
 ```
 
@@ -148,8 +149,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "officiis",
-    "region_id": "quia"
+    "country_id": "hic",
+    "region_id": "omnis"
 }
 
 fetch(url, {
@@ -174,7 +175,8 @@ fetch(url, {
         "region_id": [
             "The selected region id is invalid."
         ]
-    }
+    },
+    "status": 422
 }
 ```
 

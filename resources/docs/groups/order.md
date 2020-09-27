@@ -450,7 +450,8 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Order] {order}"
+    "message": "Not Found",
+    "status": 404
 }
 ```
 
@@ -543,7 +544,8 @@ fetch(url, {
         "city": [
             "The city field is required."
         ]
-    }
+    },
+    "status": 422
 }
 ```
 
@@ -647,7 +649,8 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Order] {order}"
+    "message": "Not Found",
+    "status": 404
 }
 ```
 
@@ -750,7 +753,8 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Order] {order}"
+    "message": "Not Found",
+    "status": 404
 }
 ```
 

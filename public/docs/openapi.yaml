@@ -36,9 +36,11 @@ paths:
                                 example:
                                     message: 'The given data was invalid.'
                                     errors: { password: ['The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] }
+                                    status: 422
                                 properties:
                                     message: { type: string, example: 'The given data was invalid.' }
                                     errors: { type: object, example: { password: ['The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] } }
+                                    status: { type: integer, example: 422 }
             tags:
                 - Auth
             requestBody:
@@ -51,47 +53,47 @@ paths:
                                 role:
                                     type: string
                                     description: 'The value must be one of <code>customer</code> or <code>executor</code>.'
-                                    example: executor
+                                    example: customer
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: hoppe.hayley@example.org
+                                    example: isabel.nader@example.org
                                 password:
                                     type: string
                                     description: ''
-                                    example: repudiandae
+                                    example: aspernatur
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: hic
+                                    example: maiores
                                 region_id:
                                     type: string
                                     description: ''
-                                    example: non
+                                    example: rerum
                                 city_id:
                                     type: string
                                     description: ''
-                                    example: est
+                                    example: consectetur
                                 name:
                                     type: string
                                     description: ''
-                                    example: dolorum
+                                    example: quaerat
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: delectus
+                                    example: quasi
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: reiciendis
+                                    example: et
                                 phone:
                                     type: string
                                     description: ''
-                                    example: animi
+                                    example: nostrum
                                 description:
                                     type: string
                                     description: ''
-                                    example: consectetur
+                                    example: fugit
                                 gender:
                                     type: string
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
@@ -107,15 +109,15 @@ paths:
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: et
+                                    example: libero
                                 company_site:
                                     type: string
                                     description: 'The value must be a valid URL.'
-                                    example: 'http://www.mante.com/'
+                                    example: 'http://bradtke.com/aliquid-natus-id-dolor-eos-cumque-debitis-at'
                                 verification_token:
                                     type: string
                                     description: ''
-                                    example: rerum
+                                    example: voluptatem
                             required:
                                 - role
                                 - email
@@ -207,7 +209,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: hvon@example.org
+                                    example: kbahringer@example.org
                             required:
                                 - email
             security: []
@@ -267,7 +269,7 @@ paths:
                                 verification_token:
                                     type: string
                                     description: 'Do nothing.'
-                                    example: rem
+                                    example: vero
             security: []
     /api/v1/auth/login-token:
         post:
@@ -311,7 +313,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: haufderhar@example.org
+                                    example: gstanton@example.org
                             required:
                                 - email
             security: []
@@ -416,9 +418,11 @@ paths:
                                 example:
                                     message: 'The given data was invalid.'
                                     errors: { country_id: ['The selected country id is invalid.'] }
+                                    status: 422
                                 properties:
                                     message: { type: string, example: 'The given data was invalid.' }
                                     errors: { type: object, example: { country_id: ['The selected country id is invalid.'] } }
+                                    status: { type: integer, example: 422 }
             tags:
                 - Location
             requestBody:
@@ -431,7 +435,7 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: omnis
+                                    example: voluptas
                             required:
                                 - country_id
             security: []
@@ -464,9 +468,11 @@ paths:
                                 example:
                                     message: 'The given data was invalid.'
                                     errors: { country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'] }
+                                    status: 422
                                 properties:
                                     message: { type: string, example: 'The given data was invalid.' }
                                     errors: { type: object, example: { country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'] } }
+                                    status: { type: integer, example: 422 }
             tags:
                 - Location
             requestBody:
@@ -479,11 +485,11 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: officiis
+                                    example: hic
                                 region_id:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: omnis
                             required:
                                 - country_id
                                 - region_id
@@ -560,9 +566,11 @@ paths:
                                 example:
                                     message: 'The given data was invalid.'
                                     errors: { type: ['The type field is required.'], title: ['The title field is required.'], description: ['The description field is required.'], service_provision: ['The service provision field is required.'], price: ['The price field is required.'], desired_date: ['The desired date field is required.'], desired_time_from: ['The desired time from field is required.'], desired_time_to: ['The desired time to field is required.'], currency: ['The currency field is required.'], country: ['The country field is required.'], region: ['The region field is required.'], city: ['The city field is required.'] }
+                                    status: 422
                                 properties:
                                     message: { type: string, example: 'The given data was invalid.' }
                                     errors: { type: object, example: { type: ['The type field is required.'], title: ['The title field is required.'], description: ['The description field is required.'], service_provision: ['The service provision field is required.'], price: ['The price field is required.'], desired_date: ['The desired date field is required.'], desired_time_from: ['The desired time from field is required.'], desired_time_to: ['The desired time to field is required.'], currency: ['The currency field is required.'], country: ['The country field is required.'], region: ['The region field is required.'], city: ['The city field is required.'] } }
+                                    status: { type: integer, example: 422 }
             tags:
                 - Order
             requestBody:
@@ -579,11 +587,11 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: suscipit
+                                    example: esse
                                 description:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: sit
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
@@ -591,7 +599,7 @@ paths:
                                 price:
                                     type: number
                                     description: ''
-                                    example: 20.728
+                                    example: 7344.0920419
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
@@ -599,11 +607,11 @@ paths:
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '09:00:00'
+                                    example: '09:25:33'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '09:00:00'
+                                    example: '09:25:33'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -615,19 +623,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: porro
+                                    example: est
                                 country:
                                     type: string
                                     description: ''
-                                    example: odit
+                                    example: animi
                                 region:
                                     type: string
                                     description: ''
-                                    example: blanditiis
+                                    example: voluptates
                                 city:
                                     type: string
                                     description: ''
-                                    example: sint
+                                    example: minima
                                 'images.*':
                                     type: string
                                     format: binary
@@ -635,7 +643,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: quasi
+                                    example: est
                             required:
                                 - type
                                 - title
@@ -677,9 +685,11 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'No query results for model [App\Models\Order] {order}'
+                                    message: 'Not Found'
+                                    status: 404
                                 properties:
-                                    message: { type: string, example: 'No query results for model [App\Models\Order] {order}' }
+                                    message: { type: string, example: 'Not Found' }
+                                    status: { type: integer, example: 404 }
             tags:
                 - Order
             security: []
@@ -716,9 +726,11 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'No query results for model [App\Models\Order] {order}'
+                                    message: 'Not Found'
+                                    status: 404
                                 properties:
-                                    message: { type: string, example: 'No query results for model [App\Models\Order] {order}' }
+                                    message: { type: string, example: 'Not Found' }
+                                    status: { type: integer, example: 404 }
             tags:
                 - Order
             requestBody:
@@ -735,19 +747,19 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: dolores
+                                    example: occaecati
                                 description:
                                     type: string
                                     description: ''
-                                    example: quo
+                                    example: est
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
-                                    example: offline
+                                    example: online
                                 price:
                                     type: number
                                     description: ''
-                                    example: 14064935.244133
+                                    example: 5570233.5479006
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
@@ -755,11 +767,11 @@ paths:
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '09:00:00'
+                                    example: '09:25:33'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '09:00:00'
+                                    example: '09:25:33'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -771,19 +783,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: sit
+                                    example: rerum
                                 country:
                                     type: string
                                     description: ''
-                                    example: voluptatem
+                                    example: ea
                                 region:
                                     type: string
                                     description: ''
-                                    example: voluptate
+                                    example: adipisci
                                 city:
                                     type: string
                                     description: ''
-                                    example: non
+                                    example: corporis
                                 'images.*':
                                     type: string
                                     format: binary
@@ -791,7 +803,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: deleniti
+                                    example: hic
                             required:
                                 - type
                                 - title
@@ -839,9 +851,11 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'No query results for model [App\Models\Order] {order}'
+                                    message: 'Not Found'
+                                    status: 404
                                 properties:
-                                    message: { type: string, example: 'No query results for model [App\Models\Order] {order}' }
+                                    message: { type: string, example: 'Not Found' }
+                                    status: { type: integer, example: 404 }
             tags:
                 - Order
     /api/v1/order/currency:
@@ -982,9 +996,11 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'Server Error'
+                                    message: 'Whoops, looks like something went wrong'
+                                    status: 500
                                 properties:
-                                    message: { type: string, example: 'Server Error' }
+                                    message: { type: string, example: 'Whoops, looks like something went wrong' }
+                                    status: { type: integer, example: 500 }
             tags:
                 - User
             requestBody:
@@ -997,19 +1013,19 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: sed
+                                    example: ea
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: nesciunt
+                                    example: sit
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: omnis
+                                    example: voluptate
                                 description:
                                     type: string
                                     description: ''
-                                    example: est
+                                    example: accusantium
                                 gender:
                                     type: string
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
@@ -1025,19 +1041,19 @@ paths:
                                 company_type:
                                     type: string
                                     description: 'The value must be one of <code>personal</code> or <code>company</code>.'
-                                    example: personal
+                                    example: company
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: nihil
+                                    example: quasi
                                 company_site:
                                     type: string
                                     description: 'The value must be a valid URL.'
-                                    example: 'http://www.smitham.net/'
+                                    example: 'http://www.hudson.com/porro-velit-magni-vitae-et-veritatis'
                                 country:
                                     type: string
                                     description: ''
-                                    example: id
+                                    example: accusantium
                                 region:
                                     type: string
                                     description: ''
@@ -1045,7 +1061,7 @@ paths:
                                 city:
                                     type: string
                                     description: ''
-                                    example: recusandae
+                                    example: ut
                             required:
                                 - name
                                 - last_name
@@ -1084,9 +1100,11 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'No query results for model [App\Models\Profile] {profile}'
+                                    message: 'Not Found'
+                                    status: 404
                                 properties:
-                                    message: { type: string, example: 'No query results for model [App\Models\Profile] {profile}' }
+                                    message: { type: string, example: 'Not Found' }
+                                    status: { type: integer, example: 404 }
             tags:
                 - User
             security: []

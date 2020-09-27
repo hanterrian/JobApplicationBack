@@ -13,7 +13,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"hoppe.hayley@example.org","password":"repudiandae","country_id":"hic","region_id":"non","city_id":"est","name":"dolorum","last_name":"delectus","patronymic":"reiciendis","phone":"animi","description":"consectetur","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"et","company_site":"http:\/\/www.mante.com\/","verification_token":"rerum"}'
+    -d '{"role":"customer","email":"isabel.nader@example.org","password":"aspernatur","country_id":"maiores","region_id":"rerum","city_id":"consectetur","name":"quaerat","last_name":"quasi","patronymic":"et","phone":"nostrum","description":"fugit","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"libero","company_site":"http:\/\/bradtke.com\/aliquid-natus-id-dolor-eos-cumque-debitis-at","verification_token":"voluptatem"}'
 
 ```
 
@@ -28,23 +28,23 @@ let headers = {
 };
 
 let body = {
-    "role": "executor",
-    "email": "hoppe.hayley@example.org",
-    "password": "repudiandae",
-    "country_id": "hic",
-    "region_id": "non",
-    "city_id": "est",
-    "name": "dolorum",
-    "last_name": "delectus",
-    "patronymic": "reiciendis",
-    "phone": "animi",
-    "description": "consectetur",
+    "role": "customer",
+    "email": "isabel.nader@example.org",
+    "password": "aspernatur",
+    "country_id": "maiores",
+    "region_id": "rerum",
+    "city_id": "consectetur",
+    "name": "quaerat",
+    "last_name": "quasi",
+    "patronymic": "et",
+    "phone": "nostrum",
+    "description": "fugit",
     "gender": "1",
     "date_of_birth": "2020-09-27",
     "company_type": "company",
-    "company_name": "et",
-    "company_site": "http:\/\/www.mante.com\/",
-    "verification_token": "rerum"
+    "company_name": "libero",
+    "company_site": "http:\/\/bradtke.com\/aliquid-natus-id-dolor-eos-cumque-debitis-at",
+    "verification_token": "voluptatem"
 }
 
 fetch(url, {
@@ -75,7 +75,8 @@ fetch(url, {
         "city_id": [
             "The selected city id is invalid."
         ]
-    }
+    },
+    "status": 422
 }
 ```
 
@@ -197,7 +198,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"hvon@example.org"}'
+    -d '{"email":"kbahringer@example.org"}'
 
 ```
 
@@ -212,7 +213,7 @@ let headers = {
 };
 
 let body = {
-    "email": "hvon@example.org"
+    "email": "kbahringer@example.org"
 }
 
 fetch(url, {
@@ -255,7 +256,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"rem"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"vero"}'
 
 ```
 
@@ -273,7 +274,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "rem"
+    "verification_token": "vero"
 }
 
 fetch(url, {
@@ -326,7 +327,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"haufderhar@example.org"}'
+    -d '{"email":"gstanton@example.org"}'
 
 ```
 
@@ -341,7 +342,7 @@ let headers = {
 };
 
 let body = {
-    "email": "haufderhar@example.org"
+    "email": "gstanton@example.org"
 }
 
 fetch(url, {

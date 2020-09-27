@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "ca92e325-01b6-4aee-a1fe-fd833fafa708",
+        "_postman_id": "71ea629f-bd1d-4930-b8a0-107260a2c930",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"hoppe.hayley@example.org\",\n    \"password\": \"repudiandae\",\n    \"country_id\": \"hic\",\n    \"region_id\": \"non\",\n    \"city_id\": \"est\",\n    \"name\": \"dolorum\",\n    \"last_name\": \"delectus\",\n    \"patronymic\": \"reiciendis\",\n    \"phone\": \"animi\",\n    \"description\": \"consectetur\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"et\",\n    \"company_site\": \"http:\\\/\\\/www.mante.com\\\/\",\n    \"verification_token\": \"rerum\"\n}"
+                            "raw": "{\n    \"role\": \"customer\",\n    \"email\": \"isabel.nader@example.org\",\n    \"password\": \"aspernatur\",\n    \"country_id\": \"maiores\",\n    \"region_id\": \"rerum\",\n    \"city_id\": \"consectetur\",\n    \"name\": \"quaerat\",\n    \"last_name\": \"quasi\",\n    \"patronymic\": \"et\",\n    \"phone\": \"nostrum\",\n    \"description\": \"fugit\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"libero\",\n    \"company_site\": \"http:\\\/\\\/bradtke.com\\\/aliquid-natus-id-dolor-eos-cumque-debitis-at\",\n    \"verification_token\": \"voluptatem\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -95,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"hvon@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"kbahringer@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"rem\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"vero\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -159,7 +159,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"haufderhar@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"gstanton@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"omnis\"\n}"
+                            "raw": "{\n    \"country_id\": \"voluptas\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"officiis\",\n    \"region_id\": \"quia\"\n}"
+                            "raw": "{\n    \"country_id\": \"hic\",\n    \"region_id\": \"omnis\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -615,22 +615,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "sed",
+                                    "value": "ea",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "nesciunt",
+                                    "value": "sit",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "omnis",
+                                    "value": "voluptate",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "est",
+                                    "value": "accusantium",
                                     "type": "text"
                                 },
                                 {
@@ -645,22 +645,22 @@
                                 },
                                 {
                                     "key": "company_type",
-                                    "value": "personal",
+                                    "value": "company",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "nihil",
+                                    "value": "quasi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/www.smitham.net\/",
+                                    "value": "http:\/\/www.hudson.com\/porro-velit-magni-vitae-et-veritatis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "id",
+                                    "value": "accusantium",
                                     "type": "text"
                                 },
                                 {
@@ -670,7 +670,7 @@
                                 },
                                 {
                                     "key": "city",
-                                    "value": "recusandae",
+                                    "value": "ut",
                                     "type": "text"
                                 },
                                 {

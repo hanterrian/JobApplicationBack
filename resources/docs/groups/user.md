@@ -111,7 +111,8 @@ fetch(url, {
 
 ```json
 {
-    "message": "No query results for model [App\\Models\\Profile] {profile}"
+    "message": "Not Found",
+    "status": 404
 }
 ```
 
@@ -135,19 +136,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=sed" \
-    -F "last_name=nesciunt" \
-    -F "patronymic=omnis" \
-    -F "description=est" \
+    -F "name=ea" \
+    -F "last_name=sit" \
+    -F "patronymic=voluptate" \
+    -F "description=accusantium" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
-    -F "company_type=personal" \
-    -F "company_name=nihil" \
-    -F "company_site=http://www.smitham.net/" \
-    -F "country=id" \
+    -F "company_type=company" \
+    -F "company_name=quasi" \
+    -F "company_site=http://www.hudson.com/porro-velit-magni-vitae-et-veritatis" \
+    -F "country=accusantium" \
     -F "region=omnis" \
-    -F "city=recusandae" \
-    -F "photo=@C:\OpenServer\userdata\temp\php72C2.tmp" 
+    -F "city=ut" \
+    -F "photo=@C:\OpenServer\userdata\temp\phpD8EE.tmp" 
 ```
 
 ```javascript
@@ -162,18 +163,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'sed');
-body.append('last_name', 'nesciunt');
-body.append('patronymic', 'omnis');
-body.append('description', 'est');
+body.append('name', 'ea');
+body.append('last_name', 'sit');
+body.append('patronymic', 'voluptate');
+body.append('description', 'accusantium');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
-body.append('company_type', 'personal');
-body.append('company_name', 'nihil');
-body.append('company_site', 'http://www.smitham.net/');
-body.append('country', 'id');
+body.append('company_type', 'company');
+body.append('company_name', 'quasi');
+body.append('company_site', 'http://www.hudson.com/porro-velit-magni-vitae-et-veritatis');
+body.append('country', 'accusantium');
 body.append('region', 'omnis');
-body.append('city', 'recusandae');
+body.append('city', 'ut');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -190,7 +191,8 @@ fetch(url, {
 
 ```json
 {
-    "message": "Server Error"
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }
 ```
 
