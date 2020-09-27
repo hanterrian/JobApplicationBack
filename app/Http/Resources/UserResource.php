@@ -16,22 +16,22 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->profile->name,
+            'name' => $this->name,
             'email' => $this->email,
             'phone' => $this->phone,
-            'last_name' => $this->profile->last_name,
-            'patronymic' => $this->profile->patronymic,
-            'description' => $this->profile->description,
-            'gender' => $this->profile->getGender(),
-            'date_of_birth' => $this->profile->date_of_birth,
-            'company_type' => $this->profile->company_type,
-            'company_name' => $this->profile->company_name,
-            'company_site' => $this->profile->company_site,
-            'last_activity' => $this->profile->last_activity,
+            'last_name' => $this->last_name,
+            'patronymic' => $this->patronymic,
+            'description' => $this->description,
+            'gender' => $this->getGender(),
+            'date_of_birth' => $this->date_of_birth,
+            'company_type' => $this->company_type,
+            'company_name' => $this->company_name,
+            'company_site' => $this->company_site,
+            'last_activity' => $this->last_activity,
 
-            'country' => new CountryResource($this->profile->country),
-            'region' => new RegionResource($this->profile->region),
-            'city' => new CityResource($this->profile->city),
+            'country' => new CountryResource($this->country),
+            'region' => new RegionResource($this->region),
+            'city' => new CityResource($this->city),
         ];
     }
 }

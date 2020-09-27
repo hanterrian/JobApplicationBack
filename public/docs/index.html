@@ -53,102 +53,8 @@
         <h1>Introduction</h1>
 <p>Welcome to our API documentation!</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {your-token}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {your-token}"</code></strong>.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Auth</h1>
-<h2>Register new user</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://job.locale/api/v1/auth/register" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"role":"customer","email":"isabel.nader@example.org","password":"aspernatur","country_id":"maiores","region_id":"rerum","city_id":"consectetur","name":"quaerat","last_name":"quasi","patronymic":"et","phone":"nostrum","description":"fugit","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"libero","company_site":"http:\/\/bradtke.com\/aliquid-natus-id-dolor-eos-cumque-debitis-at","verification_token":"voluptatem"}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://job.locale/api/v1/auth/register"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "role": "customer",
-    "email": "isabel.nader@example.org",
-    "password": "aspernatur",
-    "country_id": "maiores",
-    "region_id": "rerum",
-    "city_id": "consectetur",
-    "name": "quaerat",
-    "last_name": "quasi",
-    "patronymic": "et",
-    "phone": "nostrum",
-    "description": "fugit",
-    "gender": "1",
-    "date_of_birth": "2020-09-27",
-    "company_type": "company",
-    "company_name": "libero",
-    "company_site": "http:\/\/bradtke.com\/aliquid-natus-id-dolor-eos-cumque-debitis-at",
-    "verification_token": "voluptatem"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (422):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "message": "The given data was invalid.",
-    "errors": {
-        "password": [
-            "The password confirmation does not match."
-        ],
-        "country_id": [
-            "The selected country id is invalid."
-        ],
-        "region_id": [
-            "The selected region id is invalid."
-        ],
-        "city_id": [
-            "The selected city id is invalid."
-        ]
-    },
-    "status": 422
-}</code></pre>
-<h3>Request</h3>
-<p><small class="badge badge-black">POST</small>
-<strong><code>api/v1/auth/register</code></strong></p>
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p><code><b>role</b></code>&nbsp; <small>string</small>     <br>
-The value must be one of <code>customer</code> or <code>executor</code>.</p>
-<p><code><b>email</b></code>&nbsp; <small>string</small>     <br>
-The value must be a valid email address.</p>
-<p><code><b>password</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>country_id</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>region_id</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>city_id</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>name</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>last_name</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>patronymic</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>phone</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>description</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>gender</b></code>&nbsp; <small>string</small>     <br>
-The value must be one of <code>1</code> or <code>2</code>.</p>
-<p><code><b>date_of_birth</b></code>&nbsp; <small>string</small>     <br>
-The value must be a valid date in the format Y-m-d.</p>
-<p><code><b>company_type</b></code>&nbsp; <small>string</small>     <br>
-The value must be one of <code>personal</code> or <code>company</code>.</p>
-<p><code><b>company_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
-<p><code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-The value must be a valid URL.</p>
-<p><code><b>verification_token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
 <h2>Check email|phone token</h2>
 <blockquote>
 <p>Example request:</p>
@@ -189,7 +95,7 @@ fetch(url, {
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"kbahringer@example.org"}'
+    -d '{"email":"gusikowski.precious@example.net"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/register-token"
@@ -201,7 +107,7 @@ let headers = {
 };
 
 let body = {
-    "email": "kbahringer@example.org"
+    "email": "gusikowski.precious@example.net"
 }
 
 fetch(url, {
@@ -231,7 +137,7 @@ The value must be a valid email address.</p>
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"vero"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"autem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/login"
@@ -246,7 +152,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "vero"
+    "verification_token": "autem"
 }
 
 fetch(url, {
@@ -283,7 +189,7 @@ Do nothing.</p>
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"gstanton@example.org"}'
+    -d '{"email":"jamarcus11@example.net"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/login-token"
@@ -295,7 +201,7 @@ let headers = {
 };
 
 let body = {
-    "email": "gstanton@example.org"
+    "email": "jamarcus11@example.net"
 }
 
 fetch(url, {
@@ -401,7 +307,7 @@ fetch(url, {
     -G "http://job.locale/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"voluptas"}'
+    -d '{"country_id":"aperiam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/location/regions"
@@ -413,7 +319,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "voluptas"
+    "country_id": "aperiam"
 }
 
 fetch(url, {
@@ -448,7 +354,7 @@ fetch(url, {
     -G "http://job.locale/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"hic","region_id":"omnis"}'
+    -d '{"country_id":"qui","region_id":"ut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/location/cities"
@@ -460,8 +366,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "hic",
-    "region_id": "omnis"
+    "country_id": "qui",
+    "region_id": "ut"
 }
 
 fetch(url, {
@@ -516,373 +422,11 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "data": [
-        {
-            "id": 2,
-            "type": "request",
-            "title": "Тест",
-            "description": "Test order",
-            "service_provision": "offline",
-            "price": 100,
-            "desired_date": "2020-08-16",
-            "desired_time_from": "08:16:22",
-            "desired_time_to": "08:16:22",
-            "execution_address": null,
-            "address": "Address",
-            "executor_comment": null,
-            "customer_comment": null,
-            "status": "open",
-            "created_at": "2020-08-16T08:17:59.000000Z",
-            "author": {
-                "id": 13,
-                "name": "Admin",
-                "email": "hanterrian@gmail.com",
-                "phone": null,
-                "last_name": "Last",
-                "patronymic": "Patronymic",
-                "description": "Test description",
-                "gender": "Male",
-                "date_of_birth": "1989-07-15",
-                "company_type": "personal",
-                "company_name": null,
-                "company_site": null,
-                "last_activity": "2020-08-09 10:48:58",
-                "country": {
-                    "id": 1,
-                    "title": "Test country"
-                },
-                "region": {
-                    "id": 1,
-                    "title": "Test region"
-                },
-                "city": {
-                    "id": 1,
-                    "title": "Test region"
-                }
-            },
-            "currency": {
-                "id": 1,
-                "title": "UAH"
-            },
-            "country": {
-                "id": 1,
-                "title": "Test country"
-            },
-            "region": {
-                "id": 1,
-                "title": "Test region"
-            },
-            "city": {
-                "id": 1,
-                "title": "Test city"
-            },
-            "images": [
-                {
-                    "id": 1,
-                    "src": "http:\/\/job.locale\/storage\/order\/files\/3779a00d7aecc40c5155fe09b32dd559.gif"
-                }
-            ],
-            "categories": [
-                {
-                    "id": 1,
-                    "title": "Тест en"
-                },
-                {
-                    "id": 3,
-                    "title": "Test 2"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "type": "request",
-            "title": "asdfgfgdg",
-            "description": "asdasd",
-            "service_provision": "online",
-            "price": 100,
-            "desired_date": "2020-01-01",
-            "desired_time_from": "00:00:00",
-            "desired_time_to": "23:59:59",
-            "execution_address": "asasas",
-            "address": "asasas",
-            "executor_comment": null,
-            "customer_comment": null,
-            "status": "open",
-            "created_at": "2020-09-13T06:08:57.000000Z",
-            "author": {
-                "id": 13,
-                "name": "Admin",
-                "email": "hanterrian@gmail.com",
-                "phone": null,
-                "last_name": "Last",
-                "patronymic": "Patronymic",
-                "description": "Test description",
-                "gender": "Male",
-                "date_of_birth": "1989-07-15",
-                "company_type": "personal",
-                "company_name": null,
-                "company_site": null,
-                "last_activity": "2020-08-09 10:48:58",
-                "country": {
-                    "id": 1,
-                    "title": "Test country"
-                },
-                "region": {
-                    "id": 1,
-                    "title": "Test region"
-                },
-                "city": {
-                    "id": 1,
-                    "title": "Test region"
-                }
-            },
-            "currency": null,
-            "country": null,
-            "region": null,
-            "city": null,
-            "images": [],
-            "categories": []
-        },
-        {
-            "id": 6,
-            "type": "request",
-            "title": "asdfgfgdg",
-            "description": "asdasd",
-            "service_provision": "online",
-            "price": 100,
-            "desired_date": "2020-01-01",
-            "desired_time_from": "00:00:00",
-            "desired_time_to": "23:59:59",
-            "execution_address": "asasas",
-            "address": "asasas",
-            "executor_comment": null,
-            "customer_comment": null,
-            "status": "open",
-            "created_at": "2020-09-13T06:18:53.000000Z",
-            "author": {
-                "id": 13,
-                "name": "Admin",
-                "email": "hanterrian@gmail.com",
-                "phone": null,
-                "last_name": "Last",
-                "patronymic": "Patronymic",
-                "description": "Test description",
-                "gender": "Male",
-                "date_of_birth": "1989-07-15",
-                "company_type": "personal",
-                "company_name": null,
-                "company_site": null,
-                "last_activity": "2020-08-09 10:48:58",
-                "country": {
-                    "id": 1,
-                    "title": "Test country"
-                },
-                "region": {
-                    "id": 1,
-                    "title": "Test region"
-                },
-                "city": {
-                    "id": 1,
-                    "title": "Test region"
-                }
-            },
-            "currency": null,
-            "country": null,
-            "region": null,
-            "city": null,
-            "images": [
-                {
-                    "id": 6,
-                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_0.png"
-                },
-                {
-                    "id": 7,
-                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_1.webp"
-                }
-            ],
-            "categories": [
-                {
-                    "id": 1,
-                    "title": "Тест en"
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "type": "request",
-            "title": "asdfgfgdg",
-            "description": "asdasd",
-            "service_provision": "online",
-            "price": 100,
-            "desired_date": "2020-01-01",
-            "desired_time_from": "00:00:00",
-            "desired_time_to": "23:59:59",
-            "execution_address": "asasas",
-            "address": "asasas",
-            "executor_comment": null,
-            "customer_comment": null,
-            "status": "open",
-            "created_at": "2020-09-13T06:21:53.000000Z",
-            "author": {
-                "id": 13,
-                "name": "Admin",
-                "email": "hanterrian@gmail.com",
-                "phone": null,
-                "last_name": "Last",
-                "patronymic": "Patronymic",
-                "description": "Test description",
-                "gender": "Male",
-                "date_of_birth": "1989-07-15",
-                "company_type": "personal",
-                "company_name": null,
-                "company_site": null,
-                "last_activity": "2020-08-09 10:48:58",
-                "country": {
-                    "id": 1,
-                    "title": "Test country"
-                },
-                "region": {
-                    "id": 1,
-                    "title": "Test region"
-                },
-                "city": {
-                    "id": 1,
-                    "title": "Test region"
-                }
-            },
-            "currency": null,
-            "country": null,
-            "region": null,
-            "city": null,
-            "images": [
-                {
-                    "id": 8,
-                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_0.png"
-                },
-                {
-                    "id": 9,
-                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_1.webp"
-                }
-            ],
-            "categories": [
-                {
-                    "id": 1,
-                    "title": "Тест en"
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "type": "request",
-            "title": "asdfgfgdg",
-            "description": "asdasd",
-            "service_provision": "online",
-            "price": 100,
-            "desired_date": "2020-01-01",
-            "desired_time_from": "00:00:00",
-            "desired_time_to": "23:59:59",
-            "execution_address": "asasas",
-            "address": "asasas",
-            "executor_comment": null,
-            "customer_comment": null,
-            "status": "open",
-            "created_at": "2020-09-13T06:22:29.000000Z",
-            "author": {
-                "id": 13,
-                "name": "Admin",
-                "email": "hanterrian@gmail.com",
-                "phone": null,
-                "last_name": "Last",
-                "patronymic": "Patronymic",
-                "description": "Test description",
-                "gender": "Male",
-                "date_of_birth": "1989-07-15",
-                "company_type": "personal",
-                "company_name": null,
-                "company_site": null,
-                "last_activity": "2020-08-09 10:48:58",
-                "country": {
-                    "id": 1,
-                    "title": "Test country"
-                },
-                "region": {
-                    "id": 1,
-                    "title": "Test region"
-                },
-                "city": {
-                    "id": 1,
-                    "title": "Test region"
-                }
-            },
-            "currency": {
-                "id": 1,
-                "title": "UAH"
-            },
-            "country": {
-                "id": 1,
-                "title": "Test country"
-            },
-            "region": {
-                "id": 1,
-                "title": "Test region"
-            },
-            "city": {
-                "id": 1,
-                "title": "Test city"
-            },
-            "images": [
-                {
-                    "id": 10,
-                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_0.png"
-                },
-                {
-                    "id": 11,
-                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_1.webp"
-                }
-            ],
-            "categories": [
-                {
-                    "id": 1,
-                    "title": "Тест en"
-                }
-            ]
-        }
-    ],
-    "links": {
-        "first": "http:\/\/localhost\/api\/v1\/order\/order?page=1",
-        "last": "http:\/\/localhost\/api\/v1\/order\/order?page=1",
-        "prev": null,
-        "next": null
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 1,
-        "links": [
-            {
-                "url": null,
-                "label": "Previous",
-                "active": false
-            },
-            {
-                "url": "http:\/\/localhost\/api\/v1\/order\/order?page=1",
-                "label": 1,
-                "active": true
-            },
-            {
-                "url": null,
-                "label": "Next",
-                "active": false
-            }
-        ],
-        "path": "http:\/\/localhost\/api\/v1\/order\/order",
-        "per_page": 15,
-        "to": 5,
-        "total": 5
-    }
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1124,6 +668,156 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-red">DELETE</small>
 <strong><code>api/v1/order/order/{order}</code></strong></p>
+<h2>Add executor to order</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://job.locale/api/v1/order/order/add-executor" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"order":10}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://job.locale/api/v1/order/order/add-executor"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 10
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "The given data was invalid.",
+    "errors": {
+        "order": [
+            "The selected order is invalid."
+        ]
+    },
+    "status": 422
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/v1/order/order/add-executor</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>order</b></code>&nbsp; <small>integer</small>     <br></p>
+<h2>Select executor to order</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://job.locale/api/v1/order/order/select-executor" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"order":17}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://job.locale/api/v1/order/order/select-executor"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 17
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "The given data was invalid.",
+    "errors": {
+        "order": [
+            "The selected order is invalid."
+        ]
+    },
+    "status": 422
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/v1/order/order/select-executor</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>order</b></code>&nbsp; <small>integer</small>     <br></p>
+<h2>Add viewer to order</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://job.locale/api/v1/order/order/add-view" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"order":13}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://job.locale/api/v1/order/order/add-view"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 13
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (422):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "The given data was invalid.",
+    "errors": {
+        "order": [
+            "The selected order is invalid."
+        ]
+    },
+    "status": 422
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/v1/order/order/add-view</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>order</b></code>&nbsp; <small>integer</small>     <br></p>
 <h2>Currency list</h2>
 <blockquote>
 <p>Example request:</p>
@@ -1237,31 +931,11 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "data": {
-        "id": 9,
-        "name": "Scribe",
-        "last_name": null,
-        "patronymic": null,
-        "description": null,
-        "gender": null,
-        "photo": null,
-        "date_of_birth": null,
-        "company_type": null,
-        "company_name": null,
-        "company_site": null,
-        "country": null,
-        "region": null,
-        "city": null,
-        "user": {
-            "id": 18,
-            "email": "scribe@locale.dev",
-            "phone": null
-        },
-        "socialLinks": []
-    }
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1271,11 +945,11 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://job.locale/api/v1/user/profile/{profile}" \
+    -G "http://job.locale/api/v1/user/profile/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://job.locale/api/v1/user/profile/{profile}"
+    "http://job.locale/api/v1/user/profile/{user}"
 );
 
 let headers = {
@@ -1298,7 +972,7 @@ fetch(url, {
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
-<strong><code>api/v1/user/profile/{profile}</code></strong></p>
+<strong><code>api/v1/user/profile/{user}</code></strong></p>
 <h2>Update current user profile</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
@@ -1309,19 +983,19 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=ea" \
-    -F "last_name=sit" \
-    -F "patronymic=voluptate" \
-    -F "description=accusantium" \
-    -F "gender=1" \
+    -F "name=nulla" \
+    -F "last_name=alias" \
+    -F "patronymic=nihil" \
+    -F "description=nulla" \
+    -F "gender=2" \
     -F "date_of_birth=2020-09-27" \
     -F "company_type=company" \
-    -F "company_name=quasi" \
-    -F "company_site=http://www.hudson.com/porro-velit-magni-vitae-et-veritatis" \
-    -F "country=accusantium" \
-    -F "region=omnis" \
-    -F "city=ut" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpD8EE.tmp" </code></pre>
+    -F "company_name=ducimus" \
+    -F "company_site=http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html" \
+    -F "country=id" \
+    -F "region=quis" \
+    -F "city=dolorem" \
+    -F "photo=@C:\OpenServer\userdata\temp\php7B06.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/user/profile"
 );
@@ -1333,18 +1007,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'ea');
-body.append('last_name', 'sit');
-body.append('patronymic', 'voluptate');
-body.append('description', 'accusantium');
-body.append('gender', '1');
+body.append('name', 'nulla');
+body.append('last_name', 'alias');
+body.append('patronymic', 'nihil');
+body.append('description', 'nulla');
+body.append('gender', '2');
 body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'company');
-body.append('company_name', 'quasi');
-body.append('company_site', 'http://www.hudson.com/porro-velit-magni-vitae-et-veritatis');
-body.append('country', 'accusantium');
-body.append('region', 'omnis');
-body.append('city', 'ut');
+body.append('company_name', 'ducimus');
+body.append('company_site', 'http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html');
+body.append('country', 'id');
+body.append('region', 'quis');
+body.append('city', 'dolorem');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

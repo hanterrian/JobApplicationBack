@@ -38,32 +38,12 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (500):
 
 ```json
 {
-    "data": {
-        "id": 9,
-        "name": "Scribe",
-        "last_name": null,
-        "patronymic": null,
-        "description": null,
-        "gender": null,
-        "photo": null,
-        "date_of_birth": null,
-        "company_type": null,
-        "company_name": null,
-        "company_site": null,
-        "country": null,
-        "region": null,
-        "city": null,
-        "user": {
-            "id": 18,
-            "email": "scribe@locale.dev",
-            "phone": null
-        },
-        "socialLinks": []
-    }
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }
 ```
 
@@ -82,14 +62,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/user/profile/{profile}" \
+    -G "http://job.locale/api/v1/user/profile/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/user/profile/{profile}"
+    "http://job.locale/api/v1/user/profile/{user}"
 );
 
 let headers = {
@@ -118,7 +98,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/v1/user/profile/{profile}`**
+ **`api/v1/user/profile/{user}`**
 
 
 
@@ -136,19 +116,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=ea" \
-    -F "last_name=sit" \
-    -F "patronymic=voluptate" \
-    -F "description=accusantium" \
-    -F "gender=1" \
+    -F "name=nulla" \
+    -F "last_name=alias" \
+    -F "patronymic=nihil" \
+    -F "description=nulla" \
+    -F "gender=2" \
     -F "date_of_birth=2020-09-27" \
     -F "company_type=company" \
-    -F "company_name=quasi" \
-    -F "company_site=http://www.hudson.com/porro-velit-magni-vitae-et-veritatis" \
-    -F "country=accusantium" \
-    -F "region=omnis" \
-    -F "city=ut" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpD8EE.tmp" 
+    -F "company_name=ducimus" \
+    -F "company_site=http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html" \
+    -F "country=id" \
+    -F "region=quis" \
+    -F "city=dolorem" \
+    -F "photo=@C:\OpenServer\userdata\temp\php7B06.tmp" 
 ```
 
 ```javascript
@@ -163,18 +143,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'ea');
-body.append('last_name', 'sit');
-body.append('patronymic', 'voluptate');
-body.append('description', 'accusantium');
-body.append('gender', '1');
+body.append('name', 'nulla');
+body.append('last_name', 'alias');
+body.append('patronymic', 'nihil');
+body.append('description', 'nulla');
+body.append('gender', '2');
 body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'company');
-body.append('company_name', 'quasi');
-body.append('company_site', 'http://www.hudson.com/porro-velit-magni-vitae-et-veritatis');
-body.append('country', 'accusantium');
-body.append('region', 'omnis');
-body.append('city', 'ut');
+body.append('company_name', 'ducimus');
+body.append('company_site', 'http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html');
+body.append('country', 'id');
+body.append('region', 'quis');
+body.append('city', 'dolorem');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

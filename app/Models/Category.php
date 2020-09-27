@@ -48,6 +48,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category notCategory($id = null)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category getItems($key = 'id', $title = 'title')
+ * @method static \Illuminate\Database\Query\Builder|Category onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Category withoutTrashed()
  */
 class Category extends Model implements TranslatableContract
 {

@@ -78,6 +78,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $views
  * @property-read int|null $views_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order getItems($key = 'id', $title = 'title')
+ * @method static \Illuminate\Database\Query\Builder|Order onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Order withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Order withoutTrashed()
  */
 class Order extends Model
 {

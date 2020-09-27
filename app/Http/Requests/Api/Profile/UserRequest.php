@@ -2,15 +2,15 @@
 
 namespace App\Http\Requests\Api\Profile;
 
-use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
 /**
- * Class ProfileRequest
- * @package App\Http\Requests
+ * Class UserRequest
+ * @package App\Http\Requests\Api\Profile
  */
-class ProfileRequest extends FormRequest
+class UserRequest extends FormRequest
 {
     public function rules()
     {
@@ -20,10 +20,10 @@ class ProfileRequest extends FormRequest
             'patronymic' => ['required', 'string', 'max:255'],
             //
             'description' => ['required', 'string', 'max:500'],
-            'gender' => ['required', Rule::in([Profile::GENDER_MALE, Profile::GENDER_FEMALE])],
+            'gender' => ['required', Rule::in([User::GENDER_MALE, User::GENDER_FEMALE])],
             'photo' => ['image', 'size:2048'],
             'date_of_birth' => ['required', 'date_format:Y-m-d'],
-            'company_type' => ['required', Rule::in([Profile::COMPANY_TYPE_PERSONAL, Profile::COMPANY_TYPE_COMPANY])],
+            'company_type' => ['required', Rule::in([User::COMPANY_TYPE_PERSONAL, User::COMPANY_TYPE_COMPANY])],
             'company_name' => ['string', 'max:255'],
             'company_site' => ['url'],
             //

@@ -40,12 +40,17 @@ Route::group(['middleware' => ['json.response']], function () {
         });
         Route::group(['prefix' => 'user'], function () {
             Route::get('profile', [ProfileController::class, 'current'])->middleware('auth:api');
-            Route::get('profile/{profile}', [ProfileController::class, 'show']);
+            Route::get('profile/{user}', [ProfileController::class, 'show']);
             Route::post('profile', [ProfileController::class, 'update'])->middleware('auth:api');
         });
         Route::group(['prefix' => 'order'], function () {
             Route::apiResource('order', OrderController::class)->only(['index', 'show']);
             Route::apiResource('order', OrderController::class)->middleware('auth:api')->except(['index', 'show']);
+            //
+            Route::post('order/add-executor', [OrderController::class, 'addExecutor'])->middleware('auth:api');
+            Route::post('order/select-executor', [OrderController::class, 'selectExecutor'])->middleware('auth:api');
+            Route::post('order/add-view', [OrderController::class, 'addViewer'])->middleware('auth:api');
+            //
             Route::apiResource('currency', CurrencyController::class)->only(['index']);
             Route::apiResource('category', CategoryController::class)->only(['index']);
         });

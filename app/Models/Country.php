@@ -46,6 +46,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country withTranslation()
  * @mixin \Eloquent
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Country getItems($key = 'id', $title = 'title')
+ * @method static \Illuminate\Database\Query\Builder|Country onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Country withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Country withoutTrashed()
  */
 class Country extends Model implements TranslatableContract
 {

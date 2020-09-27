@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1\Order;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Order\OrderPostRequest;
 use App\Http\Requests\Api\Order\OrderRequest;
 use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
@@ -13,6 +14,7 @@ use App\Models\Currency;
 use App\Models\Order;
 use App\Models\OrderImage;
 use App\Models\Region;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
@@ -144,6 +146,111 @@ class OrderController extends Controller
 
         return response()->json([
             'message' => 'Record delete'
+        ]);
+    }
+
+    /**
+     * Add executor to order
+     *
+     * @authenticated
+     *
+     * @param OrderPostRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addExecutor(OrderPostRequest $request)
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        /** @var Order $order */
+        $order = Order::whereId($request->order)->first();
+
+        if ($order->responding()->get()->contains($user)) {
+            return response()->json([
+                'message' => 'User already attached'
+            ], 422);
+        }
+
+        if ($order->user_id == $user->id) {
+            return response()->json([
+                'message' => 'Can\'t connect owner'
+            ], 422);
+        }
+
+        $order->responding()->attach($user);
+
+        return response()->json([
+            'message' => 'User add to executor'
+        ]);
+    }
+
+    /**
+     * Select executor to order
+     *
+     * @authenticated
+     *
+     * @param OrderPostRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function selectExecutor(OrderPostRequest $request)
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        /** @var Order $order */
+        $order = Order::whereId($request->order)->first();
+
+        if (!$order->responding()->get()->contains($user)) {
+            return response()->json([
+                'message' => 'User not attached'
+            ], 422);
+        }
+
+        if ($order->user_id == $user->id) {
+            return response()->json([
+                'message' => 'Can\'t connect owner'
+            ], 422);
+        }
+
+        $order->selectedUser()->associate($user);
+
+        return response()->json([
+            'message' => 'User select as executor'
+        ]);
+    }
+
+    /**
+     * Add viewer to order
+     *
+     * @authenticated
+     *
+     * @param OrderPostRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function addViewer(OrderPostRequest $request)
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        /** @var Order $order */
+        $order = Order::whereId($request->order)->first();
+
+        if ($order->views()->get()->contains($user)) {
+            return response()->json([
+                'message' => 'User already attached'
+            ], 422);
+        }
+
+        if ($order->user_id == $user->id) {
+            return response()->json([
+                'message' => 'Can\'t connect owner'
+            ], 422);
+        }
+
+        $order->views()->attach($user);
+
+        return response()->json([
+            'message' => 'User add to viewers'
         ]);
     }
 

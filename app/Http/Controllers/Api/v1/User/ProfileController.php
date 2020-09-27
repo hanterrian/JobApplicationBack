@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Api\v1\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Profile\ProfileRequest;
-use App\Http\Resources\UserProfile;
-use App\Models\Profile;
+use App\Http\Requests\Api\Profile\UserRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,36 +24,26 @@ class ProfileController extends Controller
      *
      * @authenticated
      *
-     * @return UserProfile
+     * @return UserResource
      */
     public function current()
     {
         /** @var User $user */
         $user = Auth::user();
 
-        /** @var Profile $profile */
-        $profile = Profile::whereUserId($user->id)->first();
-
-        if (!$profile) {
-            $profile = Profile::create([
-                'user_id' => $user->id,
-                'name' => $user->name,
-            ]);
-        }
-
-        return new UserProfile($profile);
+        return new UserResource($user);
     }
 
     /**
      * Get user profile
      *
-     * @param Profile $profile
+     * @param User $user
      *
-     * @return UserProfile
+     * @return UserResource
      */
-    public function show(Profile $profile)
+    public function show(User $user)
     {
-        return new UserProfile($profile);
+        return new UserResource($user);
     }
 
     /**
@@ -62,20 +51,17 @@ class ProfileController extends Controller
      *
      * @authenticated
      *
-     * @param ProfileRequest $request
+     * @param UserRequest $request
      *
-     * @return UserProfile
+     * @return UserResource
      */
-    public function update(ProfileRequest $request)
+    public function update(UserRequest $request)
     {
         /** @var User $user */
         $user = Auth::user();
 
-        /** @var Profile $profile */
-        $profile = Profile::whereUserId($user->id)->first();
+        $user->update($request->all());
 
-        $profile->update($request->all());
-
-        return new UserProfile($profile);
+        return new UserResource($user);
     }
 }

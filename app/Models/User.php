@@ -6,6 +6,7 @@ use App\Models\Scopes\GetItems;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Arr;
 use Junges\ACL\Traits\UsersTrait;
 use Laravel\Passport\HasApiTokens;
 
@@ -54,6 +55,37 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User getItems($key = 'id', $title = 'title')
  * @property string|null $phone
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePhone($value)
+ * @property int|null $country_id
+ * @property int|null $region_id
+ * @property int|null $city_id
+ * @property string|null $last_name
+ * @property string|null $patronymic
+ * @property string|null $description
+ * @property int|null $gender
+ * @property string|null $photo
+ * @property string|null $date_of_birth
+ * @property string|null $company_type
+ * @property string|null $company_name
+ * @property string|null $company_site
+ * @property string|null $last_activity
+ * @property int $is_verified
+ * @property-read \App\Models\Region|null $city
+ * @property-read \App\Models\Country|null $country
+ * @property-read \App\Models\Region|null $region
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCityId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCompanyName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCompanySite($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCompanyType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCountryId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDateOfBirth($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGender($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsVerified($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastActivity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePatronymic($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePhoto($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRegionId($value)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -65,16 +97,57 @@ class User extends Authenticatable implements MustVerifyEmail
     const ROLE_EXECUTOR = 'executor';
     const ROLE_CUSTOMER = 'customer';
 
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
+
+    const COMPANY_TYPE_PERSONAL = 'personal';
+    const COMPANY_TYPE_COMPANY = 'company';
+
+    public static function getGenders(): array
+    {
+        return [
+            self::GENDER_MALE => __('Male'),
+            self::GENDER_FEMALE => __('Female'),
+        ];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getGender(): ?string
+    {
+        return Arr::get(self::getGenders(), $this->gender);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
         'email',
         'phone',
         'password',
+        //
+        'country_id',
+        'region_id',
+        'city_id',
+        //
+        'name',
+        'last_name',
+        'patronymic',
+        'description',
+        //
+        'gender',
+        'photo',
+        'date_of_birth',
+        //
+        'company_type',
+        'company_name',
+        'company_site',
+        //
+        'last_activity',
+        'is_verified',
     ];
 
     /**
@@ -97,18 +170,34 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
-    }
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function phones()
     {
         return $this->hasMany(UserPhone::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function city()
+    {
+        return $this->belongsTo(Region::class);
     }
 }

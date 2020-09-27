@@ -1,143 +1,6 @@
 # Auth
 
 
-## Register new user
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://job.locale/api/v1/auth/register" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"role":"customer","email":"isabel.nader@example.org","password":"aspernatur","country_id":"maiores","region_id":"rerum","city_id":"consectetur","name":"quaerat","last_name":"quasi","patronymic":"et","phone":"nostrum","description":"fugit","gender":"1","date_of_birth":"2020-09-27","company_type":"company","company_name":"libero","company_site":"http:\/\/bradtke.com\/aliquid-natus-id-dolor-eos-cumque-debitis-at","verification_token":"voluptatem"}'
-
-```
-
-```javascript
-const url = new URL(
-    "http://job.locale/api/v1/auth/register"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "role": "customer",
-    "email": "isabel.nader@example.org",
-    "password": "aspernatur",
-    "country_id": "maiores",
-    "region_id": "rerum",
-    "city_id": "consectetur",
-    "name": "quaerat",
-    "last_name": "quasi",
-    "patronymic": "et",
-    "phone": "nostrum",
-    "description": "fugit",
-    "gender": "1",
-    "date_of_birth": "2020-09-27",
-    "company_type": "company",
-    "company_name": "libero",
-    "company_site": "http:\/\/bradtke.com\/aliquid-natus-id-dolor-eos-cumque-debitis-at",
-    "verification_token": "voluptatem"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (422):
-
-```json
-{
-    "message": "The given data was invalid.",
-    "errors": {
-        "password": [
-            "The password confirmation does not match."
-        ],
-        "country_id": [
-            "The selected country id is invalid."
-        ],
-        "region_id": [
-            "The selected region id is invalid."
-        ],
-        "city_id": [
-            "The selected city id is invalid."
-        ]
-    },
-    "status": 422
-}
-```
-
-### Request
-<small class="badge badge-black">POST</small>
- **`api/v1/auth/register`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>role</b></code>&nbsp; <small>string</small>     <br>
-    The value must be one of <code>customer</code> or <code>executor</code>.
-
-<code><b>email</b></code>&nbsp; <small>string</small>     <br>
-    The value must be a valid email address.
-
-<code><b>password</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>country_id</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>region_id</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>city_id</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>name</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>last_name</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>patronymic</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>phone</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>description</b></code>&nbsp; <small>string</small>     <br>
-    
-
-<code><b>gender</b></code>&nbsp; <small>string</small>     <br>
-    The value must be one of <code>1</code> or <code>2</code>.
-
-<code><b>date_of_birth</b></code>&nbsp; <small>string</small>     <br>
-    The value must be a valid date in the format Y-m-d.
-
-<code><b>company_type</b></code>&nbsp; <small>string</small>     <br>
-    The value must be one of <code>personal</code> or <code>company</code>.
-
-<code><b>company_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    
-
-<code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    The value must be a valid URL.
-
-<code><b>verification_token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    
-
-
-
 ## Check email|phone token
 
 
@@ -198,7 +61,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"kbahringer@example.org"}'
+    -d '{"email":"gusikowski.precious@example.net"}'
 
 ```
 
@@ -213,7 +76,7 @@ let headers = {
 };
 
 let body = {
-    "email": "kbahringer@example.org"
+    "email": "gusikowski.precious@example.net"
 }
 
 fetch(url, {
@@ -256,7 +119,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"vero"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"autem"}'
 
 ```
 
@@ -274,7 +137,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "vero"
+    "verification_token": "autem"
 }
 
 fetch(url, {
@@ -327,7 +190,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"gstanton@example.org"}'
+    -d '{"email":"jamarcus11@example.net"}'
 
 ```
 
@@ -342,7 +205,7 @@ let headers = {
 };
 
 let body = {
-    "email": "gstanton@example.org"
+    "email": "jamarcus11@example.net"
 }
 
 fetch(url, {

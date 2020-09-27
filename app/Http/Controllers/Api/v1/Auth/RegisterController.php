@@ -37,14 +37,12 @@ class RegisterController extends Controller
         DB::transaction(function () use ($request) {
             $user = User::create(array_merge(
                 $request->only('name', 'email'),
-                ['password' => Hash::make($request->password)]
+                [
+                    'password' => Hash::make($request->password),
+                    'last_activity' => date('Y-m-d H:i:s'),
+                    'is_verified' => false,
+                ]
             ));
-
-            $profile = Profile::create(array_merge($request->all(), [
-                'user_id' => $user->id,
-                'last_activity' => date('Y-m-d H:i:s'),
-                'is_verified' => false,
-            ]));
 
             $group = Group::where(['name' => $request->input('role')])->first();
             $permission = Permission::where(['name' => $request->input('role')])->first();

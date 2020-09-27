@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "71ea629f-bd1d-4930-b8a0-107260a2c930",
+        "_postman_id": "d185976f-6003-43a9-af33-a2738d73b17c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -11,38 +11,6 @@
             "name": "Auth",
             "description": "",
             "item": [
-                {
-                    "name": "Register new user",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "job.locale",
-                            "path": "api\/v1\/auth\/register",
-                            "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/register"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"role\": \"customer\",\n    \"email\": \"isabel.nader@example.org\",\n    \"password\": \"aspernatur\",\n    \"country_id\": \"maiores\",\n    \"region_id\": \"rerum\",\n    \"city_id\": \"consectetur\",\n    \"name\": \"quaerat\",\n    \"last_name\": \"quasi\",\n    \"patronymic\": \"et\",\n    \"phone\": \"nostrum\",\n    \"description\": \"fugit\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"company\",\n    \"company_name\": \"libero\",\n    \"company_site\": \"http:\\\/\\\/bradtke.com\\\/aliquid-natus-id-dolor-eos-cumque-debitis-at\",\n    \"verification_token\": \"voluptatem\"\n}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
                 {
                     "name": "Check email|phone token",
                     "request": {
@@ -95,7 +63,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"kbahringer@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"gusikowski.precious@example.net\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -127,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"vero\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"autem\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -159,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"gstanton@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"jamarcus11@example.net\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +225,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"voluptas\"\n}"
+                            "raw": "{\n    \"country_id\": \"aperiam\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -289,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"hic\",\n    \"region_id\": \"omnis\"\n}"
+                            "raw": "{\n    \"country_id\": \"qui\",\n    \"region_id\": \"ut\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -462,6 +430,108 @@
                     "response": []
                 },
                 {
+                    "name": "Add executor to order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order\/add-executor",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/add-executor"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order\": 10\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Select executor to order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order\/select-executor",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/select-executor"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order\": 17\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add viewer to order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/order\/order\/add-view",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/add-view"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order\": 13\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
                     "name": "Currency list",
                     "request": {
                         "url": {
@@ -562,9 +632,9 @@
                         "url": {
                             "protocol": "http",
                             "host": "job.locale",
-                            "path": "api\/v1\/user\/profile\/:profile",
+                            "path": "api\/v1\/user\/profile\/:user",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile\/:profile"
+                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile\/:user"
                         },
                         "method": "GET",
                         "header": [
@@ -615,27 +685,27 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "ea",
+                                    "value": "nulla",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "sit",
+                                    "value": "alias",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "voluptate",
+                                    "value": "nihil",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "accusantium",
+                                    "value": "nulla",
                                     "type": "text"
                                 },
                                 {
                                     "key": "gender",
-                                    "value": "1",
+                                    "value": "2",
                                     "type": "text"
                                 },
                                 {
@@ -650,27 +720,27 @@
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "quasi",
+                                    "value": "ducimus",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/www.hudson.com\/porro-velit-magni-vitae-et-veritatis",
+                                    "value": "http:\/\/dietrich.info\/maxime-animi-officiis-explicabo-placeat-consequuntur.html",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "accusantium",
+                                    "value": "id",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "omnis",
+                                    "value": "quis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "ut",
+                                    "value": "dolorem",
                                     "type": "text"
                                 },
                                 {
