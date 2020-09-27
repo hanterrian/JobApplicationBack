@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "82475596-4a3e-42da-8511-6362b37188d5",
+        "_postman_id": "6e650c2a-ea26-4952-ac88-e3d09aa014fa",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"letha48@example.net\",\n    \"password\": \"perspiciatis\",\n    \"country_id\": \"omnis\",\n    \"region_id\": \"aut\",\n    \"city_id\": \"reiciendis\",\n    \"name\": \"sit\",\n    \"last_name\": \"accusamus\",\n    \"patronymic\": \"laboriosam\",\n    \"phone\": \"velit\",\n    \"description\": \"adipisci\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"personal\",\n    \"company_name\": \"vel\",\n    \"company_site\": \"http:\\\/\\\/heathcote.net\\\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos\",\n    \"verification_token\": \"magnam\"\n}"
+                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"jonas.lakin@example.net\",\n    \"password\": \"tempora\",\n    \"country_id\": \"aut\",\n    \"region_id\": \"et\",\n    \"city_id\": \"perferendis\",\n    \"name\": \"rem\",\n    \"last_name\": \"eaque\",\n    \"patronymic\": \"sunt\",\n    \"phone\": \"voluptas\",\n    \"description\": \"pariatur\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-09-27\",\n    \"company_type\": \"personal\",\n    \"company_name\": \"eos\",\n    \"company_site\": \"http:\\\/\\\/orn.com\\\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html\",\n    \"verification_token\": \"molestiae\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -95,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"letitia74@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"efrain34@example.com\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"accusantium\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"ipsum\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -159,7 +159,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"tcrona@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"dulce.west@example.com\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"magni\"\n}"
+                            "raw": "{\n    \"country_id\": \"similique\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"ducimus\",\n    \"region_id\": \"quas\"\n}"
+                            "raw": "{\n    \"country_id\": \"itaque\",\n    \"region_id\": \"illo\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -526,7 +526,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Get user profile",
+                    "name": "Get current user profile",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -534,6 +534,37 @@
                             "path": "api\/v1\/user\/profile",
                             "query": [],
                             "raw": "http:\/\/job.locale\/api\/v1\/user\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get user profile",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.locale",
+                            "path": "api\/v1\/user\/show",
+                            "query": [],
+                            "raw": "http:\/\/job.locale\/api\/v1\/user\/show"
                         },
                         "method": "GET",
                         "header": [
@@ -586,22 +617,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "non",
+                                    "value": "tenetur",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "qui",
+                                    "value": "eius",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "beatae",
+                                    "value": "aliquid",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "est",
+                                    "value": "qui",
                                     "type": "text"
                                 },
                                 {
@@ -621,22 +652,22 @@
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "rerum",
+                                    "value": "asperiores",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "https:\/\/www.tromp.com\/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis",
+                                    "value": "http:\/\/www.funk.net\/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "ipsa",
+                                    "value": "minus",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "incidunt",
+                                    "value": "non",
                                     "type": "text"
                                 },
                                 {

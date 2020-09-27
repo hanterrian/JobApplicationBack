@@ -1,7 +1,7 @@
 # User
 
 
-## Get user profile
+## Get current user profile
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -20,6 +20,78 @@ curl -X GET \
 ```javascript
 const url = new URL(
     "http://job.locale/api/v1/user/profile"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": {
+        "id": 9,
+        "name": "Scribe",
+        "last_name": null,
+        "patronymic": null,
+        "description": null,
+        "gender": null,
+        "photo": null,
+        "date_of_birth": null,
+        "company_type": null,
+        "company_name": null,
+        "company_site": null,
+        "country": null,
+        "region": null,
+        "city": null,
+        "user": {
+            "id": 18,
+            "email": "scribe@locale.dev",
+            "phone": null
+        },
+        "socialLinks": []
+    }
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/v1/user/profile`**
+
+
+
+## Get user profile
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://job.locale/api/v1/user/show" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://job.locale/api/v1/user/show"
 );
 
 let headers = {
@@ -65,7 +137,7 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-green">GET</small>
- **`api/v1/user/profile`**
+ **`api/v1/user/show`**
 
 
 
@@ -83,19 +155,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=non" \
-    -F "last_name=qui" \
-    -F "patronymic=beatae" \
-    -F "description=est" \
+    -F "name=tenetur" \
+    -F "last_name=eius" \
+    -F "patronymic=aliquid" \
+    -F "description=qui" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
     -F "company_type=personal" \
-    -F "company_name=rerum" \
-    -F "company_site=https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis" \
-    -F "country=ipsa" \
-    -F "region=incidunt" \
+    -F "company_name=asperiores" \
+    -F "company_site=http://www.funk.net/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html" \
+    -F "country=minus" \
+    -F "region=non" \
     -F "city=consequatur" \
-    -F "photo=@C:\OpenServer\userdata\temp\php4F20.tmp" 
+    -F "photo=@C:\OpenServer\userdata\temp\php5214.tmp" 
 ```
 
 ```javascript
@@ -110,17 +182,17 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'non');
-body.append('last_name', 'qui');
-body.append('patronymic', 'beatae');
-body.append('description', 'est');
+body.append('name', 'tenetur');
+body.append('last_name', 'eius');
+body.append('patronymic', 'aliquid');
+body.append('description', 'qui');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'personal');
-body.append('company_name', 'rerum');
-body.append('company_site', 'https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis');
-body.append('country', 'ipsa');
-body.append('region', 'incidunt');
+body.append('company_name', 'asperiores');
+body.append('company_site', 'http://www.funk.net/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html');
+body.append('country', 'minus');
+body.append('region', 'non');
 body.append('city', 'consequatur');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 

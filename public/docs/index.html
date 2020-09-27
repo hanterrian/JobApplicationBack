@@ -63,7 +63,7 @@
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"letha48@example.net","password":"perspiciatis","country_id":"omnis","region_id":"aut","city_id":"reiciendis","name":"sit","last_name":"accusamus","patronymic":"laboriosam","phone":"velit","description":"adipisci","gender":"1","date_of_birth":"2020-09-27","company_type":"personal","company_name":"vel","company_site":"http:\/\/heathcote.net\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos","verification_token":"magnam"}'
+    -d '{"role":"executor","email":"jonas.lakin@example.net","password":"tempora","country_id":"aut","region_id":"et","city_id":"perferendis","name":"rem","last_name":"eaque","patronymic":"sunt","phone":"voluptas","description":"pariatur","gender":"1","date_of_birth":"2020-09-27","company_type":"personal","company_name":"eos","company_site":"http:\/\/orn.com\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html","verification_token":"molestiae"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/register"
@@ -76,22 +76,22 @@ let headers = {
 
 let body = {
     "role": "executor",
-    "email": "letha48@example.net",
-    "password": "perspiciatis",
-    "country_id": "omnis",
-    "region_id": "aut",
-    "city_id": "reiciendis",
-    "name": "sit",
-    "last_name": "accusamus",
-    "patronymic": "laboriosam",
-    "phone": "velit",
-    "description": "adipisci",
+    "email": "jonas.lakin@example.net",
+    "password": "tempora",
+    "country_id": "aut",
+    "region_id": "et",
+    "city_id": "perferendis",
+    "name": "rem",
+    "last_name": "eaque",
+    "patronymic": "sunt",
+    "phone": "voluptas",
+    "description": "pariatur",
     "gender": "1",
     "date_of_birth": "2020-09-27",
     "company_type": "personal",
-    "company_name": "vel",
-    "company_site": "http:\/\/heathcote.net\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos",
-    "verification_token": "magnam"
+    "company_name": "eos",
+    "company_site": "http:\/\/orn.com\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html",
+    "verification_token": "molestiae"
 }
 
 fetch(url, {
@@ -108,6 +108,7 @@ fetch(url, {
     "message": "The given data was invalid.",
     "errors": {
         "password": [
+            "The password must be at least 8 characters.",
             "The password confirmation does not match."
         ],
         "country_id": [
@@ -188,7 +189,7 @@ fetch(url, {
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"letitia74@example.org"}'
+    -d '{"email":"efrain34@example.com"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/register-token"
@@ -200,7 +201,7 @@ let headers = {
 };
 
 let body = {
-    "email": "letitia74@example.org"
+    "email": "efrain34@example.com"
 }
 
 fetch(url, {
@@ -230,7 +231,7 @@ The value must be a valid email address.</p>
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"accusantium"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"ipsum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/login"
@@ -245,7 +246,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "accusantium"
+    "verification_token": "ipsum"
 }
 
 fetch(url, {
@@ -282,7 +283,7 @@ Do nothing.</p>
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"tcrona@example.org"}'
+    -d '{"email":"dulce.west@example.com"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/login-token"
@@ -294,7 +295,7 @@ let headers = {
 };
 
 let body = {
-    "email": "tcrona@example.org"
+    "email": "dulce.west@example.com"
 }
 
 fetch(url, {
@@ -400,7 +401,7 @@ fetch(url, {
     -G "http://job.locale/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"magni"}'
+    -d '{"country_id":"similique"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/location/regions"
@@ -412,7 +413,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "magni"
+    "country_id": "similique"
 }
 
 fetch(url, {
@@ -446,7 +447,7 @@ fetch(url, {
     -G "http://job.locale/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"ducimus","region_id":"quas"}'
+    -d '{"country_id":"itaque","region_id":"illo"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/location/cities"
@@ -458,8 +459,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "ducimus",
-    "region_id": "quas"
+    "country_id": "itaque",
+    "region_id": "illo"
 }
 
 fetch(url, {
@@ -1203,7 +1204,7 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/v1/order/category</code></strong></p><h1>User</h1>
-<h2>Get user profile</h2>
+<h2>Get current user profile</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1215,6 +1216,62 @@ fetch(url, {
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/user/profile"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 9,
+        "name": "Scribe",
+        "last_name": null,
+        "patronymic": null,
+        "description": null,
+        "gender": null,
+        "photo": null,
+        "date_of_birth": null,
+        "company_type": null,
+        "company_name": null,
+        "company_site": null,
+        "country": null,
+        "region": null,
+        "city": null,
+        "user": {
+            "id": 18,
+            "email": "scribe@locale.dev",
+            "phone": null
+        },
+        "socialLinks": []
+    }
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/v1/user/profile</code></strong></p>
+<h2>Get user profile</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://job.locale/api/v1/user/show" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://job.locale/api/v1/user/show"
 );
 
 let headers = {
@@ -1254,7 +1311,7 @@ fetch(url, {
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
-<strong><code>api/v1/user/profile</code></strong></p>
+<strong><code>api/v1/user/show</code></strong></p>
 <h2>Update current user profile</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
@@ -1265,19 +1322,19 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=non" \
-    -F "last_name=qui" \
-    -F "patronymic=beatae" \
-    -F "description=est" \
+    -F "name=tenetur" \
+    -F "last_name=eius" \
+    -F "patronymic=aliquid" \
+    -F "description=qui" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
     -F "company_type=personal" \
-    -F "company_name=rerum" \
-    -F "company_site=https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis" \
-    -F "country=ipsa" \
-    -F "region=incidunt" \
+    -F "company_name=asperiores" \
+    -F "company_site=http://www.funk.net/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html" \
+    -F "country=minus" \
+    -F "region=non" \
     -F "city=consequatur" \
-    -F "photo=@C:\OpenServer\userdata\temp\php4F20.tmp" </code></pre>
+    -F "photo=@C:\OpenServer\userdata\temp\php5214.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/user/profile"
 );
@@ -1289,17 +1346,17 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'non');
-body.append('last_name', 'qui');
-body.append('patronymic', 'beatae');
-body.append('description', 'est');
+body.append('name', 'tenetur');
+body.append('last_name', 'eius');
+body.append('patronymic', 'aliquid');
+body.append('description', 'qui');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'personal');
-body.append('company_name', 'rerum');
-body.append('company_site', 'https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis');
-body.append('country', 'ipsa');
-body.append('region', 'incidunt');
+body.append('company_name', 'asperiores');
+body.append('company_site', 'http://www.funk.net/non-ab-rerum-eius-aliquam-eos-ipsa-ullam.html');
+body.append('country', 'minus');
+body.append('region', 'non');
 body.append('city', 'consequatur');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 

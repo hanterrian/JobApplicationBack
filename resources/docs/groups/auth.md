@@ -13,7 +13,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"letha48@example.net","password":"perspiciatis","country_id":"omnis","region_id":"aut","city_id":"reiciendis","name":"sit","last_name":"accusamus","patronymic":"laboriosam","phone":"velit","description":"adipisci","gender":"1","date_of_birth":"2020-09-27","company_type":"personal","company_name":"vel","company_site":"http:\/\/heathcote.net\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos","verification_token":"magnam"}'
+    -d '{"role":"executor","email":"jonas.lakin@example.net","password":"tempora","country_id":"aut","region_id":"et","city_id":"perferendis","name":"rem","last_name":"eaque","patronymic":"sunt","phone":"voluptas","description":"pariatur","gender":"1","date_of_birth":"2020-09-27","company_type":"personal","company_name":"eos","company_site":"http:\/\/orn.com\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html","verification_token":"molestiae"}'
 
 ```
 
@@ -29,22 +29,22 @@ let headers = {
 
 let body = {
     "role": "executor",
-    "email": "letha48@example.net",
-    "password": "perspiciatis",
-    "country_id": "omnis",
-    "region_id": "aut",
-    "city_id": "reiciendis",
-    "name": "sit",
-    "last_name": "accusamus",
-    "patronymic": "laboriosam",
-    "phone": "velit",
-    "description": "adipisci",
+    "email": "jonas.lakin@example.net",
+    "password": "tempora",
+    "country_id": "aut",
+    "region_id": "et",
+    "city_id": "perferendis",
+    "name": "rem",
+    "last_name": "eaque",
+    "patronymic": "sunt",
+    "phone": "voluptas",
+    "description": "pariatur",
     "gender": "1",
     "date_of_birth": "2020-09-27",
     "company_type": "personal",
-    "company_name": "vel",
-    "company_site": "http:\/\/heathcote.net\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos",
-    "verification_token": "magnam"
+    "company_name": "eos",
+    "company_site": "http:\/\/orn.com\/quis-deserunt-perferendis-sint-reprehenderit-voluptatem-sapiente.html",
+    "verification_token": "molestiae"
 }
 
 fetch(url, {
@@ -64,6 +64,7 @@ fetch(url, {
     "message": "The given data was invalid.",
     "errors": {
         "password": [
+            "The password must be at least 8 characters.",
             "The password confirmation does not match."
         ],
         "country_id": [
@@ -197,7 +198,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"letitia74@example.org"}'
+    -d '{"email":"efrain34@example.com"}'
 
 ```
 
@@ -212,7 +213,7 @@ let headers = {
 };
 
 let body = {
-    "email": "letitia74@example.org"
+    "email": "efrain34@example.com"
 }
 
 fetch(url, {
@@ -255,7 +256,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"accusantium"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"ipsum"}'
 
 ```
 
@@ -273,7 +274,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "accusantium"
+    "verification_token": "ipsum"
 }
 
 fetch(url, {
@@ -326,7 +327,7 @@ curl -X POST \
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"tcrona@example.org"}'
+    -d '{"email":"dulce.west@example.com"}'
 
 ```
 
@@ -341,7 +342,7 @@ let headers = {
 };
 
 let body = {
-    "email": "tcrona@example.org"
+    "email": "dulce.west@example.com"
 }
 
 fetch(url, {
