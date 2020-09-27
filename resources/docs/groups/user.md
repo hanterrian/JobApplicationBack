@@ -1,7 +1,7 @@
 # User
 
 
-## Get current user profile
+## Get user profile
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -43,8 +43,8 @@ fetch(url, {
 ```json
 {
     "data": {
-        "id": 9,
-        "name": "Scribe",
+        "id": null,
+        "name": null,
         "last_name": null,
         "patronymic": null,
         "description": null,
@@ -57,11 +57,7 @@ fetch(url, {
         "country": null,
         "region": null,
         "city": null,
-        "user": {
-            "id": 18,
-            "email": "scribe@locale.dev",
-            "phone": null
-        },
+        "user": null,
         "socialLinks": []
     }
 }
@@ -87,19 +83,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=ad" \
-    -F "last_name=omnis" \
-    -F "patronymic=nostrum" \
-    -F "description=eaque" \
+    -F "name=non" \
+    -F "last_name=qui" \
+    -F "patronymic=beatae" \
+    -F "description=est" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
     -F "company_type=personal" \
-    -F "company_name=cumque" \
-    -F "company_site=http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html" \
-    -F "country=sequi" \
-    -F "region=aut" \
-    -F "city=cum" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpA3BC.tmp" 
+    -F "company_name=rerum" \
+    -F "company_site=https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis" \
+    -F "country=ipsa" \
+    -F "region=incidunt" \
+    -F "city=consequatur" \
+    -F "photo=@C:\OpenServer\userdata\temp\php4F20.tmp" 
 ```
 
 ```javascript
@@ -114,18 +110,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'ad');
-body.append('last_name', 'omnis');
-body.append('patronymic', 'nostrum');
-body.append('description', 'eaque');
+body.append('name', 'non');
+body.append('last_name', 'qui');
+body.append('patronymic', 'beatae');
+body.append('description', 'est');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'personal');
-body.append('company_name', 'cumque');
-body.append('company_site', 'http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html');
-body.append('country', 'sequi');
-body.append('region', 'aut');
-body.append('city', 'cum');
+body.append('company_name', 'rerum');
+body.append('company_site', 'https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis');
+body.append('country', 'ipsa');
+body.append('region', 'incidunt');
+body.append('city', 'consequatur');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

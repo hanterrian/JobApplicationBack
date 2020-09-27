@@ -63,7 +63,7 @@
     "http://job.locale/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"kris.shane@example.org","password":"deleniti","country_id":"assumenda","region_id":"quo","city_id":"velit","name":"consectetur","last_name":"a","patronymic":"atque","phone":"facere","description":"voluptatem","gender":"2","date_of_birth":"2020-09-27","company_type":"company","company_name":"repudiandae","company_site":"http:\/\/www.crooks.com\/vel-repellat-optio-dolorum-consequuntur-id-aut","verification_token":"corporis"}'
+    -d '{"role":"executor","email":"letha48@example.net","password":"perspiciatis","country_id":"omnis","region_id":"aut","city_id":"reiciendis","name":"sit","last_name":"accusamus","patronymic":"laboriosam","phone":"velit","description":"adipisci","gender":"1","date_of_birth":"2020-09-27","company_type":"personal","company_name":"vel","company_site":"http:\/\/heathcote.net\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos","verification_token":"magnam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/register"
@@ -76,22 +76,22 @@ let headers = {
 
 let body = {
     "role": "executor",
-    "email": "kris.shane@example.org",
-    "password": "deleniti",
-    "country_id": "assumenda",
-    "region_id": "quo",
-    "city_id": "velit",
-    "name": "consectetur",
-    "last_name": "a",
-    "patronymic": "atque",
-    "phone": "facere",
-    "description": "voluptatem",
-    "gender": "2",
+    "email": "letha48@example.net",
+    "password": "perspiciatis",
+    "country_id": "omnis",
+    "region_id": "aut",
+    "city_id": "reiciendis",
+    "name": "sit",
+    "last_name": "accusamus",
+    "patronymic": "laboriosam",
+    "phone": "velit",
+    "description": "adipisci",
+    "gender": "1",
     "date_of_birth": "2020-09-27",
-    "company_type": "company",
-    "company_name": "repudiandae",
-    "company_site": "http:\/\/www.crooks.com\/vel-repellat-optio-dolorum-consequuntur-id-aut",
-    "verification_token": "corporis"
+    "company_type": "personal",
+    "company_name": "vel",
+    "company_site": "http:\/\/heathcote.net\/nam-eligendi-ut-ut-sequi-iusto-corporis-quos",
+    "verification_token": "magnam"
 }
 
 fetch(url, {
@@ -188,7 +188,7 @@ fetch(url, {
     "http://job.locale/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"hershel.abernathy@example.com"}'
+    -d '{"email":"letitia74@example.org"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/register-token"
@@ -200,7 +200,7 @@ let headers = {
 };
 
 let body = {
-    "email": "hershel.abernathy@example.com"
+    "email": "letitia74@example.org"
 }
 
 fetch(url, {
@@ -230,7 +230,7 @@ The value must be a valid email address.</p>
     "http://job.locale/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"quos"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"accusantium"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/login"
@@ -245,7 +245,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "quos"
+    "verification_token": "accusantium"
 }
 
 fetch(url, {
@@ -282,7 +282,7 @@ Do nothing.</p>
     "http://job.locale/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ritchie.zoie@example.com"}'
+    -d '{"email":"tcrona@example.org"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/auth/login-token"
@@ -294,7 +294,7 @@ let headers = {
 };
 
 let body = {
-    "email": "ritchie.zoie@example.com"
+    "email": "tcrona@example.org"
 }
 
 fetch(url, {
@@ -400,7 +400,7 @@ fetch(url, {
     -G "http://job.locale/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"voluptatem"}'
+    -d '{"country_id":"magni"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/location/regions"
@@ -412,7 +412,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "voluptatem"
+    "country_id": "magni"
 }
 
 fetch(url, {
@@ -446,7 +446,7 @@ fetch(url, {
     -G "http://job.locale/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"sed","region_id":"amet"}'
+    -d '{"country_id":"ducimus","region_id":"quas"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/location/cities"
@@ -458,8 +458,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "sed",
-    "region_id": "amet"
+    "country_id": "ducimus",
+    "region_id": "quas"
 }
 
 fetch(url, {
@@ -1203,7 +1203,7 @@ fetch(url, {
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
 <strong><code>api/v1/order/category</code></strong></p><h1>User</h1>
-<h2>Get current user profile</h2>
+<h2>Get user profile</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
@@ -1234,8 +1234,8 @@ fetch(url, {
 </blockquote>
 <pre><code class="language-json">{
     "data": {
-        "id": 9,
-        "name": "Scribe",
+        "id": null,
+        "name": null,
         "last_name": null,
         "patronymic": null,
         "description": null,
@@ -1248,11 +1248,7 @@ fetch(url, {
         "country": null,
         "region": null,
         "city": null,
-        "user": {
-            "id": 18,
-            "email": "scribe@locale.dev",
-            "phone": null
-        },
+        "user": null,
         "socialLinks": []
     }
 }</code></pre>
@@ -1269,19 +1265,19 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=ad" \
-    -F "last_name=omnis" \
-    -F "patronymic=nostrum" \
-    -F "description=eaque" \
+    -F "name=non" \
+    -F "last_name=qui" \
+    -F "patronymic=beatae" \
+    -F "description=est" \
     -F "gender=1" \
     -F "date_of_birth=2020-09-27" \
     -F "company_type=personal" \
-    -F "company_name=cumque" \
-    -F "company_site=http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html" \
-    -F "country=sequi" \
-    -F "region=aut" \
-    -F "city=cum" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpA3BC.tmp" </code></pre>
+    -F "company_name=rerum" \
+    -F "company_site=https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis" \
+    -F "country=ipsa" \
+    -F "region=incidunt" \
+    -F "city=consequatur" \
+    -F "photo=@C:\OpenServer\userdata\temp\php4F20.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://job.locale/api/v1/user/profile"
 );
@@ -1293,18 +1289,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'ad');
-body.append('last_name', 'omnis');
-body.append('patronymic', 'nostrum');
-body.append('description', 'eaque');
+body.append('name', 'non');
+body.append('last_name', 'qui');
+body.append('patronymic', 'beatae');
+body.append('description', 'est');
 body.append('gender', '1');
 body.append('date_of_birth', '2020-09-27');
 body.append('company_type', 'personal');
-body.append('company_name', 'cumque');
-body.append('company_site', 'http://cassin.com/recusandae-libero-dolorum-voluptatum-nulla-quisquam-rerum.html');
-body.append('country', 'sequi');
-body.append('region', 'aut');
-body.append('city', 'cum');
+body.append('company_name', 'rerum');
+body.append('company_site', 'https://www.tromp.com/reprehenderit-fugit-qui-exercitationem-esse-inventore-ducimus-debitis');
+body.append('country', 'ipsa');
+body.append('region', 'incidunt');
+body.append('city', 'consequatur');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

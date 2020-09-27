@@ -25,22 +25,12 @@ class ProfileController extends Controller
      *
      * @authenticated
      *
-     * @param int|null $user_id
-     *
-     * @return UserProfile|\Illuminate\Http\JsonResponse
+     * @return UserProfile
      */
-    public function show(?int $user_id = null)
+    public function current()
     {
-        if ($user_id) {
-            $user = User::whereId($user_id)->first();
-        } else {
-            /** @var User $user */
-            $user = Auth::user();
-        }
-
-        if (!$user) {
-            return notFound();
-        }
+        /** @var User $user */
+        $user = Auth::user();
 
         /** @var Profile $profile */
         $profile = Profile::whereUserId($user->id)->first();
@@ -52,6 +42,20 @@ class ProfileController extends Controller
             ]);
         }
 
+        return new UserProfile($profile);
+    }
+
+    /**
+     * Get user profile
+     *
+     * @authenticated
+     *
+     * @param Profile $profile
+     *
+     * @return UserProfile
+     */
+    public function show(Profile $profile)
+    {
         return new UserProfile($profile);
     }
 
