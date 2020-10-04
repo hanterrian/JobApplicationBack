@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/order/order" \
+    -G "https://job.cijworld.com/api/v1/order/order" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order"
+    "https://job.cijworld.com/api/v1/order/order"
 );
 
 let headers = {
@@ -59,14 +59,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/order/order/{order}" \
+    -G "https://job.cijworld.com/api/v1/order/order/{order}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order/{order}"
+    "https://job.cijworld.com/api/v1/order/order/{order}"
 );
 
 let headers = {
@@ -109,7 +109,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/order/order" \
+    "https://job.cijworld.com/api/v1/order/order" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
@@ -119,7 +119,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order"
+    "https://job.cijworld.com/api/v1/order/order"
 );
 
 let headers = {
@@ -252,7 +252,7 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://job.locale/api/v1/order/order/{order}" \
+    "https://job.cijworld.com/api/v1/order/order/{order}" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
@@ -262,7 +262,7 @@ curl -X PUT \
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order/{order}"
+    "https://job.cijworld.com/api/v1/order/order/{order}"
 );
 
 let headers = {
@@ -360,7 +360,7 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "http://job.locale/api/v1/order/order/{order}" \
+    "https://job.cijworld.com/api/v1/order/order/{order}" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -368,7 +368,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order/{order}"
+    "https://job.cijworld.com/api/v1/order/order/{order}"
 );
 
 let headers = {
@@ -412,17 +412,17 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/order/order/add-executor" \
+    "https://job.cijworld.com/api/v1/order/order/add-executor" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":10}'
+    -d '{"order":18}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order/add-executor"
+    "https://job.cijworld.com/api/v1/order/order/add-executor"
 );
 
 let headers = {
@@ -432,7 +432,7 @@ let headers = {
 };
 
 let body = {
-    "order": 10
+    "order": 18
 }
 
 fetch(url, {
@@ -469,6 +469,73 @@ fetch(url, {
 
 
 
+## Remove executor from order
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://job.cijworld.com/api/v1/order/order/remove-executor" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"order":15}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://job.cijworld.com/api/v1/order/order/remove-executor"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 15
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (422):
+
+```json
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "order": [
+            "The selected order is invalid."
+        ]
+    },
+    "status": 422
+}
+```
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/v1/order/order/remove-executor`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>order</b></code>&nbsp; <small>integer</small>     <br>
+    
+
+
+
 ## Select executor to order
 
 <small class="badge badge-darkred">requires authentication</small>
@@ -479,17 +546,17 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/order/order/select-executor" \
+    "https://job.cijworld.com/api/v1/order/order/select-executor" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":17}'
+    -d '{"order":18}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order/select-executor"
+    "https://job.cijworld.com/api/v1/order/order/select-executor"
 );
 
 let headers = {
@@ -499,7 +566,7 @@ let headers = {
 };
 
 let body = {
-    "order": 17
+    "order": 18
 }
 
 fetch(url, {
@@ -546,17 +613,17 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/order/order/add-view" \
+    "https://job.cijworld.com/api/v1/order/order/add-view" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":13}'
+    -d '{"order":10}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/order/add-view"
+    "https://job.cijworld.com/api/v1/order/order/add-view"
 );
 
 let headers = {
@@ -566,7 +633,7 @@ let headers = {
 };
 
 let body = {
-    "order": 13
+    "order": 10
 }
 
 fetch(url, {
@@ -612,14 +679,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/order/currency" \
+    -G "https://job.cijworld.com/api/v1/order/currency" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/currency"
+    "https://job.cijworld.com/api/v1/order/currency"
 );
 
 let headers = {
@@ -665,14 +732,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/order/category" \
+    -G "https://job.cijworld.com/api/v1/order/category" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/order/category"
+    "https://job.cijworld.com/api/v1/order/category"
 );
 
 let headers = {

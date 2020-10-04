@@ -108,7 +108,7 @@ INTRO
      * The base URL to be used in examples.
      * If this is null, Scribe will use the value of config('app.url').
      */
-    'base_url' => null,
+    'base_url' => 'https://job.cijworld.com/',
 
     /*
      * The HTML <title> for the generated documentation, and the name of the generated Postman collection.

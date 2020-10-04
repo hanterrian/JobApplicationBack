@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/location/countries" \
+    -G "https://job.cijworld.com/api/v1/location/countries" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/location/countries"
+    "https://job.cijworld.com/api/v1/location/countries"
 );
 
 let headers = {
@@ -67,16 +67,16 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/location/regions" \
+    -G "https://job.cijworld.com/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"aperiam"}'
+    -d '{"country_id":"sunt"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/location/regions"
+    "https://job.cijworld.com/api/v1/location/regions"
 );
 
 let headers = {
@@ -85,7 +85,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "aperiam"
+    "country_id": "sunt"
 }
 
 fetch(url, {
@@ -131,16 +131,16 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/location/cities" \
+    -G "https://job.cijworld.com/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"qui","region_id":"ut"}'
+    -d '{"country_id":"sint","region_id":"cum"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/location/cities"
+    "https://job.cijworld.com/api/v1/location/cities"
 );
 
 let headers = {
@@ -149,8 +149,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "qui",
-    "region_id": "ut"
+    "country_id": "sint",
+    "region_id": "cum"
 }
 
 fetch(url, {

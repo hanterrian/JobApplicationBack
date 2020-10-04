@@ -11,7 +11,7 @@
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/user/profile" \
+    -G "https://job.cijworld.com/api/v1/user/profile" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -19,7 +19,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/user/profile"
+    "https://job.cijworld.com/api/v1/user/profile"
 );
 
 let headers = {
@@ -62,14 +62,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://job.locale/api/v1/user/profile/{user}" \
+    -G "https://job.cijworld.com/api/v1/user/profile/{user}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/user/profile/{user}"
+    "https://job.cijworld.com/api/v1/user/profile/{user}"
 );
 
 let headers = {
@@ -112,28 +112,28 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/user/profile" \
+    "https://job.cijworld.com/api/v1/user/profile" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=nulla" \
-    -F "last_name=alias" \
-    -F "patronymic=nihil" \
-    -F "description=nulla" \
-    -F "gender=2" \
-    -F "date_of_birth=2020-09-27" \
-    -F "company_type=company" \
-    -F "company_name=ducimus" \
-    -F "company_site=http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html" \
-    -F "country=id" \
-    -F "region=quis" \
-    -F "city=dolorem" \
-    -F "photo=@C:\OpenServer\userdata\temp\php7B06.tmp" 
+    -F "name=et" \
+    -F "last_name=incidunt" \
+    -F "patronymic=illum" \
+    -F "description=et" \
+    -F "gender=1" \
+    -F "date_of_birth=2020-10-04" \
+    -F "company_type=personal" \
+    -F "company_name=nobis" \
+    -F "company_site=http://www.bogisich.com/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html" \
+    -F "country=labore" \
+    -F "region=quo" \
+    -F "city=deserunt" \
+    -F "photo=@C:\OpenServer\userdata\temp\phpB82D.tmp" 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/user/profile"
+    "https://job.cijworld.com/api/v1/user/profile"
 );
 
 let headers = {
@@ -143,18 +143,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'nulla');
-body.append('last_name', 'alias');
-body.append('patronymic', 'nihil');
-body.append('description', 'nulla');
-body.append('gender', '2');
-body.append('date_of_birth', '2020-09-27');
-body.append('company_type', 'company');
-body.append('company_name', 'ducimus');
-body.append('company_site', 'http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html');
-body.append('country', 'id');
-body.append('region', 'quis');
-body.append('city', 'dolorem');
+body.append('name', 'et');
+body.append('last_name', 'incidunt');
+body.append('patronymic', 'illum');
+body.append('description', 'et');
+body.append('gender', '1');
+body.append('date_of_birth', '2020-10-04');
+body.append('company_type', 'personal');
+body.append('company_name', 'nobis');
+body.append('company_site', 'http://www.bogisich.com/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html');
+body.append('country', 'labore');
+body.append('region', 'quo');
+body.append('city', 'deserunt');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

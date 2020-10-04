@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "d185976f-6003-43a9-af33-a2738d73b17c",
+        "_postman_id": "89c68aed-0aa5-4df5-b9b7-54c25438de9c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -16,10 +16,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/register-check",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/register-check"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/register-check"
                         },
                         "method": "POST",
                         "header": [
@@ -45,10 +45,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/register-token",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/register-token"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/register-token"
                         },
                         "method": "POST",
                         "header": [
@@ -63,7 +63,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"gusikowski.precious@example.net\"\n}"
+                            "raw": "{\n    \"email\": \"cvandervort@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -77,10 +77,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/login",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/login"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/login"
                         },
                         "method": "POST",
                         "header": [
@@ -95,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"autem\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"eos\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -109,10 +109,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/login-token",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/login-token"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/login-token"
                         },
                         "method": "POST",
                         "header": [
@@ -127,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"jamarcus11@example.net\"\n}"
+                            "raw": "{\n    \"email\": \"ruecker.kay@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -141,10 +141,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/logout",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/auth\/logout"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/logout"
                         },
                         "method": "POST",
                         "header": [
@@ -178,10 +178,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/location\/countries",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/location\/countries"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/location\/countries"
                         },
                         "method": "GET",
                         "header": [
@@ -207,10 +207,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/location\/regions",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/location\/regions"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/location\/regions"
                         },
                         "method": "GET",
                         "header": [
@@ -225,7 +225,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"aperiam\"\n}"
+                            "raw": "{\n    \"country_id\": \"sunt\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -239,10 +239,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/location\/cities",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/location\/cities"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/location\/cities"
                         },
                         "method": "GET",
                         "header": [
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"qui\",\n    \"region_id\": \"ut\"\n}"
+                            "raw": "{\n    \"country_id\": \"sint\",\n    \"region_id\": \"cum\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -277,10 +277,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order"
                         },
                         "method": "GET",
                         "header": [
@@ -306,10 +306,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/:order",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/:order"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
                         },
                         "method": "GET",
                         "header": [
@@ -335,10 +335,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order"
                         },
                         "method": "POST",
                         "header": [
@@ -369,10 +369,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/:order",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/:order"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
                         },
                         "method": "PUT",
                         "header": [
@@ -403,10 +403,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/:order",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/:order"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
                         },
                         "method": "DELETE",
                         "header": [
@@ -434,10 +434,112 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/add-executor",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/add-executor"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/add-executor"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order\": 18\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove executor from order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/order\/order\/remove-executor",
+                            "query": [],
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/remove-executor"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order\": 15\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Select executor to order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/order\/order\/select-executor",
+                            "query": [],
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/select-executor"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Authorization",
+                                "value": "Bearer {YOUR_AUTH_KEY}"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"order\": 18\n}"
+                        },
+                        "description": "",
+                        "auth": null
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Add viewer to order",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/order\/order\/add-view",
+                            "query": [],
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/add-view"
                         },
                         "method": "POST",
                         "header": [
@@ -464,82 +566,14 @@
                     "response": []
                 },
                 {
-                    "name": "Select executor to order",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "job.locale",
-                            "path": "api\/v1\/order\/order\/select-executor",
-                            "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/select-executor"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {YOUR_AUTH_KEY}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"order\": 17\n}"
-                        },
-                        "description": "",
-                        "auth": null
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Add viewer to order",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "job.locale",
-                            "path": "api\/v1\/order\/order\/add-view",
-                            "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/order\/add-view"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Authorization",
-                                "value": "Bearer {YOUR_AUTH_KEY}"
-                            },
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"order\": 13\n}"
-                        },
-                        "description": "",
-                        "auth": null
-                    },
-                    "response": []
-                },
-                {
                     "name": "Currency list",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/currency",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/currency"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/currency"
                         },
                         "method": "GET",
                         "header": [
@@ -565,10 +599,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/category",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/order\/category"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/category"
                         },
                         "method": "GET",
                         "header": [
@@ -600,10 +634,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/user\/profile",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/user\/profile"
                         },
                         "method": "GET",
                         "header": [
@@ -631,10 +665,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/user\/profile\/:user",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile\/:user"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/user\/profile\/:user"
                         },
                         "method": "GET",
                         "header": [
@@ -660,10 +694,10 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "job.locale",
+                            "host": "job.cijworld.com\/",
                             "path": "api\/v1\/user\/profile",
                             "query": [],
-                            "raw": "http:\/\/job.locale\/api\/v1\/user\/profile"
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/user\/profile"
                         },
                         "method": "POST",
                         "header": [
@@ -685,62 +719,62 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "nulla",
+                                    "value": "et",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "alias",
+                                    "value": "incidunt",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "nihil",
+                                    "value": "illum",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "nulla",
+                                    "value": "et",
                                     "type": "text"
                                 },
                                 {
                                     "key": "gender",
-                                    "value": "2",
+                                    "value": "1",
                                     "type": "text"
                                 },
                                 {
                                     "key": "date_of_birth",
-                                    "value": "2020-09-27",
+                                    "value": "2020-10-04",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_type",
-                                    "value": "company",
+                                    "value": "personal",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "ducimus",
+                                    "value": "nobis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/dietrich.info\/maxime-animi-officiis-explicabo-placeat-consequuntur.html",
+                                    "value": "http:\/\/www.bogisich.com\/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "id",
+                                    "value": "labore",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "quis",
+                                    "value": "quo",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "dolorem",
+                                    "value": "deserunt",
                                     "type": "text"
                                 },
                                 {

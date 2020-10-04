@@ -10,14 +10,14 @@
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/auth/register-check" \
+    "https://job.cijworld.com/api/v1/auth/register-check" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/auth/register-check"
+    "https://job.cijworld.com/api/v1/auth/register-check"
 );
 
 let headers = {
@@ -58,16 +58,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/auth/register-token" \
+    "https://job.cijworld.com/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"gusikowski.precious@example.net"}'
+    -d '{"email":"cvandervort@example.org"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/auth/register-token"
+    "https://job.cijworld.com/api/v1/auth/register-token"
 );
 
 let headers = {
@@ -76,7 +76,7 @@ let headers = {
 };
 
 let body = {
-    "email": "gusikowski.precious@example.net"
+    "email": "cvandervort@example.org"
 }
 
 fetch(url, {
@@ -116,16 +116,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/auth/login" \
+    "https://job.cijworld.com/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"autem"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"eos"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/auth/login"
+    "https://job.cijworld.com/api/v1/auth/login"
 );
 
 let headers = {
@@ -137,7 +137,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": false,
-    "verification_token": "autem"
+    "verification_token": "eos"
 }
 
 fetch(url, {
@@ -187,16 +187,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/auth/login-token" \
+    "https://job.cijworld.com/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"jamarcus11@example.net"}'
+    -d '{"email":"ruecker.kay@example.org"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/auth/login-token"
+    "https://job.cijworld.com/api/v1/auth/login-token"
 );
 
 let headers = {
@@ -205,7 +205,7 @@ let headers = {
 };
 
 let body = {
-    "email": "jamarcus11@example.net"
+    "email": "ruecker.kay@example.org"
 }
 
 fetch(url, {
@@ -246,7 +246,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://job.locale/api/v1/auth/logout" \
+    "https://job.cijworld.com/api/v1/auth/logout" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -254,7 +254,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://job.locale/api/v1/auth/logout"
+    "https://job.cijworld.com/api/v1/auth/logout"
 );
 
 let headers = {

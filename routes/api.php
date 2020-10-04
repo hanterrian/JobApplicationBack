@@ -48,6 +48,7 @@ Route::group(['middleware' => ['json.response']], function () {
             Route::apiResource('order', OrderController::class)->middleware('auth:api')->except(['index', 'show']);
             //
             Route::post('order/add-executor', [OrderController::class, 'addExecutor'])->middleware('auth:api');
+            Route::post('order/remove-executor', [OrderController::class, 'removeExecutor'])->middleware('auth:api');
             Route::post('order/select-executor', [OrderController::class, 'selectExecutor'])->middleware('auth:api');
             Route::post('order/add-view', [OrderController::class, 'addViewer'])->middleware('auth:api');
             //

@@ -5,7 +5,7 @@ info:
     version: 1.0.0
 servers:
     -
-        url: 'http://job.locale'
+        url: 'https://job.cijworld.com'
 paths:
     /api/v1/auth/register-check:
         post:
@@ -82,7 +82,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: gusikowski.precious@example.net
+                                    example: cvandervort@example.org
                             required:
                                 - email
             security: []
@@ -142,7 +142,7 @@ paths:
                                 verification_token:
                                     type: string
                                     description: 'Do nothing.'
-                                    example: autem
+                                    example: eos
             security: []
     /api/v1/auth/login-token:
         post:
@@ -186,7 +186,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: jamarcus11@example.net
+                                    example: ruecker.kay@example.org
                             required:
                                 - email
             security: []
@@ -308,7 +308,7 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: aperiam
+                                    example: sunt
                             required:
                                 - country_id
             security: []
@@ -358,11 +358,11 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: qui
+                                    example: sint
                                 region_id:
                                     type: string
                                     description: ''
-                                    example: ut
+                                    example: cum
                             required:
                                 - country_id
                                 - region_id
@@ -458,31 +458,31 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: in
+                                    example: eos
                                 description:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: sed
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
-                                    example: online
+                                    example: offline
                                 price:
                                     type: number
                                     description: ''
-                                    example: 2.590644
+                                    example: 1137028.39716
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-27'
+                                    example: '2020-10-04'
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '14:14:36'
+                                    example: '12:39:58'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '14:14:36'
+                                    example: '12:39:58'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -494,19 +494,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: incidunt
+                                    example: totam
                                 country:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: sit
                                 region:
                                     type: string
                                     description: ''
-                                    example: ducimus
+                                    example: ullam
                                 city:
                                     type: string
                                     description: ''
-                                    example: magnam
+                                    example: voluptates
                                 'images.*':
                                     type: string
                                     format: binary
@@ -514,7 +514,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: dicta
+                                    example: earum
                             required:
                                 - type
                                 - title
@@ -614,35 +614,35 @@ paths:
                                 type:
                                     type: string
                                     description: 'The value must be one of <code>request</code> or <code>service</code>.'
-                                    example: request
+                                    example: service
                                 title:
                                     type: string
                                     description: ''
-                                    example: culpa
+                                    example: reprehenderit
                                 description:
                                     type: string
                                     description: ''
-                                    example: quo
+                                    example: culpa
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
-                                    example: offline
+                                    example: online
                                 price:
                                     type: number
                                     description: ''
-                                    example: !!float 42
+                                    example: 8.345
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-27'
+                                    example: '2020-10-04'
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '14:14:36'
+                                    example: '12:39:58'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '14:14:36'
+                                    example: '12:39:58'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -654,19 +654,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: aliquid
+                                    example: quo
                                 country:
                                     type: string
                                     description: ''
-                                    example: modi
+                                    example: aperiam
                                 region:
                                     type: string
                                     description: ''
-                                    example: veritatis
+                                    example: incidunt
                                 city:
                                     type: string
                                     description: ''
-                                    example: laboriosam
+                                    example: sit
                                 'images.*':
                                     type: string
                                     format: binary
@@ -674,7 +674,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: similique
+                                    example: atque
                             required:
                                 - type
                                 - title
@@ -782,7 +782,63 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 10
+                                    example: 18
+                            required:
+                                - order
+    /api/v1/order/order/remove-executor:
+        post:
+            summary: 'Remove executor from order'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                422:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'The given data was invalid.'
+                                    errors: { order: ['The selected order is invalid.'] }
+                                    status: 422
+                                properties:
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { order: ['The selected order is invalid.'] } }
+                                    status: { type: integer, example: 422 }
+            tags:
+                - Order
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                order:
+                                    type: integer
+                                    description: ''
+                                    example: 15
                             required:
                                 - order
     /api/v1/order/order/select-executor:
@@ -838,7 +894,7 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 17
+                                    example: 18
                             required:
                                 - order
     /api/v1/order/order/add-view:
@@ -894,7 +950,7 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 13
+                                    example: 10
                             required:
                                 - order
     /api/v1/order/currency:
@@ -1054,23 +1110,23 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: nulla
+                                    example: et
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: alias
+                                    example: incidunt
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: nihil
+                                    example: illum
                                 description:
                                     type: string
                                     description: ''
-                                    example: nulla
+                                    example: et
                                 gender:
                                     type: string
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
-                                    example: '2'
+                                    example: '1'
                                 photo:
                                     type: string
                                     format: binary
@@ -1078,31 +1134,31 @@ paths:
                                 date_of_birth:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-09-27'
+                                    example: '2020-10-04'
                                 company_type:
                                     type: string
                                     description: 'The value must be one of <code>personal</code> or <code>company</code>.'
-                                    example: company
+                                    example: personal
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: ducimus
+                                    example: nobis
                                 company_site:
                                     type: string
                                     description: 'The value must be a valid URL.'
-                                    example: 'http://dietrich.info/maxime-animi-officiis-explicabo-placeat-consequuntur.html'
+                                    example: 'http://www.bogisich.com/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html'
                                 country:
                                     type: string
                                     description: ''
-                                    example: id
+                                    example: labore
                                 region:
                                     type: string
                                     description: ''
-                                    example: quis
+                                    example: quo
                                 city:
                                     type: string
                                     description: ''
-                                    example: dolorem
+                                    example: deserunt
                             required:
                                 - name
                                 - last_name

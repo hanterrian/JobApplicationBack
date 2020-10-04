@@ -185,6 +185,41 @@ class OrderController extends Controller
     }
 
     /**
+     * Remove executor from order
+     *
+     * @authenticated
+     *
+     * @param OrderPostRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function removeExecutor(OrderPostRequest $request)
+    {
+        /** @var User $user */
+        $user = Auth::user();
+        /** @var Order $order */
+        $order = Order::whereId($request->order)->first();
+
+        if (!$order->responding()->get()->contains($user)) {
+            return response()->json([
+                'message' => 'User not attached'
+            ], 422);
+        }
+
+        if ($order->user_id == $user->id) {
+            return response()->json([
+                'message' => 'Can\'t connect owner'
+            ], 422);
+        }
+
+        $order->responding()->detach($user);
+
+        return response()->json([
+            'message' => 'User remove from executor'
+        ]);
+    }
+
+    /**
      * Select executor to order
      *
      * @authenticated
