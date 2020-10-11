@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Api\Auth;
 
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -69,9 +68,9 @@ class RegisterFormRequest extends FormRequest
             'patronymic' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:500'],
-            'gender' => ['required', Rule::in([Profile::GENDER_MALE, Profile::GENDER_FEMALE])],
+            'gender' => ['required', Rule::in([User::GENDER_MALE, User::GENDER_FEMALE])],
             'date_of_birth' => ['required', 'date_format:Y-m-d'],
-            'company_type' => ['required', Rule::in([Profile::COMPANY_TYPE_PERSONAL, Profile::COMPANY_TYPE_COMPANY])],
+            'company_type' => ['required', Rule::in([User::COMPANY_TYPE_PERSONAL, User::COMPANY_TYPE_COMPANY])],
             'company_name' => ['string', 'max:255'],
             'company_site' => ['url'],
             //

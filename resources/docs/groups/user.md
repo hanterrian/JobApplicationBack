@@ -116,19 +116,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=et" \
-    -F "last_name=incidunt" \
-    -F "patronymic=illum" \
-    -F "description=et" \
+    -F "name=eligendi" \
+    -F "last_name=consequatur" \
+    -F "patronymic=at" \
+    -F "description=eaque" \
     -F "gender=1" \
-    -F "date_of_birth=2020-10-04" \
+    -F "date_of_birth=2020-10-11" \
     -F "company_type=personal" \
-    -F "company_name=nobis" \
-    -F "company_site=http://www.bogisich.com/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html" \
-    -F "country=labore" \
-    -F "region=quo" \
-    -F "city=deserunt" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpB82D.tmp" 
+    -F "company_name=architecto" \
+    -F "company_site=https://www.cartwright.org/voluptate-debitis-enim-et-ut-dolor-quasi" \
+    -F "country=est" \
+    -F "region=eligendi" \
+    -F "city=blanditiis" \
+    -F "photo=@C:\OpenServer\userdata\temp\phpB9A1.tmp" 
 ```
 
 ```javascript
@@ -143,18 +143,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'et');
-body.append('last_name', 'incidunt');
-body.append('patronymic', 'illum');
-body.append('description', 'et');
+body.append('name', 'eligendi');
+body.append('last_name', 'consequatur');
+body.append('patronymic', 'at');
+body.append('description', 'eaque');
 body.append('gender', '1');
-body.append('date_of_birth', '2020-10-04');
+body.append('date_of_birth', '2020-10-11');
 body.append('company_type', 'personal');
-body.append('company_name', 'nobis');
-body.append('company_site', 'http://www.bogisich.com/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html');
-body.append('country', 'labore');
-body.append('region', 'quo');
-body.append('city', 'deserunt');
+body.append('company_name', 'architecto');
+body.append('company_site', 'https://www.cartwright.org/voluptate-debitis-enim-et-ut-dolor-quasi');
+body.append('country', 'est');
+body.append('region', 'eligendi');
+body.append('city', 'blanditiis');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

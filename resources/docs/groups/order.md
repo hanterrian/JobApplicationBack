@@ -416,7 +416,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":18}'
+    -d '{"order":10}'
 
 ```
 
@@ -432,7 +432,7 @@ let headers = {
 };
 
 let body = {
-    "order": 18
+    "order": 10
 }
 
 fetch(url, {
@@ -483,7 +483,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":15}'
+    -d '{"order":5}'
 
 ```
 
@@ -499,7 +499,7 @@ let headers = {
 };
 
 let body = {
-    "order": 15
+    "order": 5
 }
 
 fetch(url, {
@@ -512,17 +512,12 @@ fetch(url, {
 ```
 
 
-> Example response (422):
+> Example response (500):
 
 ```json
 {
-    "message": "The given data was invalid.",
-    "errors": {
-        "order": [
-            "The selected order is invalid."
-        ]
-    },
-    "status": 422
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }
 ```
 
@@ -550,7 +545,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":18}'
+    -d '{"order":19}'
 
 ```
 
@@ -566,7 +561,7 @@ let headers = {
 };
 
 let body = {
-    "order": 18
+    "order": 19
 }
 
 fetch(url, {
@@ -617,7 +612,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":10}'
+    -d '{"order":14}'
 
 ```
 
@@ -633,7 +628,7 @@ let headers = {
 };
 
 let body = {
-    "order": 10
+    "order": 14
 }
 
 fetch(url, {

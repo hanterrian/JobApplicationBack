@@ -70,7 +70,7 @@ curl -X GET \
     -G "https://job.cijworld.com/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"sunt"}'
+    -d '{"country_id":"aut"}'
 
 ```
 
@@ -85,7 +85,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "sunt"
+    "country_id": "aut"
 }
 
 fetch(url, {
@@ -134,7 +134,7 @@ curl -X GET \
     -G "https://job.cijworld.com/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"sint","region_id":"cum"}'
+    -d '{"country_id":"beatae","region_id":"omnis"}'
 
 ```
 
@@ -149,8 +149,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "sint",
-    "region_id": "cum"
+    "country_id": "beatae",
+    "region_id": "omnis"
 }
 
 fetch(url, {

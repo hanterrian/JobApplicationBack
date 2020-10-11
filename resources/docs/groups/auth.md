@@ -1,6 +1,143 @@
 # Auth
 
 
+## Register new user
+
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://job.cijworld.com/api/v1/auth/register" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"role":"executor","email":"gregg.veum@example.org","password":"pariatur","country_id":"iste","region_id":"eveniet","city_id":"aut","name":"non","last_name":"dolorum","patronymic":"numquam","phone":"voluptatem","description":"pariatur","gender":"1","date_of_birth":"2020-10-11","company_type":"company","company_name":"impedit","company_site":"http:\/\/conn.com\/","verification_token":"consequatur"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://job.cijworld.com/api/v1/auth/register"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "role": "executor",
+    "email": "gregg.veum@example.org",
+    "password": "pariatur",
+    "country_id": "iste",
+    "region_id": "eveniet",
+    "city_id": "aut",
+    "name": "non",
+    "last_name": "dolorum",
+    "patronymic": "numquam",
+    "phone": "voluptatem",
+    "description": "pariatur",
+    "gender": "1",
+    "date_of_birth": "2020-10-11",
+    "company_type": "company",
+    "company_name": "impedit",
+    "company_site": "http:\/\/conn.com\/",
+    "verification_token": "consequatur"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (422):
+
+```json
+{
+    "message": "The given data was invalid.",
+    "errors": {
+        "password": [
+            "The password confirmation does not match."
+        ],
+        "country_id": [
+            "The selected country id is invalid."
+        ],
+        "region_id": [
+            "The selected region id is invalid."
+        ],
+        "city_id": [
+            "The selected city id is invalid."
+        ]
+    },
+    "status": 422
+}
+```
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/v1/auth/register`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>role</b></code>&nbsp; <small>string</small>     <br>
+    The value must be one of <code>customer</code> or <code>executor</code>.
+
+<code><b>email</b></code>&nbsp; <small>string</small>     <br>
+    The value must be a valid email address.
+
+<code><b>password</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>country_id</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>region_id</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>city_id</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>name</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>last_name</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>patronymic</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>phone</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>description</b></code>&nbsp; <small>string</small>     <br>
+    
+
+<code><b>gender</b></code>&nbsp; <small>string</small>     <br>
+    The value must be one of <code>1</code> or <code>2</code>.
+
+<code><b>date_of_birth</b></code>&nbsp; <small>string</small>     <br>
+    The value must be a valid date in the format Y-m-d.
+
+<code><b>company_type</b></code>&nbsp; <small>string</small>     <br>
+    The value must be one of <code>personal</code> or <code>company</code>.
+
+<code><b>company_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
+
+<code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    The value must be a valid URL.
+
+<code><b>verification_token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
+
+
+
 ## Check email|phone token
 
 
@@ -61,7 +198,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"cvandervort@example.org"}'
+    -d '{"email":"dstracke@example.net"}'
 
 ```
 
@@ -76,7 +213,7 @@ let headers = {
 };
 
 let body = {
-    "email": "cvandervort@example.org"
+    "email": "dstracke@example.net"
 }
 
 fetch(url, {
@@ -119,7 +256,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"eos"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"inventore"}'
 
 ```
 
@@ -136,8 +273,8 @@ let headers = {
 let body = {
     "email": "user@dev.dev",
     "password": "********",
-    "remember_me": false,
-    "verification_token": "eos"
+    "remember_me": true,
+    "verification_token": "inventore"
 }
 
 fetch(url, {
@@ -190,7 +327,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ruecker.kay@example.org"}'
+    -d '{"email":"santiago06@example.org"}'
 
 ```
 
@@ -205,7 +342,7 @@ let headers = {
 };
 
 let body = {
-    "email": "ruecker.kay@example.org"
+    "email": "santiago06@example.org"
 }
 
 fetch(url, {

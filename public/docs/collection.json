@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "89c68aed-0aa5-4df5-b9b7-54c25438de9c",
+        "_postman_id": "a9b66f2f-b417-4084-aacb-a2432ef9f077",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -11,6 +11,38 @@
             "name": "Auth",
             "description": "",
             "item": [
+                {
+                    "name": "Register new user",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/auth\/register",
+                            "query": [],
+                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"gregg.veum@example.org\",\n    \"password\": \"pariatur\",\n    \"country_id\": \"iste\",\n    \"region_id\": \"eveniet\",\n    \"city_id\": \"aut\",\n    \"name\": \"non\",\n    \"last_name\": \"dolorum\",\n    \"patronymic\": \"numquam\",\n    \"phone\": \"voluptatem\",\n    \"description\": \"pariatur\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-10-11\",\n    \"company_type\": \"company\",\n    \"company_name\": \"impedit\",\n    \"company_site\": \"http:\\\/\\\/conn.com\\\/\",\n    \"verification_token\": \"consequatur\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
                 {
                     "name": "Check email|phone token",
                     "request": {
@@ -63,7 +95,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"cvandervort@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"dstracke@example.net\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -95,7 +127,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"eos\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": true,\n    \"verification_token\": \"inventore\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -127,7 +159,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"ruecker.kay@example.org\"\n}"
+                            "raw": "{\n    \"email\": \"santiago06@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -225,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"sunt\"\n}"
+                            "raw": "{\n    \"country_id\": \"aut\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"sint\",\n    \"region_id\": \"cum\"\n}"
+                            "raw": "{\n    \"country_id\": \"beatae\",\n    \"region_id\": \"omnis\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -456,7 +488,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 18\n}"
+                            "raw": "{\n    \"order\": 10\n}"
                         },
                         "description": "",
                         "auth": null
@@ -490,7 +522,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 15\n}"
+                            "raw": "{\n    \"order\": 5\n}"
                         },
                         "description": "",
                         "auth": null
@@ -524,7 +556,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 18\n}"
+                            "raw": "{\n    \"order\": 19\n}"
                         },
                         "description": "",
                         "auth": null
@@ -558,7 +590,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 10\n}"
+                            "raw": "{\n    \"order\": 14\n}"
                         },
                         "description": "",
                         "auth": null
@@ -719,22 +751,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "et",
+                                    "value": "eligendi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "incidunt",
+                                    "value": "consequatur",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "illum",
+                                    "value": "at",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "et",
+                                    "value": "eaque",
                                     "type": "text"
                                 },
                                 {
@@ -744,7 +776,7 @@
                                 },
                                 {
                                     "key": "date_of_birth",
-                                    "value": "2020-10-04",
+                                    "value": "2020-10-11",
                                     "type": "text"
                                 },
                                 {
@@ -754,27 +786,27 @@
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "nobis",
+                                    "value": "architecto",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/www.bogisich.com\/blanditiis-aut-vitae-officia-omnis-ut-ea-vitae-exercitationem.html",
+                                    "value": "https:\/\/www.cartwright.org\/voluptate-debitis-enim-et-ut-dolor-quasi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "labore",
+                                    "value": "est",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "quo",
+                                    "value": "eligendi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "deserunt",
+                                    "value": "blanditiis",
                                     "type": "text"
                                 },
                                 {
