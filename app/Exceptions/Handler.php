@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if ($request->wantsJson() || in_array('api', $request->route()->middleware())) {
+        if ($request->wantsJson()) {
             return $this->handleApiException($request, $exception);
         } else {
             return parent::render($request, $exception);
