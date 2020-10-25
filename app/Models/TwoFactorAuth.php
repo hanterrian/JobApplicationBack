@@ -82,7 +82,7 @@ class TwoFactorAuth extends Model
             'token' => $token,
             'provider' => $provider,
         ])
-//            ->whereDate('created_at', '>', now()->addMinutes(10))
+            ->whereTime('created_at', '>', now()->addMinutes(10))
             ->first();
     }
 
