@@ -48,17 +48,24 @@ class TwoFactorAuth extends Model
      * @param User $user
      * @param string $provider
      *
-     * @return TwoFactorAuth
+     * @return TwoFactorAuth|null
      */
-    public static function createToken(User $user, string $provider): TwoFactorAuth
+    public static function createToken(User $user, string $provider): ?TwoFactorAuth
     {
         $token = Str::random(8);
 
-        return TwoFactorAuth::create([
-            'user_id' => $user->id,
-            'token' => $token,
-            'provider' => $provider,
-        ]);
+        $model = new TwoFactorAuth();
+
+        $model->token = $token;
+        $model->provider = $provider;
+
+        $model->user()->associate($user);
+
+        if ($model->save()) {
+            return $model;
+        } else {
+            return null;
+        }
     }
 
     /**
