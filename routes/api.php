@@ -32,10 +32,10 @@ Route::group(['middleware' => ['json.response']], function () {
     Route::group(['prefix' => 'v1'], function () {
         Route::group(['prefix' => 'auth'], function () {
             Route::post('register', [RegisterController::class, 'index']);
-            Route::post('register-check', [RegisterController::class, 'check']);
             Route::post('register-token', [RegisterController::class, 'token']);
             Route::post('login', [LoginController::class, 'index']);
             Route::post('login-token', [LoginController::class, 'token']);
+            Route::get('verification-methods', [LoginController::class, 'verificationMethods']);
             Route::post('logout', [LogoutController::class, 'index'])->middleware('auth:api');
         });
         Route::group(['prefix' => 'user'], function () {

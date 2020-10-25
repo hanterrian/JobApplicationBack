@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Models\TwoFactorAuth;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -19,14 +20,19 @@ class LoginVerificationMail extends Mailable
     /** @var User */
     private $user;
 
+    /** @var TwoFactorAuth */
+    private $token;
+
     /**
-     * RegisterVerificationMail constructor.
+     * LoginVerificationMail constructor.
      *
      * @param User $user
+     * @param TwoFactorAuth $token
      */
-    public function __construct(User $user)
+    public function __construct(User $user, TwoFactorAuth $token)
     {
         $this->user = $user;
+        $this->token = $token;
     }
 
     /**
@@ -36,6 +42,8 @@ class LoginVerificationMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('email.auth.login.verification')->with('user', $this->user);
+        return $this->markdown('email.auth.login.verification')
+            ->with('user', $this->user)
+            ->with('token', $this->token);
     }
 }

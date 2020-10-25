@@ -31,6 +31,7 @@ class LoginTokenRequest extends FormRequest
     {
         return [
             'email' => ['required', 'string', 'email', 'max:255'],
+            'token' => ['required', 'string', 'max:255'],
         ];
     }
 }

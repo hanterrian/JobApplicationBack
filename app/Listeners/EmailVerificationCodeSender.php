@@ -37,7 +37,7 @@ class EmailVerificationCodeSender
     {
         if ($event->type == UserValidateTokenSend::TYPE_EMAIL_CODE) {
             if ($event instanceof UserValidateTokenSend) {
-                $class = new LoginVerificationMail($event->user);
+                $class = new LoginVerificationMail($event->user, $event->token);
             } elseif ($event instanceof EmailValidateTokenSend) {
                 $class = new RegisterVerificationMail($event->token);
             }

@@ -31,7 +31,6 @@ use Laravel\Passport\HasApiTokens;
  * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\UserPhone[] $phones
  * @property-read int|null $phones_count
- * @property-read \App\Models\Profile|null $profile
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Passport\Token[] $tokens
  * @property-read int|null $tokens_count
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User group($groups)

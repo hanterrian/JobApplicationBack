@@ -116,19 +116,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=eligendi" \
-    -F "last_name=consequatur" \
-    -F "patronymic=at" \
-    -F "description=eaque" \
+    -F "name=adipisci" \
+    -F "last_name=commodi" \
+    -F "patronymic=veritatis" \
+    -F "description=at" \
     -F "gender=1" \
-    -F "date_of_birth=2020-10-11" \
-    -F "company_type=personal" \
-    -F "company_name=architecto" \
-    -F "company_site=https://www.cartwright.org/voluptate-debitis-enim-et-ut-dolor-quasi" \
-    -F "country=est" \
-    -F "region=eligendi" \
-    -F "city=blanditiis" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpB9A1.tmp" 
+    -F "date_of_birth=2020-10-25" \
+    -F "company_type=company" \
+    -F "company_name=optio" \
+    -F "company_site=http://www.goldner.com/" \
+    -F "country=error" \
+    -F "region=qui" \
+    -F "city=dolores" \
+    -F "photo=@C:\OpenServer\userdata\temp\php7CA4.tmp" 
 ```
 
 ```javascript
@@ -143,18 +143,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'eligendi');
-body.append('last_name', 'consequatur');
-body.append('patronymic', 'at');
-body.append('description', 'eaque');
+body.append('name', 'adipisci');
+body.append('last_name', 'commodi');
+body.append('patronymic', 'veritatis');
+body.append('description', 'at');
 body.append('gender', '1');
-body.append('date_of_birth', '2020-10-11');
-body.append('company_type', 'personal');
-body.append('company_name', 'architecto');
-body.append('company_site', 'https://www.cartwright.org/voluptate-debitis-enim-et-ut-dolor-quasi');
-body.append('country', 'est');
-body.append('region', 'eligendi');
-body.append('city', 'blanditiis');
+body.append('date_of_birth', '2020-10-25');
+body.append('company_type', 'company');
+body.append('company_name', 'optio');
+body.append('company_site', 'http://www.goldner.com/');
+body.append('country', 'error');
+body.append('region', 'qui');
+body.append('city', 'dolores');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

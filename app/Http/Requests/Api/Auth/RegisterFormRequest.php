@@ -73,8 +73,6 @@ class RegisterFormRequest extends FormRequest
             'company_type' => ['required', Rule::in([User::COMPANY_TYPE_PERSONAL, User::COMPANY_TYPE_COMPANY])],
             'company_name' => ['string', 'max:255'],
             'company_site' => ['url'],
-            //
-            'verification_token' => ['string'],
         ];
     }
 }

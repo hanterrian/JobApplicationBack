@@ -1,9 +1,9 @@
 # GENERATED. YOU SHOULDN'T MODIFY OR DELETE THIS FILE.
 # Scribe uses this file to know when you change something manually in your docs.
 resources/docs/groups/endpoints.md=1601094426
-resources/docs/index.md=1602404660
-resources/docs/authentication.md=1602404660
-resources/docs/groups/auth.md=1602404659
-resources/docs/groups/location.md=1602404659
-resources/docs/groups/order.md=1602404659
-resources/docs/groups/user.md=1602404659
+resources/docs/index.md=1603632240
+resources/docs/authentication.md=1603632240
+resources/docs/groups/auth.md=1603632240
+resources/docs/groups/location.md=1603632240
+resources/docs/groups/order.md=1603632240
+resources/docs/groups/user.md=1603632240

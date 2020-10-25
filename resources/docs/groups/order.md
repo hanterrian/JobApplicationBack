@@ -416,7 +416,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":10}'
+    -d '{"order":7}'
 
 ```
 
@@ -432,7 +432,68 @@ let headers = {
 };
 
 let body = {
-    "order": 10
+    "order": 7
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "User add to executor"
+}
+```
+
+### Request
+<small class="badge badge-black">POST</small>
+ **`api/v1/order/order/add-executor`**
+
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<code><b>order</b></code>&nbsp; <small>integer</small>     <br>
+    
+
+
+
+## Remove executor from order
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X POST \
+    "https://job.cijworld.com/api/v1/order/order/remove-executor" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"order":16}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://job.cijworld.com/api/v1/order/order/remove-executor"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 16
 }
 
 fetch(url, {
@@ -461,68 +522,6 @@ fetch(url, {
 
 ### Request
 <small class="badge badge-black">POST</small>
- **`api/v1/order/order/add-executor`**
-
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>order</b></code>&nbsp; <small>integer</small>     <br>
-    
-
-
-
-## Remove executor from order
-
-<small class="badge badge-darkred">requires authentication</small>
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "https://job.cijworld.com/api/v1/order/order/remove-executor" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"order":5}'
-
-```
-
-```javascript
-const url = new URL(
-    "https://job.cijworld.com/api/v1/order/order/remove-executor"
-);
-
-let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "order": 5
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (500):
-
-```json
-{
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
-}
-```
-
-### Request
-<small class="badge badge-black">POST</small>
  **`api/v1/order/order/remove-executor`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
@@ -545,7 +544,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":19}'
+    -d '{"order":15}'
 
 ```
 
@@ -561,7 +560,7 @@ let headers = {
 };
 
 let body = {
-    "order": 19
+    "order": 15
 }
 
 fetch(url, {
@@ -612,7 +611,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":14}'
+    -d '{"order":17}'
 
 ```
 
@@ -628,7 +627,7 @@ let headers = {
 };
 
 let body = {
-    "order": 14
+    "order": 17
 }
 
 fetch(url, {

@@ -13,7 +13,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"gregg.veum@example.org","password":"pariatur","country_id":"iste","region_id":"eveniet","city_id":"aut","name":"non","last_name":"dolorum","patronymic":"numquam","phone":"voluptatem","description":"pariatur","gender":"1","date_of_birth":"2020-10-11","company_type":"company","company_name":"impedit","company_site":"http:\/\/conn.com\/","verification_token":"consequatur"}'
+    -d '{"role":"executor","email":"antonio.gibson@example.org","password":"reprehenderit","country_id":"ut","region_id":"incidunt","city_id":"porro","name":"eius","last_name":"sunt","patronymic":"dignissimos","phone":"suscipit","description":"quia","gender":"1","date_of_birth":"2020-10-25","company_type":"company","company_name":"delectus","company_site":"http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"}'
 
 ```
 
@@ -29,22 +29,21 @@ let headers = {
 
 let body = {
     "role": "executor",
-    "email": "gregg.veum@example.org",
-    "password": "pariatur",
-    "country_id": "iste",
-    "region_id": "eveniet",
-    "city_id": "aut",
-    "name": "non",
-    "last_name": "dolorum",
-    "patronymic": "numquam",
-    "phone": "voluptatem",
-    "description": "pariatur",
+    "email": "antonio.gibson@example.org",
+    "password": "reprehenderit",
+    "country_id": "ut",
+    "region_id": "incidunt",
+    "city_id": "porro",
+    "name": "eius",
+    "last_name": "sunt",
+    "patronymic": "dignissimos",
+    "phone": "suscipit",
+    "description": "quia",
     "gender": "1",
-    "date_of_birth": "2020-10-11",
+    "date_of_birth": "2020-10-25",
     "company_type": "company",
-    "company_name": "impedit",
-    "company_site": "http:\/\/conn.com\/",
-    "verification_token": "consequatur"
+    "company_name": "delectus",
+    "company_site": "http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"
 }
 
 fetch(url, {
@@ -133,57 +132,6 @@ fetch(url, {
 <code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     The value must be a valid URL.
 
-<code><b>verification_token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    
-
-
-
-## Check email|phone token
-
-
-
-
-> Example request:
-
-```bash
-curl -X POST \
-    "https://job.cijworld.com/api/v1/auth/register-check" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://job.cijworld.com/api/v1/auth/register-check"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "message": "Do nothing"
-}
-```
-
-### Request
-<small class="badge badge-black">POST</small>
- **`api/v1/auth/register-check`**
-
 
 
 ## Resend register email|phone token
@@ -198,7 +146,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"dstracke@example.net"}'
+    -d '{"email":"moore.maximillia@example.com"}'
 
 ```
 
@@ -213,7 +161,7 @@ let headers = {
 };
 
 let body = {
-    "email": "dstracke@example.net"
+    "email": "moore.maximillia@example.com"
 }
 
 fetch(url, {
@@ -256,7 +204,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"inventore"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"aut"}'
 
 ```
 
@@ -274,7 +222,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": true,
-    "verification_token": "inventore"
+    "verification_token": "aut"
 }
 
 fetch(url, {
@@ -315,7 +263,7 @@ fetch(url, {
 
 
 
-## Check login email|phone token
+## Check token
 
 
 
@@ -327,7 +275,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"santiago06@example.org"}'
+    -d '{"email":"fjenkins@example.org","token":"temporibus"}'
 
 ```
 
@@ -342,7 +290,8 @@ let headers = {
 };
 
 let body = {
-    "email": "santiago06@example.org"
+    "email": "fjenkins@example.org",
+    "token": "temporibus"
 }
 
 fetch(url, {
@@ -355,11 +304,12 @@ fetch(url, {
 ```
 
 
-> Example response (401):
+> Example response (500):
 
 ```json
 {
-    "message": "User not found"
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }
 ```
 
@@ -370,6 +320,59 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <code><b>email</b></code>&nbsp; <small>string</small>     <br>
     The value must be a valid email address.
+
+<code><b>token</b></code>&nbsp; <small>string</small>     <br>
+    
+
+
+
+## Get list of verification providers
+
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://job.cijworld.com/api/v1/auth/verification-methods" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://job.cijworld.com/api/v1/auth/verification-methods"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "items": {
+        "email": "Email"
+    }
+}
+```
+
+### Request
+<small class="badge badge-green">GET</small>
+ **`api/v1/auth/verification-methods`**
 
 
 

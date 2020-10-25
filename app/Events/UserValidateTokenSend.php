@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\TwoFactorAuth;
 use App\Models\User;
 use Illuminate\Queue\SerializesModels;
 
@@ -19,6 +20,9 @@ class UserValidateTokenSend
     /** @var User */
     public $user;
 
+    /** @var TwoFactorAuth */
+    public $token;
+
     /** @var string */
     public $type;
 
@@ -26,11 +30,13 @@ class UserValidateTokenSend
      * UserValidateTokenSend constructor.
      *
      * @param User $user
+     * @param TwoFactorAuth $token
      * @param string $type
      */
-    public function __construct(User $user, string $type)
+    public function __construct(User $user, TwoFactorAuth $token, string $type)
     {
         $this->user = $user;
+        $this->token = $token;
         $this->type = $type;
     }
 }

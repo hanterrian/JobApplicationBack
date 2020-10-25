@@ -6,6 +6,7 @@ use App\Events\UserValidateTokenSend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Auth\LoginRequest;
 use App\Http\Requests\Api\Auth\LoginTokenRequest;
+use App\Models\TwoFactorAuth;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,7 +32,53 @@ class LoginController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        if (!Auth::attempt($credentials)) {
+        if (!Auth::validate($credentials)) {
+            return response()->json([
+                'message' => 'You cannot sign with those credentials',
+                'errors' => 'Unauthorised'
+            ], 401);
+        }
+
+        $user = User::whereEmail($request->email)->first();
+
+        $token = TwoFactorAuth::createToken($user, TwoFactorAuth::PROVIDER_EMAIL);
+
+        if ($token) {
+            event(new UserValidateTokenSend($user, $token, UserValidateTokenSend::TYPE_EMAIL_CODE));
+
+            return response()->json([
+                'message' => __('api.login.send')
+            ]);
+        } else {
+            return response()->json([
+                'message' => __('api.login.error')
+            ], 500);
+        }
+    }
+
+    /**
+     * Check token
+     *
+     * @param LoginTokenRequest $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function token(LoginTokenRequest $request)
+    {
+        $user = User::where([
+            'email' => $request->email,
+            'is_verified' => true
+        ])
+            ->first();
+
+        if (!TwoFactorAuth::checkToken($user, $request->token, TwoFactorAuth::PROVIDER_EMAIL)) {
+            return response()->json([
+                'message' => 'Token not valid',
+                'errors' => 'Unauthorised'
+            ], 401);
+        }
+
+        if (!Auth::loginUsingId($user->id)) {
             return response()->json([
                 'message' => 'You cannot sign with those credentials',
                 'errors' => 'Unauthorised'
@@ -51,34 +98,14 @@ class LoginController extends Controller
     }
 
     /**
-     * Check login email|phone token
-     *
-     * @param LoginTokenRequest $request
+     * Get list of verification providers
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function token(LoginTokenRequest $request)
+    public function verificationMethods()
     {
-        $email = $request->input('email');
-
-        /** @var User|null $user */
-        $user = User::where(['email' => $email])->first();
-
-        if (!$user) {
-            return response()->json([
-                'message' => 'User not found'
-            ], 401);
-        }
-
-        $user->verification_token = rand(111111, 999999);
-        $user->verification_token_expire = time() + 300;
-
-        $user->save();
-
-        event(new UserValidateTokenSend($user, UserValidateTokenSend::TYPE_EMAIL_CODE));
-
         return response()->json([
-            'message' => 'Token send'
+            'items' => TwoFactorAuth::getProviders(),
         ]);
     }
 }

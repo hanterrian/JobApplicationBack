@@ -9,7 +9,6 @@ use App\Http\Requests\Api\Auth\RegisterTokenRequest;
 use App\Models\EmailToken;
 use App\Models\Group;
 use App\Models\Permission;
-use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -55,18 +54,6 @@ class RegisterController extends Controller
 
         return response()->json([
             'message' => 'You were successfully registered. Use your email and password to sign in.'
-        ]);
-    }
-
-    /**
-     * Check email|phone token
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function check()
-    {
-        return response()->json([
-            'message' => 'Do nothing'
         ]);
     }
 

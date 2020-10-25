@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "a9b66f2f-b417-4084-aacb-a2432ef9f077",
+        "_postman_id": "05779d6d-45e9-4446-a18f-6f20aaef416d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -15,11 +15,11 @@
                     "name": "Register new user",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/register",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/register"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/auth\/register"
                         },
                         "method": "POST",
                         "header": [
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"gregg.veum@example.org\",\n    \"password\": \"pariatur\",\n    \"country_id\": \"iste\",\n    \"region_id\": \"eveniet\",\n    \"city_id\": \"aut\",\n    \"name\": \"non\",\n    \"last_name\": \"dolorum\",\n    \"patronymic\": \"numquam\",\n    \"phone\": \"voluptatem\",\n    \"description\": \"pariatur\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-10-11\",\n    \"company_type\": \"company\",\n    \"company_name\": \"impedit\",\n    \"company_site\": \"http:\\\/\\\/conn.com\\\/\",\n    \"verification_token\": \"consequatur\"\n}"
+                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"antonio.gibson@example.org\",\n    \"password\": \"reprehenderit\",\n    \"country_id\": \"ut\",\n    \"region_id\": \"incidunt\",\n    \"city_id\": \"porro\",\n    \"name\": \"eius\",\n    \"last_name\": \"sunt\",\n    \"patronymic\": \"dignissimos\",\n    \"phone\": \"suscipit\",\n    \"description\": \"quia\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-10-25\",\n    \"company_type\": \"company\",\n    \"company_name\": \"delectus\",\n    \"company_site\": \"http:\\\/\\\/www.wolff.com\\\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -44,16 +44,112 @@
                     "response": []
                 },
                 {
-                    "name": "Check email|phone token",
+                    "name": "Resend register email|phone token",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
-                            "path": "api\/v1\/auth\/register-check",
+                            "path": "api\/v1\/auth\/register-token",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/register-check"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/auth\/register-token"
                         },
                         "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"moore.maximillia@example.com\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login user",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/auth\/login",
+                            "query": [],
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": true,\n    \"verification_token\": \"aut\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Check token",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/auth\/login-token",
+                            "query": [],
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/auth\/login-token"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"fjenkins@example.org\",\n    \"token\": \"temporibus\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get list of verification providers",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "job.cijworld.com\/",
+                            "path": "api\/v1\/auth\/verification-methods",
+                            "query": [],
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/auth\/verification-methods"
+                        },
+                        "method": "GET",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -73,110 +169,14 @@
                     "response": []
                 },
                 {
-                    "name": "Resend register email|phone token",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "job.cijworld.com\/",
-                            "path": "api\/v1\/auth\/register-token",
-                            "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/register-token"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"email\": \"dstracke@example.net\"\n}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Login user",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "job.cijworld.com\/",
-                            "path": "api\/v1\/auth\/login",
-                            "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": true,\n    \"verification_token\": \"inventore\"\n}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Check login email|phone token",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "job.cijworld.com\/",
-                            "path": "api\/v1\/auth\/login-token",
-                            "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/login-token"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"email\": \"santiago06@example.org\"\n}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
                     "name": "Logout user",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/auth\/logout",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/auth\/logout"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/auth\/logout"
                         },
                         "method": "POST",
                         "header": [
@@ -209,11 +209,11 @@
                     "name": "Get country list",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/location\/countries",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/location\/countries"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/location\/countries"
                         },
                         "method": "GET",
                         "header": [
@@ -238,11 +238,11 @@
                     "name": "Get region list",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/location\/regions",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/location\/regions"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/location\/regions"
                         },
                         "method": "GET",
                         "header": [
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"aut\"\n}"
+                            "raw": "{\n    \"country_id\": \"sint\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -270,11 +270,11 @@
                     "name": "Get city list",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/location\/cities",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/location\/cities"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/location\/cities"
                         },
                         "method": "GET",
                         "header": [
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"beatae\",\n    \"region_id\": \"omnis\"\n}"
+                            "raw": "{\n    \"country_id\": \"consequuntur\",\n    \"region_id\": \"aperiam\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -308,11 +308,11 @@
                     "name": "Get list orders",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order"
                         },
                         "method": "GET",
                         "header": [
@@ -337,11 +337,11 @@
                     "name": "Show order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/:order",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
                         },
                         "method": "GET",
                         "header": [
@@ -366,11 +366,11 @@
                     "name": "Create new order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order"
                         },
                         "method": "POST",
                         "header": [
@@ -400,11 +400,11 @@
                     "name": "Update order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/:order",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
                         },
                         "method": "PUT",
                         "header": [
@@ -434,11 +434,11 @@
                     "name": "Delete order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/:order",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/:order"
                         },
                         "method": "DELETE",
                         "header": [
@@ -465,11 +465,11 @@
                     "name": "Add executor to order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/add-executor",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/add-executor"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/add-executor"
                         },
                         "method": "POST",
                         "header": [
@@ -488,7 +488,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 10\n}"
+                            "raw": "{\n    \"order\": 7\n}"
                         },
                         "description": "",
                         "auth": null
@@ -499,11 +499,11 @@
                     "name": "Remove executor from order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/remove-executor",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/remove-executor"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/remove-executor"
                         },
                         "method": "POST",
                         "header": [
@@ -522,7 +522,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 5\n}"
+                            "raw": "{\n    \"order\": 16\n}"
                         },
                         "description": "",
                         "auth": null
@@ -533,11 +533,11 @@
                     "name": "Select executor to order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/select-executor",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/select-executor"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/select-executor"
                         },
                         "method": "POST",
                         "header": [
@@ -556,7 +556,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 19\n}"
+                            "raw": "{\n    \"order\": 15\n}"
                         },
                         "description": "",
                         "auth": null
@@ -567,11 +567,11 @@
                     "name": "Add viewer to order",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/order\/add-view",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/add-view"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/order\/add-view"
                         },
                         "method": "POST",
                         "header": [
@@ -590,7 +590,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 14\n}"
+                            "raw": "{\n    \"order\": 17\n}"
                         },
                         "description": "",
                         "auth": null
@@ -601,11 +601,11 @@
                     "name": "Currency list",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/currency",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/currency"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/currency"
                         },
                         "method": "GET",
                         "header": [
@@ -630,11 +630,11 @@
                     "name": "Get category list",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/order\/category",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/order\/category"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/order\/category"
                         },
                         "method": "GET",
                         "header": [
@@ -665,11 +665,11 @@
                     "name": "Get current user profile",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/user\/profile",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/user\/profile"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/user\/profile"
                         },
                         "method": "GET",
                         "header": [
@@ -696,11 +696,11 @@
                     "name": "Get user profile",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/user\/profile\/:user",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/user\/profile\/:user"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/user\/profile\/:user"
                         },
                         "method": "GET",
                         "header": [
@@ -725,11 +725,11 @@
                     "name": "Update current user profile",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "job.cijworld.com\/",
                             "path": "api\/v1\/user\/profile",
                             "query": [],
-                            "raw": "http:\/\/job.cijworld.com\/\/api\/v1\/user\/profile"
+                            "raw": "https:\/\/job.cijworld.com\/\/api\/v1\/user\/profile"
                         },
                         "method": "POST",
                         "header": [
@@ -751,22 +751,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "eligendi",
+                                    "value": "adipisci",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "consequatur",
+                                    "value": "commodi",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "at",
+                                    "value": "veritatis",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "eaque",
+                                    "value": "at",
                                     "type": "text"
                                 },
                                 {
@@ -776,37 +776,37 @@
                                 },
                                 {
                                     "key": "date_of_birth",
-                                    "value": "2020-10-11",
+                                    "value": "2020-10-25",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_type",
-                                    "value": "personal",
+                                    "value": "company",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "architecto",
+                                    "value": "optio",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "https:\/\/www.cartwright.org\/voluptate-debitis-enim-et-ut-dolor-quasi",
+                                    "value": "http:\/\/www.goldner.com\/",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "est",
+                                    "value": "error",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "eligendi",
+                                    "value": "qui",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "blanditiis",
+                                    "value": "dolores",
                                     "type": "text"
                                 },
                                 {

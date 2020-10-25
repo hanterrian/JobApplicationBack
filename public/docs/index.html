@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: October 11 2020</li>
+            <li>Last updated: October 25 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -53,7 +53,7 @@
         <h1>Introduction</h1>
 <p>Welcome to our API documentation!</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile), and you can switch the programming language of the examples with the tabs in the top right (or from the nav menu at the top left on mobile).</aside><h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {your-token}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {your-token}"</code></strong>.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Auth</h1>
 <h2>Register new user</h2>
 <blockquote>
@@ -63,7 +63,7 @@
     "https://job.cijworld.com/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"gregg.veum@example.org","password":"pariatur","country_id":"iste","region_id":"eveniet","city_id":"aut","name":"non","last_name":"dolorum","patronymic":"numquam","phone":"voluptatem","description":"pariatur","gender":"1","date_of_birth":"2020-10-11","company_type":"company","company_name":"impedit","company_site":"http:\/\/conn.com\/","verification_token":"consequatur"}'
+    -d '{"role":"executor","email":"antonio.gibson@example.org","password":"reprehenderit","country_id":"ut","region_id":"incidunt","city_id":"porro","name":"eius","last_name":"sunt","patronymic":"dignissimos","phone":"suscipit","description":"quia","gender":"1","date_of_birth":"2020-10-25","company_type":"company","company_name":"delectus","company_site":"http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/register"
@@ -76,22 +76,21 @@ let headers = {
 
 let body = {
     "role": "executor",
-    "email": "gregg.veum@example.org",
-    "password": "pariatur",
-    "country_id": "iste",
-    "region_id": "eveniet",
-    "city_id": "aut",
-    "name": "non",
-    "last_name": "dolorum",
-    "patronymic": "numquam",
-    "phone": "voluptatem",
-    "description": "pariatur",
+    "email": "antonio.gibson@example.org",
+    "password": "reprehenderit",
+    "country_id": "ut",
+    "region_id": "incidunt",
+    "city_id": "porro",
+    "name": "eius",
+    "last_name": "sunt",
+    "patronymic": "dignissimos",
+    "phone": "suscipit",
+    "description": "quia",
     "gender": "1",
-    "date_of_birth": "2020-10-11",
+    "date_of_birth": "2020-10-25",
     "company_type": "company",
-    "company_name": "impedit",
-    "company_site": "http:\/\/conn.com\/",
-    "verification_token": "consequatur"
+    "company_name": "delectus",
+    "company_site": "http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"
 }
 
 fetch(url, {
@@ -148,39 +147,6 @@ The value must be one of <code>personal</code> or <code>company</code>.</p>
 <p><code><b>company_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
 <p><code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
 The value must be a valid URL.</p>
-<p><code><b>verification_token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
-<h2>Check email|phone token</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "https://job.cijworld.com/api/v1/auth/register-check" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "https://job.cijworld.com/api/v1/auth/register-check"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (200):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "message": "Do nothing"
-}</code></pre>
-<h3>Request</h3>
-<p><small class="badge badge-black">POST</small>
-<strong><code>api/v1/auth/register-check</code></strong></p>
 <h2>Resend register email|phone token</h2>
 <blockquote>
 <p>Example request:</p>
@@ -189,7 +155,7 @@ fetch(url, {
     "https://job.cijworld.com/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"dstracke@example.net"}'
+    -d '{"email":"moore.maximillia@example.com"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/register-token"
@@ -201,7 +167,7 @@ let headers = {
 };
 
 let body = {
-    "email": "dstracke@example.net"
+    "email": "moore.maximillia@example.com"
 }
 
 fetch(url, {
@@ -231,7 +197,7 @@ The value must be a valid email address.</p>
     "https://job.cijworld.com/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"inventore"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/login"
@@ -246,7 +212,7 @@ let body = {
     "email": "user@dev.dev",
     "password": "********",
     "remember_me": true,
-    "verification_token": "inventore"
+    "verification_token": "aut"
 }
 
 fetch(url, {
@@ -275,7 +241,7 @@ User password.</p>
 Remember user to month.</p>
 <p><code><b>verification_token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
 Do nothing.</p>
-<h2>Check login email|phone token</h2>
+<h2>Check token</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -283,7 +249,7 @@ Do nothing.</p>
     "https://job.cijworld.com/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"santiago06@example.org"}'
+    -d '{"email":"fjenkins@example.org","token":"temporibus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/login-token"
@@ -295,7 +261,8 @@ let headers = {
 };
 
 let body = {
-    "email": "santiago06@example.org"
+    "email": "fjenkins@example.org",
+    "token": "temporibus"
 }
 
 fetch(url, {
@@ -306,10 +273,11 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (401):</p>
+<p>Example response (500):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "User not found"
+    "message": "Whoops, looks like something went wrong",
+    "status": 500
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
@@ -317,6 +285,41 @@ fetch(url, {
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p><code><b>email</b></code>&nbsp; <small>string</small>     <br>
 The value must be a valid email address.</p>
+<p><code><b>token</b></code>&nbsp; <small>string</small>     <br></p>
+<h2>Get list of verification providers</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://job.cijworld.com/api/v1/auth/verification-methods" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://job.cijworld.com/api/v1/auth/verification-methods"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "items": {
+        "email": "Email"
+    }
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-green">GET</small>
+<strong><code>api/v1/auth/verification-methods</code></strong></p>
 <h2>Logout user</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
@@ -401,7 +404,7 @@ fetch(url, {
     -G "https://job.cijworld.com/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"aut"}'
+    -d '{"country_id":"sint"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/location/regions"
@@ -413,7 +416,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "aut"
+    "country_id": "sint"
 }
 
 fetch(url, {
@@ -448,7 +451,7 @@ fetch(url, {
     -G "https://job.cijworld.com/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"beatae","region_id":"omnis"}'
+    -d '{"country_id":"consequuntur","region_id":"aperiam"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/location/cities"
@@ -460,8 +463,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "beatae",
-    "region_id": "omnis"
+    "country_id": "consequuntur",
+    "region_id": "aperiam"
 }
 
 fetch(url, {
@@ -772,7 +775,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":10}'
+    -d '{"order":7}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/add-executor"
@@ -785,7 +788,51 @@ let headers = {
 };
 
 let body = {
-    "order": 10
+    "order": 7
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "User add to executor"
+}</code></pre>
+<h3>Request</h3>
+<p><small class="badge badge-black">POST</small>
+<strong><code>api/v1/order/order/add-executor</code></strong></p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p><code><b>order</b></code>&nbsp; <small>integer</small>     <br></p>
+<h2>Remove executor from order</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://job.cijworld.com/api/v1/order/order/remove-executor" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"order":16}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://job.cijworld.com/api/v1/order/order/remove-executor"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 16
 }
 
 fetch(url, {
@@ -809,51 +856,6 @@ fetch(url, {
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
-<strong><code>api/v1/order/order/add-executor</code></strong></p>
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p><code><b>order</b></code>&nbsp; <small>integer</small>     <br></p>
-<h2>Remove executor from order</h2>
-<p><small class="badge badge-darkred">requires authentication</small></p>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "https://job.cijworld.com/api/v1/order/order/remove-executor" \
-    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"order":5}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "https://job.cijworld.com/api/v1/order/order/remove-executor"
-);
-
-let headers = {
-    "Authorization": "Bearer {YOUR_AUTH_KEY}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "order": 5
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response =&gt; response.json())
-    .then(json =&gt; console.log(json));</code></pre>
-<blockquote>
-<p>Example response (500):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
-}</code></pre>
-<h3>Request</h3>
-<p><small class="badge badge-black">POST</small>
 <strong><code>api/v1/order/order/remove-executor</code></strong></p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p><code><b>order</b></code>&nbsp; <small>integer</small>     <br></p>
@@ -867,7 +869,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":19}'
+    -d '{"order":15}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/select-executor"
@@ -880,7 +882,7 @@ let headers = {
 };
 
 let body = {
-    "order": 19
+    "order": 15
 }
 
 fetch(url, {
@@ -917,7 +919,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":14}'
+    -d '{"order":17}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/add-view"
@@ -930,7 +932,7 @@ let headers = {
 };
 
 let body = {
-    "order": 14
+    "order": 17
 }
 
 fetch(url, {
@@ -1122,19 +1124,19 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=eligendi" \
-    -F "last_name=consequatur" \
-    -F "patronymic=at" \
-    -F "description=eaque" \
+    -F "name=adipisci" \
+    -F "last_name=commodi" \
+    -F "patronymic=veritatis" \
+    -F "description=at" \
     -F "gender=1" \
-    -F "date_of_birth=2020-10-11" \
-    -F "company_type=personal" \
-    -F "company_name=architecto" \
-    -F "company_site=https://www.cartwright.org/voluptate-debitis-enim-et-ut-dolor-quasi" \
-    -F "country=est" \
-    -F "region=eligendi" \
-    -F "city=blanditiis" \
-    -F "photo=@C:\OpenServer\userdata\temp\phpB9A1.tmp" </code></pre>
+    -F "date_of_birth=2020-10-25" \
+    -F "company_type=company" \
+    -F "company_name=optio" \
+    -F "company_site=http://www.goldner.com/" \
+    -F "country=error" \
+    -F "region=qui" \
+    -F "city=dolores" \
+    -F "photo=@C:\OpenServer\userdata\temp\php7CA4.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/user/profile"
 );
@@ -1146,18 +1148,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'eligendi');
-body.append('last_name', 'consequatur');
-body.append('patronymic', 'at');
-body.append('description', 'eaque');
+body.append('name', 'adipisci');
+body.append('last_name', 'commodi');
+body.append('patronymic', 'veritatis');
+body.append('description', 'at');
 body.append('gender', '1');
-body.append('date_of_birth', '2020-10-11');
-body.append('company_type', 'personal');
-body.append('company_name', 'architecto');
-body.append('company_site', 'https://www.cartwright.org/voluptate-debitis-enim-et-ut-dolor-quasi');
-body.append('country', 'est');
-body.append('region', 'eligendi');
-body.append('city', 'blanditiis');
+body.append('date_of_birth', '2020-10-25');
+body.append('company_type', 'company');
+body.append('company_name', 'optio');
+body.append('company_site', 'http://www.goldner.com/');
+body.append('country', 'error');
+body.append('region', 'qui');
+body.append('city', 'dolores');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
