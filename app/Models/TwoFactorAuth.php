@@ -73,9 +73,9 @@ class TwoFactorAuth extends Model
      * @param string $token
      * @param string $provider
      *
-     * @return bool
+     * @return TwoFactorAuth|null
      */
-    public static function checkToken(User $user, string $token, string $provider): bool
+    public static function checkToken(User $user, string $token, string $provider): ?TwoFactorAuth
     {
         return TwoFactorAuth::where([
             'user_id' => $user->id,
@@ -83,7 +83,7 @@ class TwoFactorAuth extends Model
             'provider' => $provider,
         ])
             ->whereDate('created_at', '>', now()->addMinutes(10))
-            ->exists();
+            ->first();
     }
 
     /**
