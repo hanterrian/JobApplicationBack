@@ -7978,92 +7978,6 @@
                         return $instance->setConnectionName($name);
         }
                     /**
-         * Migrate the delayed jobs that are ready to the regular queue.
-         *
-         * @param string $from
-         * @param string $to
-         * @return array 
-         * @static 
-         */ 
-        public static function migrateExpiredJobs($from, $to)
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        return $instance->migrateExpiredJobs($from, $to);
-        }
-                    /**
-         * Delete a reserved job from the queue.
-         *
-         * @param string $queue
-         * @param \Illuminate\Queue\Jobs\RedisJob $job
-         * @return void 
-         * @static 
-         */ 
-        public static function deleteReserved($queue, $job)
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        $instance->deleteReserved($queue, $job);
-        }
-                    /**
-         * Delete a reserved job from the reserved queue and release it.
-         *
-         * @param string $queue
-         * @param \Illuminate\Queue\Jobs\RedisJob $job
-         * @param int $delay
-         * @return void 
-         * @static 
-         */ 
-        public static function deleteAndRelease($queue, $job, $delay)
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        $instance->deleteAndRelease($queue, $job, $delay);
-        }
-                    /**
-         * Delete all of the jobs from the queue.
-         *
-         * @param string $queue
-         * @return int 
-         * @static 
-         */ 
-        public static function clear($queue)
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        return $instance->clear($queue);
-        }
-                    /**
-         * Get the queue or return the default.
-         *
-         * @param string|null $queue
-         * @return string 
-         * @static 
-         */ 
-        public static function getQueue($queue)
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        return $instance->getQueue($queue);
-        }
-                    /**
-         * Get the connection for the queue.
-         *
-         * @return \Illuminate\Redis\Connections\Connection 
-         * @static 
-         */ 
-        public static function getConnection()
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        return $instance->getConnection();
-        }
-                    /**
-         * Get the underlying Redis instance.
-         *
-         * @return \Illuminate\Contracts\Redis\Factory 
-         * @static 
-         */ 
-        public static function getRedis()
-        {
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
-                        return $instance->getRedis();
-        }
-                    /**
          * Get the backoff for an object-based queue handler.
          *
          * @param mixed $job
@@ -8072,7 +7986,7 @@
          */ 
         public static function getJobBackoff($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         return $instance->getJobBackoff($job);
         }
                     /**
@@ -8084,7 +7998,7 @@
          */ 
         public static function getJobExpiration($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         return $instance->getJobExpiration($job);
         }
                     /**
@@ -8096,7 +8010,7 @@
          */ 
         public static function createPayloadUsing($callback)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        \Illuminate\Queue\RedisQueue::createPayloadUsing($callback);
+                        \Illuminate\Queue\SyncQueue::createPayloadUsing($callback);
         }
                     /**
          * Set the IoC container instance.
@@ -8107,7 +8021,7 @@
          */ 
         public static function setContainer($container)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        /** @var \Illuminate\Queue\SyncQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -8368,10 +8282,6 @@
             /**
      * 
      *
-     * @method static \Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder funnel(string $name)
-     * @method static \Illuminate\Redis\Limiters\DurationLimiterBuilder throttle(string $name)
-     * @see \Illuminate\Redis\RedisManager
-     * @see \Illuminate\Contracts\Redis\Factory
      */ 
         class Redis {
                     /**
@@ -14646,6 +14556,142 @@
 
         namespace Artesaos\SEOTools\Facades { 
             /**
+     * SEOTools is a facade for the `SEOTools` implementation access.
+     *
+     * @see \Artesaos\SEOTools\Contracts\SEOTools
+     */ 
+        class SEOTools {
+                    /**
+         * 
+         *
+         * @return \Artesaos\SEOTools\Contracts\MetaTags 
+         * @static 
+         */ 
+        public static function metatags()
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->metatags();
+        }
+                    /**
+         * 
+         *
+         * @return \Artesaos\SEOTools\Contracts\OpenGraph 
+         * @static 
+         */ 
+        public static function opengraph()
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->opengraph();
+        }
+                    /**
+         * 
+         *
+         * @return \Artesaos\SEOTools\Contracts\TwitterCards 
+         * @static 
+         */ 
+        public static function twitter()
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->twitter();
+        }
+                    /**
+         * 
+         *
+         * @return \Artesaos\SEOTools\Contracts\JsonLd 
+         * @static 
+         */ 
+        public static function jsonLd()
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->jsonLd();
+        }
+                    /**
+         * 
+         *
+         * @return \Artesaos\SEOTools\Contracts\JsonLdMulti 
+         * @static 
+         */ 
+        public static function jsonLdMulti()
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->jsonLdMulti();
+        }
+                    /**
+         * Setup title for all seo providers.
+         *
+         * @param string $title
+         * @param bool $appendDefault
+         * @return static 
+         * @static 
+         */ 
+        public static function setTitle($title, $appendDefault = true)
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->setTitle($title, $appendDefault);
+        }
+                    /**
+         * Setup description for all seo providers.
+         *
+         * @param string $description
+         * @return static 
+         * @static 
+         */ 
+        public static function setDescription($description)
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->setDescription($description);
+        }
+                    /**
+         * Sets the canonical URL.
+         *
+         * @param string $url
+         * @return static 
+         * @static 
+         */ 
+        public static function setCanonical($url)
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->setCanonical($url);
+        }
+                    /**
+         * Add one or more images urls.
+         *
+         * @param array|string $urls
+         * @return static 
+         * @static 
+         */ 
+        public static function addImages($urls)
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->addImages($urls);
+        }
+                    /**
+         * Get current title from metatags.
+         *
+         * @param bool $session
+         * @return string 
+         * @static 
+         */ 
+        public static function getTitle($session = false)
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->getTitle($session);
+        }
+                    /**
+         * Generate from all seo providers.
+         *
+         * @param bool $minify
+         * @return string 
+         * @static 
+         */ 
+        public static function generate($minify = false)
+        {
+                        /** @var \Artesaos\SEOTools\SEOTools $instance */
+                        return $instance->generate($minify);
+        }
+         
+    }
+            /**
      * SEOMeta is a facade for the `MetaTags` implementation access.
      *
      * @see \Artesaos\SEOTools\Contracts\MetaTags
@@ -15606,142 +15652,6 @@
         {
                         /** @var \Artesaos\SEOTools\JsonLd $instance */
                         return $instance->setImage($image);
-        }
-         
-    }
-            /**
-     * SEOTools is a facade for the `SEOTools` implementation access.
-     *
-     * @see \Artesaos\SEOTools\Contracts\SEOTools
-     */ 
-        class SEOTools {
-                    /**
-         * 
-         *
-         * @return \Artesaos\SEOTools\Contracts\MetaTags 
-         * @static 
-         */ 
-        public static function metatags()
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->metatags();
-        }
-                    /**
-         * 
-         *
-         * @return \Artesaos\SEOTools\Contracts\OpenGraph 
-         * @static 
-         */ 
-        public static function opengraph()
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->opengraph();
-        }
-                    /**
-         * 
-         *
-         * @return \Artesaos\SEOTools\Contracts\TwitterCards 
-         * @static 
-         */ 
-        public static function twitter()
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->twitter();
-        }
-                    /**
-         * 
-         *
-         * @return \Artesaos\SEOTools\Contracts\JsonLd 
-         * @static 
-         */ 
-        public static function jsonLd()
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->jsonLd();
-        }
-                    /**
-         * 
-         *
-         * @return \Artesaos\SEOTools\Contracts\JsonLdMulti 
-         * @static 
-         */ 
-        public static function jsonLdMulti()
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->jsonLdMulti();
-        }
-                    /**
-         * Setup title for all seo providers.
-         *
-         * @param string $title
-         * @param bool $appendDefault
-         * @return static 
-         * @static 
-         */ 
-        public static function setTitle($title, $appendDefault = true)
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->setTitle($title, $appendDefault);
-        }
-                    /**
-         * Setup description for all seo providers.
-         *
-         * @param string $description
-         * @return static 
-         * @static 
-         */ 
-        public static function setDescription($description)
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->setDescription($description);
-        }
-                    /**
-         * Sets the canonical URL.
-         *
-         * @param string $url
-         * @return static 
-         * @static 
-         */ 
-        public static function setCanonical($url)
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->setCanonical($url);
-        }
-                    /**
-         * Add one or more images urls.
-         *
-         * @param array|string $urls
-         * @return static 
-         * @static 
-         */ 
-        public static function addImages($urls)
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->addImages($urls);
-        }
-                    /**
-         * Get current title from metatags.
-         *
-         * @param bool $session
-         * @return string 
-         * @static 
-         */ 
-        public static function getTitle($session = false)
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->getTitle($session);
-        }
-                    /**
-         * Generate from all seo providers.
-         *
-         * @param bool $minify
-         * @return string 
-         * @static 
-         */ 
-        public static function generate($minify = false)
-        {
-                        /** @var \Artesaos\SEOTools\SEOTools $instance */
-                        return $instance->generate($minify);
         }
          
     }
@@ -20660,11 +20570,11 @@ namespace  {
             class URL extends \Illuminate\Support\Facades\URL {}
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
+            class SEO extends \Artesaos\SEOTools\Facades\SEOTools {}
             class SEOMeta extends \Artesaos\SEOTools\Facades\SEOMeta {}
             class OpenGraph extends \Artesaos\SEOTools\Facades\OpenGraph {}
             class Twitter extends \Artesaos\SEOTools\Facades\TwitterCard {}
             class JsonLd extends \Artesaos\SEOTools\Facades\JsonLd {}
-            class SEO extends \Artesaos\SEOTools\Facades\SEOTools {}
             class Admin extends \Encore\Admin\Facades\Admin {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
             class Form extends \Collective\Html\FormFacade {}

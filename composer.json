@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.4",
         "ext-json": "*",
-        "artesaos/seotools": "^v0.19.0",
+        "artesaos/seotools": "^0.19.1",
         "astrotomic/laravel-translatable": "^11.8",
         "barryvdh/laravel-ide-helper": "^2.7",
         "encore/laravel-admin": "^1.8",
