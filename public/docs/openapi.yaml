@@ -35,16 +35,16 @@ paths:
                                 type: object
                                 example:
                                     message: 'The given data was invalid.'
-                                    errors: { password: ['The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] }
+                                    errors: { role: ['The selected role is invalid.'], email: ['The email must be a valid email address.'], password: ['The password must be at least 8 characters.', 'The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'], gender: ['The selected gender is invalid.'], date_of_birth: ['The date of birth does not match the format Y-m-d.'], company_type: ['The selected company type is invalid.'], company_site: ['The company site format is invalid.'] }
                                     status: 422
                                 properties:
                                     message: { type: string, example: 'The given data was invalid.' }
-                                    errors: { type: object, example: { password: ['The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'] } }
+                                    errors: { type: object, example: { role: ['The selected role is invalid.'], email: ['The email must be a valid email address.'], password: ['The password must be at least 8 characters.', 'The password confirmation does not match.'], country_id: ['The selected country id is invalid.'], region_id: ['The selected region id is invalid.'], city_id: ['The selected city id is invalid.'], gender: ['The selected gender is invalid.'], date_of_birth: ['The date of birth does not match the format Y-m-d.'], company_type: ['The selected company type is invalid.'], company_site: ['The company site format is invalid.'] } }
                                     status: { type: integer, example: 422 }
             tags:
                 - Auth
             requestBody:
-                required: true
+                required: false
                 content:
                     application/json:
                         schema:
@@ -52,83 +52,72 @@ paths:
                             properties:
                                 role:
                                     type: string
-                                    description: 'The value must be one of <code>customer</code> or <code>executor</code>.'
-                                    example: executor
+                                    description: ''
+                                    example: excepturi
                                 email:
-                                    type: string
-                                    description: 'The value must be a valid email address.'
-                                    example: antonio.gibson@example.org
+                                    type: email
+                                    description: ''
+                                    example: nam
                                 password:
                                     type: string
                                     description: ''
-                                    example: reprehenderit
+                                    example: et
                                 country_id:
-                                    type: string
+                                    type: integer
                                     description: ''
-                                    example: ut
+                                    example: 3
                                 region_id:
-                                    type: string
+                                    type: integer
                                     description: ''
-                                    example: incidunt
+                                    example: 14
                                 city_id:
-                                    type: string
+                                    type: integer
                                     description: ''
-                                    example: porro
+                                    example: 20
                                 name:
                                     type: string
                                     description: ''
-                                    example: eius
+                                    example: quis
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: sunt
+                                    example: nostrum
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: dignissimos
+                                    example: enim
                                 phone:
                                     type: string
                                     description: ''
-                                    example: suscipit
+                                    example: dolorum
                                 description:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: libero
                                 gender:
-                                    type: string
-                                    description: 'The value must be one of <code>1</code> or <code>2</code>.'
-                                    example: '1'
+                                    type: integer
+                                    description: ''
+                                    example: 12
                                 date_of_birth:
-                                    type: string
-                                    description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-10-25'
+                                    type: date
+                                    description: ''
+                                    example: ea
                                 company_type:
                                     type: string
-                                    description: 'The value must be one of <code>personal</code> or <code>company</code>.'
-                                    example: company
+                                    description: ''
+                                    example: sed
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: delectus
+                                    example: saepe
                                 company_site:
+                                    type: url
+                                    description: ''
+                                    example: neque
+                                password_confirmation:
                                     type: string
-                                    description: 'The value must be a valid URL.'
-                                    example: 'http://www.wolff.com/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html'
-                            required:
-                                - role
-                                - email
-                                - password
-                                - country_id
-                                - region_id
-                                - city_id
-                                - name
-                                - last_name
-                                - patronymic
-                                - phone
-                                - description
-                                - gender
-                                - date_of_birth
-                                - company_type
+                                    description: ''
+                                    example: eum
             security: []
     /api/v1/auth/register-token:
         post:
@@ -172,7 +161,7 @@ paths:
                                 email:
                                     type: string
                                     description: 'The value must be a valid email address.'
-                                    example: moore.maximillia@example.com
+                                    example: marilou.nolan@example.org
                             required:
                                 - email
             security: []
@@ -228,11 +217,11 @@ paths:
                                 remember_me:
                                     type: boolean
                                     description: 'Remember user to month.'
-                                    example: true
+                                    example: false
                                 verification_token:
                                     type: string
                                     description: 'Do nothing.'
-                                    example: aut
+                                    example: impedit
             security: []
     /api/v1/auth/login-token:
         post:
@@ -254,22 +243,24 @@ paths:
                     schema:
                         type: string
             responses:
-                500:
+                422:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: 'Whoops, looks like something went wrong'
-                                    status: 500
+                                    message: 'The given data was invalid.'
+                                    errors: { email: ['The email must be a valid email address.'] }
+                                    status: 422
                                 properties:
-                                    message: { type: string, example: 'Whoops, looks like something went wrong' }
-                                    status: { type: integer, example: 500 }
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { email: ['The email must be a valid email address.'] } }
+                                    status: { type: integer, example: 422 }
             tags:
                 - Auth
             requestBody:
-                required: true
+                required: false
                 content:
                     application/json:
                         schema:
@@ -277,15 +268,16 @@ paths:
                             properties:
                                 email:
                                     type: string
-                                    description: 'The value must be a valid email address.'
-                                    example: fjenkins@example.org
+                                    description: ''
+                                    example: voluptatem
                                 token:
                                     type: string
                                     description: ''
-                                    example: temporibus
-                            required:
-                                - email
-                                - token
+                                    example: ut
+                                remember_me:
+                                    type: boolean
+                                    description: ''
+                                    example: true
             security: []
     /api/v1/auth/verification-methods:
         get:
@@ -438,7 +430,7 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: sint
+                                    example: illo
                             required:
                                 - country_id
             security: []
@@ -488,11 +480,11 @@ paths:
                                 country_id:
                                     type: string
                                     description: ''
-                                    example: consequuntur
+                                    example: nostrum
                                 region_id:
                                     type: string
                                     description: ''
-                                    example: aperiam
+                                    example: tempore
                             required:
                                 - country_id
                                 - region_id
@@ -517,18 +509,20 @@ paths:
                     schema:
                         type: string
             responses:
-                500:
+                200:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: 'Whoops, looks like something went wrong'
-                                    status: 500
+                                    data: [{ id: 2, type: request, title: Тест, description: 'Test order', service_provision: offline, price: 100, desired_date: '2020-08-16', desired_time_from: '08:16:22', desired_time_to: '08:16:22', execution_address: null, address: Address, executor_comment: null, customer_comment: null, status: open, created_at: '2020-08-16T08:17:59.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: { id: 1, title: UAH }, country: { id: 1, title: 'Test country' }, region: { id: 1, title: 'Test region' }, city: { id: 1, title: 'Test city' }, images: [{ id: 1, src: 'http://job.locale/storage/order/files/3779a00d7aecc40c5155fe09b32dd559.gif' }], categories: [{ id: 1, title: 'Тест en' }, { id: 3, title: 'Test 2' }] }, { id: 3, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:08:57.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: null, country: null, region: null, city: null, images: [], categories: [] }, { id: 6, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:18:53.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: null, country: null, region: null, city: null, images: [{ id: 6, src: 'http://job.locale/storage/order/2020/09/13/13_order_0.png' }, { id: 7, src: 'http://job.locale/storage/order/2020/09/13/13_order_1.webp' }], categories: [{ id: 1, title: 'Тест en' }] }, { id: 7, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:21:53.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: null, country: null, region: null, city: null, images: [{ id: 8, src: 'http://job.locale/storage/order/2020/09/13/13_order_0.png' }, { id: 9, src: 'http://job.locale/storage/order/2020/09/13/13_order_1.webp' }], categories: [{ id: 1, title: 'Тест en' }] }, { id: 8, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:22:29.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: { id: 1, title: UAH }, country: { id: 1, title: 'Test country' }, region: { id: 1, title: 'Test region' }, city: { id: 1, title: 'Test city' }, images: [{ id: 10, src: 'http://job.locale/storage/order/2020/09/13/13_order_0.png' }, { id: 11, src: 'http://job.locale/storage/order/2020/09/13/13_order_1.webp' }], categories: [{ id: 1, title: 'Тест en' }] }]
+                                    links: { first: 'http://localhost/api/v1/order/order?page=1', last: 'http://localhost/api/v1/order/order?page=1', prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, last_page: 1, links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/v1/order/order?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], path: 'http://localhost/api/v1/order/order', per_page: 15, to: 5, total: 5 }
                                 properties:
-                                    message: { type: string, example: 'Whoops, looks like something went wrong' }
-                                    status: { type: integer, example: 500 }
+                                    data: { type: array, example: [{ id: 2, type: request, title: Тест, description: 'Test order', service_provision: offline, price: 100, desired_date: '2020-08-16', desired_time_from: '08:16:22', desired_time_to: '08:16:22', execution_address: null, address: Address, executor_comment: null, customer_comment: null, status: open, created_at: '2020-08-16T08:17:59.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: { id: 1, title: UAH }, country: { id: 1, title: 'Test country' }, region: { id: 1, title: 'Test region' }, city: { id: 1, title: 'Test city' }, images: [{ id: 1, src: 'http://job.locale/storage/order/files/3779a00d7aecc40c5155fe09b32dd559.gif' }], categories: [{ id: 1, title: 'Тест en' }, { id: 3, title: 'Test 2' }] }, { id: 3, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:08:57.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: null, country: null, region: null, city: null, images: [], categories: [] }, { id: 6, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:18:53.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: null, country: null, region: null, city: null, images: [{ id: 6, src: 'http://job.locale/storage/order/2020/09/13/13_order_0.png' }, { id: 7, src: 'http://job.locale/storage/order/2020/09/13/13_order_1.webp' }], categories: [{ id: 1, title: 'Тест en' }] }, { id: 7, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:21:53.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: null, country: null, region: null, city: null, images: [{ id: 8, src: 'http://job.locale/storage/order/2020/09/13/13_order_0.png' }, { id: 9, src: 'http://job.locale/storage/order/2020/09/13/13_order_1.webp' }], categories: [{ id: 1, title: 'Тест en' }] }, { id: 8, type: request, title: asdfgfgdg, description: asdasd, service_provision: online, price: 100, desired_date: '2020-01-01', desired_time_from: '00:00:00', desired_time_to: '23:59:59', execution_address: asasas, address: asasas, executor_comment: null, customer_comment: null, status: open, created_at: '2020-09-13T06:22:29.000000Z', author: { id: 13, name: Admin, email: hanterrian@gmail.com, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }, currency: { id: 1, title: UAH }, country: { id: 1, title: 'Test country' }, region: { id: 1, title: 'Test region' }, city: { id: 1, title: 'Test city' }, images: [{ id: 10, src: 'http://job.locale/storage/order/2020/09/13/13_order_0.png' }, { id: 11, src: 'http://job.locale/storage/order/2020/09/13/13_order_1.webp' }], categories: [{ id: 1, title: 'Тест en' }] }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://localhost/api/v1/order/order?page=1', last: 'http://localhost/api/v1/order/order?page=1', prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, last_page: 1, links: [{ url: null, label: '&laquo; Previous', active: false }, { url: 'http://localhost/api/v1/order/order?page=1', label: 1, active: true }, { url: null, label: 'Next &raquo;', active: false }], path: 'http://localhost/api/v1/order/order', per_page: 15, to: 5, total: 5 } }
             tags:
                 - Order
             security: []
@@ -588,11 +582,11 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: quia
+                                    example: minima
                                 description:
                                     type: string
                                     description: ''
-                                    example: consequatur
+                                    example: molestiae
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
@@ -600,19 +594,19 @@ paths:
                                 price:
                                     type: number
                                     description: ''
-                                    example: 67.16
+                                    example: 903034.9
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-10-25'
+                                    example: '2020-12-06'
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '13:23:59'
+                                    example: '06:15:59'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '13:23:59'
+                                    example: '06:15:59'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -624,19 +618,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: molestiae
+                                    example: tempora
                                 country:
                                     type: string
                                     description: ''
-                                    example: cupiditate
+                                    example: sunt
                                 region:
                                     type: string
                                     description: ''
-                                    example: animi
+                                    example: qui
                                 city:
                                     type: string
                                     description: ''
-                                    example: ab
+                                    example: maiores
                                 'images.*':
                                     type: string
                                     format: binary
@@ -644,7 +638,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: quo
+                                    example: dignissimos
                             required:
                                 - type
                                 - title
@@ -748,11 +742,11 @@ paths:
                                 title:
                                     type: string
                                     description: ''
-                                    example: aut
+                                    example: quibusdam
                                 description:
                                     type: string
                                     description: ''
-                                    example: consequatur
+                                    example: corporis
                                 service_provision:
                                     type: string
                                     description: 'The value must be one of <code>online</code> or <code>offline</code>.'
@@ -760,19 +754,19 @@ paths:
                                 price:
                                     type: number
                                     description: ''
-                                    example: 3.123
+                                    example: !!float 10710302
                                 desired_date:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-10-25'
+                                    example: '2020-12-06'
                                 desired_time_from:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '13:23:59'
+                                    example: '06:15:59'
                                 desired_time_to:
                                     type: string
                                     description: 'The value must be a valid date in the format H:i:s.'
-                                    example: '13:23:59'
+                                    example: '06:15:59'
                                 execution_address:
                                     type: string
                                     description: ''
@@ -784,19 +778,19 @@ paths:
                                 currency:
                                     type: string
                                     description: ''
-                                    example: autem
+                                    example: et
                                 country:
                                     type: string
                                     description: ''
-                                    example: quasi
+                                    example: possimus
                                 region:
                                     type: string
                                     description: ''
-                                    example: dolore
+                                    example: fuga
                                 city:
                                     type: string
                                     description: ''
-                                    example: voluptate
+                                    example: enim
                                 'images.*':
                                     type: string
                                     format: binary
@@ -804,7 +798,7 @@ paths:
                                 'categories.*':
                                     type: string
                                     description: ''
-                                    example: inventore
+                                    example: corporis
                             required:
                                 - type
                                 - title
@@ -886,16 +880,20 @@ paths:
                     schema:
                         type: string
             responses:
-                200:
+                422:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: 'User add to executor'
+                                    message: 'The given data was invalid.'
+                                    errors: { order: ['The selected order is invalid.'] }
+                                    status: 422
                                 properties:
-                                    message: { type: string, example: 'User add to executor' }
+                                    message: { type: string, example: 'The given data was invalid.' }
+                                    errors: { type: object, example: { order: ['The selected order is invalid.'] } }
+                                    status: { type: integer, example: 422 }
             tags:
                 - Order
             requestBody:
@@ -908,7 +906,7 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 7
+                                    example: 11
                             required:
                                 - order
     /api/v1/order/order/remove-executor:
@@ -964,7 +962,7 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 16
+                                    example: 11
                             required:
                                 - order
     /api/v1/order/order/select-executor:
@@ -1020,7 +1018,7 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 15
+                                    example: 19
                             required:
                                 - order
     /api/v1/order/order/add-view:
@@ -1076,7 +1074,7 @@ paths:
                                 order:
                                     type: integer
                                     description: ''
-                                    example: 17
+                                    example: 4
                             required:
                                 - order
     /api/v1/order/currency:
@@ -1172,18 +1170,16 @@ paths:
                     schema:
                         type: string
             responses:
-                500:
+                200:
                     description: ''
                     content:
                         application/json:
                             schema:
                                 type: object
                                 example:
-                                    message: 'Whoops, looks like something went wrong'
-                                    status: 500
+                                    data: { id: 18, name: Scribe, email: scribe@locale.dev, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null }
                                 properties:
-                                    message: { type: string, example: 'Whoops, looks like something went wrong' }
-                                    status: { type: integer, example: 500 }
+                                    data: { type: object, example: { id: 18, name: Scribe, email: scribe@locale.dev, phone: null, last_name: null, patronymic: null, description: null, gender: null, date_of_birth: null, company_type: null, company_name: null, company_site: null, last_activity: null, country: null, region: null, city: null } }
             tags:
                 - User
         post:
@@ -1236,19 +1232,19 @@ paths:
                                 name:
                                     type: string
                                     description: ''
-                                    example: adipisci
+                                    example: nemo
                                 last_name:
                                     type: string
                                     description: ''
-                                    example: commodi
+                                    example: eius
                                 patronymic:
                                     type: string
                                     description: ''
-                                    example: veritatis
+                                    example: consequatur
                                 description:
                                     type: string
                                     description: ''
-                                    example: at
+                                    example: est
                                 gender:
                                     type: string
                                     description: 'The value must be one of <code>1</code> or <code>2</code>.'
@@ -1260,7 +1256,7 @@ paths:
                                 date_of_birth:
                                     type: string
                                     description: 'The value must be a valid date in the format Y-m-d.'
-                                    example: '2020-10-25'
+                                    example: '2020-12-06'
                                 company_type:
                                     type: string
                                     description: 'The value must be one of <code>personal</code> or <code>company</code>.'
@@ -1268,23 +1264,23 @@ paths:
                                 company_name:
                                     type: string
                                     description: ''
-                                    example: optio
+                                    example: tempora
                                 company_site:
                                     type: string
                                     description: 'The value must be a valid URL.'
-                                    example: 'http://www.goldner.com/'
+                                    example: 'http://www.trantow.com/corporis-officia-fuga-et-placeat-consequuntur-blanditiis-mollitia.html'
                                 country:
                                     type: string
                                     description: ''
-                                    example: error
+                                    example: natus
                                 region:
                                     type: string
                                     description: ''
-                                    example: qui
+                                    example: aut
                                 city:
                                     type: string
                                     description: ''
-                                    example: dolores
+                                    example: ea
                             required:
                                 - name
                                 - last_name

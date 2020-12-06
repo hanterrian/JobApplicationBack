@@ -2,7 +2,7 @@
     "variable": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "05779d6d-45e9-4446-a18f-6f20aaef416d",
+        "_postman_id": "36b15203-61b9-4159-b7d3-3225e1a75ccb",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -34,7 +34,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"role\": \"executor\",\n    \"email\": \"antonio.gibson@example.org\",\n    \"password\": \"reprehenderit\",\n    \"country_id\": \"ut\",\n    \"region_id\": \"incidunt\",\n    \"city_id\": \"porro\",\n    \"name\": \"eius\",\n    \"last_name\": \"sunt\",\n    \"patronymic\": \"dignissimos\",\n    \"phone\": \"suscipit\",\n    \"description\": \"quia\",\n    \"gender\": \"1\",\n    \"date_of_birth\": \"2020-10-25\",\n    \"company_type\": \"company\",\n    \"company_name\": \"delectus\",\n    \"company_site\": \"http:\\\/\\\/www.wolff.com\\\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html\"\n}"
+                            "raw": "{\n    \"role\": \"excepturi\",\n    \"email\": \"nam\",\n    \"password\": \"et\",\n    \"country_id\": 3,\n    \"region_id\": 14,\n    \"city_id\": 20,\n    \"name\": \"quis\",\n    \"last_name\": \"nostrum\",\n    \"patronymic\": \"enim\",\n    \"phone\": \"dolorum\",\n    \"description\": \"libero\",\n    \"gender\": 12,\n    \"date_of_birth\": \"ea\",\n    \"company_type\": \"sed\",\n    \"company_name\": \"saepe\",\n    \"company_site\": \"neque\",\n    \"password_confirmation\": \"eum\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -66,7 +66,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"moore.maximillia@example.com\"\n}"
+                            "raw": "{\n    \"email\": \"marilou.nolan@example.org\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -98,7 +98,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": true,\n    \"verification_token\": \"aut\"\n}"
+                            "raw": "{\n    \"email\": \"user@dev.dev\",\n    \"password\": \"********\",\n    \"remember_me\": false,\n    \"verification_token\": \"impedit\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -130,7 +130,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"fjenkins@example.org\",\n    \"token\": \"temporibus\"\n}"
+                            "raw": "{\n    \"email\": \"voluptatem\",\n    \"token\": \"ut\",\n    \"remember_me\": true\n}"
                         },
                         "description": "",
                         "auth": {
@@ -257,7 +257,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"sint\"\n}"
+                            "raw": "{\n    \"country_id\": \"illo\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -289,7 +289,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"country_id\": \"consequuntur\",\n    \"region_id\": \"aperiam\"\n}"
+                            "raw": "{\n    \"country_id\": \"nostrum\",\n    \"region_id\": \"tempore\"\n}"
                         },
                         "description": "",
                         "auth": {
@@ -488,7 +488,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 7\n}"
+                            "raw": "{\n    \"order\": 11\n}"
                         },
                         "description": "",
                         "auth": null
@@ -522,7 +522,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 16\n}"
+                            "raw": "{\n    \"order\": 11\n}"
                         },
                         "description": "",
                         "auth": null
@@ -556,7 +556,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 15\n}"
+                            "raw": "{\n    \"order\": 19\n}"
                         },
                         "description": "",
                         "auth": null
@@ -590,7 +590,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"order\": 17\n}"
+                            "raw": "{\n    \"order\": 4\n}"
                         },
                         "description": "",
                         "auth": null
@@ -751,22 +751,22 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "adipisci",
+                                    "value": "nemo",
                                     "type": "text"
                                 },
                                 {
                                     "key": "last_name",
-                                    "value": "commodi",
+                                    "value": "eius",
                                     "type": "text"
                                 },
                                 {
                                     "key": "patronymic",
-                                    "value": "veritatis",
+                                    "value": "consequatur",
                                     "type": "text"
                                 },
                                 {
                                     "key": "description",
-                                    "value": "at",
+                                    "value": "est",
                                     "type": "text"
                                 },
                                 {
@@ -776,7 +776,7 @@
                                 },
                                 {
                                     "key": "date_of_birth",
-                                    "value": "2020-10-25",
+                                    "value": "2020-12-06",
                                     "type": "text"
                                 },
                                 {
@@ -786,27 +786,27 @@
                                 },
                                 {
                                     "key": "company_name",
-                                    "value": "optio",
+                                    "value": "tempora",
                                     "type": "text"
                                 },
                                 {
                                     "key": "company_site",
-                                    "value": "http:\/\/www.goldner.com\/",
+                                    "value": "http:\/\/www.trantow.com\/corporis-officia-fuga-et-placeat-consequuntur-blanditiis-mollitia.html",
                                     "type": "text"
                                 },
                                 {
                                     "key": "country",
-                                    "value": "error",
+                                    "value": "natus",
                                     "type": "text"
                                 },
                                 {
                                     "key": "region",
-                                    "value": "qui",
+                                    "value": "aut",
                                     "type": "text"
                                 },
                                 {
                                     "key": "city",
-                                    "value": "dolores",
+                                    "value": "ea",
                                     "type": "text"
                                 },
                                 {

@@ -27,6 +27,27 @@ class RegisterController extends Controller
     /**
      * Register new user
      *
+     * @bodyParam role string
+     *
+     * @bodyParam email email
+     * @bodyParam password string
+     * @bodyParam password_confirmation string
+     *
+     * @bodyParam country_id int
+     * @bodyParam region_id int
+     * @bodyParam city_id int
+     *
+     * @bodyParam name string
+     * @bodyParam last_name string
+     * @bodyParam patronymic string
+     * @bodyParam phone string
+     * @bodyParam description string
+     * @bodyParam gender int
+     * @bodyParam date_of_birth date
+     * @bodyParam company_type string
+     * @bodyParam company_name string
+     * @bodyParam company_site url
+     *
      * @param RegisterFormRequest $request
      *
      * @return \Illuminate\Http\JsonResponse

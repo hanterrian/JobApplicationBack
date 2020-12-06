@@ -24,6 +24,9 @@ class LoginController extends Controller
     /**
      * Login user
      *
+     * @bodyParam email string
+     * @bodyParam password string
+     *
      * @param LoginRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -58,6 +61,10 @@ class LoginController extends Controller
 
     /**
      * Check token
+     *
+     * @bodyParam email string
+     * @bodyParam token string
+     * @bodyParam remember_me bool
      *
      * @param LoginTokenRequest $request
      *

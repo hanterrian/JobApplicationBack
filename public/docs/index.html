@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: October 25 2020</li>
+            <li>Last updated: December 6 2020</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -63,7 +63,7 @@
     "https://job.cijworld.com/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"antonio.gibson@example.org","password":"reprehenderit","country_id":"ut","region_id":"incidunt","city_id":"porro","name":"eius","last_name":"sunt","patronymic":"dignissimos","phone":"suscipit","description":"quia","gender":"1","date_of_birth":"2020-10-25","company_type":"company","company_name":"delectus","company_site":"http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"}'
+    -d '{"role":"excepturi","email":"nam","password":"et","country_id":3,"region_id":14,"city_id":20,"name":"quis","last_name":"nostrum","patronymic":"enim","phone":"dolorum","description":"libero","gender":12,"date_of_birth":"ea","company_type":"sed","company_name":"saepe","company_site":"neque","password_confirmation":"eum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/register"
@@ -75,22 +75,23 @@ let headers = {
 };
 
 let body = {
-    "role": "executor",
-    "email": "antonio.gibson@example.org",
-    "password": "reprehenderit",
-    "country_id": "ut",
-    "region_id": "incidunt",
-    "city_id": "porro",
-    "name": "eius",
-    "last_name": "sunt",
-    "patronymic": "dignissimos",
-    "phone": "suscipit",
-    "description": "quia",
-    "gender": "1",
-    "date_of_birth": "2020-10-25",
-    "company_type": "company",
-    "company_name": "delectus",
-    "company_site": "http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"
+    "role": "excepturi",
+    "email": "nam",
+    "password": "et",
+    "country_id": 3,
+    "region_id": 14,
+    "city_id": 20,
+    "name": "quis",
+    "last_name": "nostrum",
+    "patronymic": "enim",
+    "phone": "dolorum",
+    "description": "libero",
+    "gender": 12,
+    "date_of_birth": "ea",
+    "company_type": "sed",
+    "company_name": "saepe",
+    "company_site": "neque",
+    "password_confirmation": "eum"
 }
 
 fetch(url, {
@@ -106,7 +107,14 @@ fetch(url, {
 <pre><code class="language-json">{
     "message": "The given data was invalid.",
     "errors": {
+        "role": [
+            "The selected role is invalid."
+        ],
+        "email": [
+            "The email must be a valid email address."
+        ],
         "password": [
+            "The password must be at least 8 characters.",
             "The password confirmation does not match."
         ],
         "country_id": [
@@ -117,6 +125,18 @@ fetch(url, {
         ],
         "city_id": [
             "The selected city id is invalid."
+        ],
+        "gender": [
+            "The selected gender is invalid."
+        ],
+        "date_of_birth": [
+            "The date of birth does not match the format Y-m-d."
+        ],
+        "company_type": [
+            "The selected company type is invalid."
+        ],
+        "company_site": [
+            "The company site format is invalid."
         ]
     },
     "status": 422
@@ -125,28 +145,23 @@ fetch(url, {
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/v1/auth/register</code></strong></p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p><code><b>role</b></code>&nbsp; <small>string</small>     <br>
-The value must be one of <code>customer</code> or <code>executor</code>.</p>
-<p><code><b>email</b></code>&nbsp; <small>string</small>     <br>
-The value must be a valid email address.</p>
-<p><code><b>password</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>country_id</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>region_id</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>city_id</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>name</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>last_name</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>patronymic</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>phone</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>description</b></code>&nbsp; <small>string</small>     <br></p>
-<p><code><b>gender</b></code>&nbsp; <small>string</small>     <br>
-The value must be one of <code>1</code> or <code>2</code>.</p>
-<p><code><b>date_of_birth</b></code>&nbsp; <small>string</small>     <br>
-The value must be a valid date in the format Y-m-d.</p>
-<p><code><b>company_type</b></code>&nbsp; <small>string</small>     <br>
-The value must be one of <code>personal</code> or <code>company</code>.</p>
+<p><code><b>role</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>email</b></code>&nbsp; <small>email</small>         <i>optional</i>    <br></p>
+<p><code><b>password</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>country_id</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br></p>
+<p><code><b>region_id</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br></p>
+<p><code><b>city_id</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br></p>
+<p><code><b>name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>last_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>patronymic</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>phone</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>description</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>gender</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br></p>
+<p><code><b>date_of_birth</b></code>&nbsp; <small>date</small>         <i>optional</i>    <br></p>
+<p><code><b>company_type</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
 <p><code><b>company_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
-<p><code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-The value must be a valid URL.</p>
+<p><code><b>company_site</b></code>&nbsp; <small>url</small>         <i>optional</i>    <br></p>
+<p><code><b>password_confirmation</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
 <h2>Resend register email|phone token</h2>
 <blockquote>
 <p>Example request:</p>
@@ -155,7 +170,7 @@ The value must be a valid URL.</p>
     "https://job.cijworld.com/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"moore.maximillia@example.com"}'
+    -d '{"email":"marilou.nolan@example.org"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/register-token"
@@ -167,7 +182,7 @@ let headers = {
 };
 
 let body = {
-    "email": "moore.maximillia@example.com"
+    "email": "marilou.nolan@example.org"
 }
 
 fetch(url, {
@@ -197,7 +212,7 @@ The value must be a valid email address.</p>
     "https://job.cijworld.com/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"aut"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"impedit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/login"
@@ -211,8 +226,8 @@ let headers = {
 let body = {
     "email": "user@dev.dev",
     "password": "********",
-    "remember_me": true,
-    "verification_token": "aut"
+    "remember_me": false,
+    "verification_token": "impedit"
 }
 
 fetch(url, {
@@ -249,7 +264,7 @@ Do nothing.</p>
     "https://job.cijworld.com/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"fjenkins@example.org","token":"temporibus"}'
+    -d '{"email":"voluptatem","token":"ut","remember_me":true}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/auth/login-token"
@@ -261,8 +276,9 @@ let headers = {
 };
 
 let body = {
-    "email": "fjenkins@example.org",
-    "token": "temporibus"
+    "email": "voluptatem",
+    "token": "ut",
+    "remember_me": true
 }
 
 fetch(url, {
@@ -273,19 +289,24 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (500):</p>
+<p>Example response (422):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
+    "message": "The given data was invalid.",
+    "errors": {
+        "email": [
+            "The email must be a valid email address."
+        ]
+    },
+    "status": 422
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
 <strong><code>api/v1/auth/login-token</code></strong></p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p><code><b>email</b></code>&nbsp; <small>string</small>     <br>
-The value must be a valid email address.</p>
-<p><code><b>token</b></code>&nbsp; <small>string</small>     <br></p>
+<p><code><b>email</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br></p>
+<p><code><b>remember_me</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br></p>
 <h2>Get list of verification providers</h2>
 <blockquote>
 <p>Example request:</p>
@@ -404,7 +425,7 @@ fetch(url, {
     -G "https://job.cijworld.com/api/v1/location/regions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"sint"}'
+    -d '{"country_id":"illo"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/location/regions"
@@ -416,7 +437,7 @@ let headers = {
 };
 
 let body = {
-    "country_id": "sint"
+    "country_id": "illo"
 }
 
 fetch(url, {
@@ -451,7 +472,7 @@ fetch(url, {
     -G "https://job.cijworld.com/api/v1/location/cities" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"country_id":"consequuntur","region_id":"aperiam"}'
+    -d '{"country_id":"nostrum","region_id":"tempore"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/location/cities"
@@ -463,8 +484,8 @@ let headers = {
 };
 
 let body = {
-    "country_id": "consequuntur",
-    "region_id": "aperiam"
+    "country_id": "nostrum",
+    "region_id": "tempore"
 }
 
 fetch(url, {
@@ -519,11 +540,328 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (500):</p>
+<p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
+    "data": [
+        {
+            "id": 2,
+            "type": "request",
+            "title": "Тест",
+            "description": "Test order",
+            "service_provision": "offline",
+            "price": 100,
+            "desired_date": "2020-08-16",
+            "desired_time_from": "08:16:22",
+            "desired_time_to": "08:16:22",
+            "execution_address": null,
+            "address": "Address",
+            "executor_comment": null,
+            "customer_comment": null,
+            "status": "open",
+            "created_at": "2020-08-16T08:17:59.000000Z",
+            "author": {
+                "id": 13,
+                "name": "Admin",
+                "email": "hanterrian@gmail.com",
+                "phone": null,
+                "last_name": null,
+                "patronymic": null,
+                "description": null,
+                "gender": null,
+                "date_of_birth": null,
+                "company_type": null,
+                "company_name": null,
+                "company_site": null,
+                "last_activity": null,
+                "country": null,
+                "region": null,
+                "city": null
+            },
+            "currency": {
+                "id": 1,
+                "title": "UAH"
+            },
+            "country": {
+                "id": 1,
+                "title": "Test country"
+            },
+            "region": {
+                "id": 1,
+                "title": "Test region"
+            },
+            "city": {
+                "id": 1,
+                "title": "Test city"
+            },
+            "images": [
+                {
+                    "id": 1,
+                    "src": "http:\/\/job.locale\/storage\/order\/files\/3779a00d7aecc40c5155fe09b32dd559.gif"
+                }
+            ],
+            "categories": [
+                {
+                    "id": 1,
+                    "title": "Тест en"
+                },
+                {
+                    "id": 3,
+                    "title": "Test 2"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "type": "request",
+            "title": "asdfgfgdg",
+            "description": "asdasd",
+            "service_provision": "online",
+            "price": 100,
+            "desired_date": "2020-01-01",
+            "desired_time_from": "00:00:00",
+            "desired_time_to": "23:59:59",
+            "execution_address": "asasas",
+            "address": "asasas",
+            "executor_comment": null,
+            "customer_comment": null,
+            "status": "open",
+            "created_at": "2020-09-13T06:08:57.000000Z",
+            "author": {
+                "id": 13,
+                "name": "Admin",
+                "email": "hanterrian@gmail.com",
+                "phone": null,
+                "last_name": null,
+                "patronymic": null,
+                "description": null,
+                "gender": null,
+                "date_of_birth": null,
+                "company_type": null,
+                "company_name": null,
+                "company_site": null,
+                "last_activity": null,
+                "country": null,
+                "region": null,
+                "city": null
+            },
+            "currency": null,
+            "country": null,
+            "region": null,
+            "city": null,
+            "images": [],
+            "categories": []
+        },
+        {
+            "id": 6,
+            "type": "request",
+            "title": "asdfgfgdg",
+            "description": "asdasd",
+            "service_provision": "online",
+            "price": 100,
+            "desired_date": "2020-01-01",
+            "desired_time_from": "00:00:00",
+            "desired_time_to": "23:59:59",
+            "execution_address": "asasas",
+            "address": "asasas",
+            "executor_comment": null,
+            "customer_comment": null,
+            "status": "open",
+            "created_at": "2020-09-13T06:18:53.000000Z",
+            "author": {
+                "id": 13,
+                "name": "Admin",
+                "email": "hanterrian@gmail.com",
+                "phone": null,
+                "last_name": null,
+                "patronymic": null,
+                "description": null,
+                "gender": null,
+                "date_of_birth": null,
+                "company_type": null,
+                "company_name": null,
+                "company_site": null,
+                "last_activity": null,
+                "country": null,
+                "region": null,
+                "city": null
+            },
+            "currency": null,
+            "country": null,
+            "region": null,
+            "city": null,
+            "images": [
+                {
+                    "id": 6,
+                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_0.png"
+                },
+                {
+                    "id": 7,
+                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_1.webp"
+                }
+            ],
+            "categories": [
+                {
+                    "id": 1,
+                    "title": "Тест en"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "type": "request",
+            "title": "asdfgfgdg",
+            "description": "asdasd",
+            "service_provision": "online",
+            "price": 100,
+            "desired_date": "2020-01-01",
+            "desired_time_from": "00:00:00",
+            "desired_time_to": "23:59:59",
+            "execution_address": "asasas",
+            "address": "asasas",
+            "executor_comment": null,
+            "customer_comment": null,
+            "status": "open",
+            "created_at": "2020-09-13T06:21:53.000000Z",
+            "author": {
+                "id": 13,
+                "name": "Admin",
+                "email": "hanterrian@gmail.com",
+                "phone": null,
+                "last_name": null,
+                "patronymic": null,
+                "description": null,
+                "gender": null,
+                "date_of_birth": null,
+                "company_type": null,
+                "company_name": null,
+                "company_site": null,
+                "last_activity": null,
+                "country": null,
+                "region": null,
+                "city": null
+            },
+            "currency": null,
+            "country": null,
+            "region": null,
+            "city": null,
+            "images": [
+                {
+                    "id": 8,
+                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_0.png"
+                },
+                {
+                    "id": 9,
+                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_1.webp"
+                }
+            ],
+            "categories": [
+                {
+                    "id": 1,
+                    "title": "Тест en"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "type": "request",
+            "title": "asdfgfgdg",
+            "description": "asdasd",
+            "service_provision": "online",
+            "price": 100,
+            "desired_date": "2020-01-01",
+            "desired_time_from": "00:00:00",
+            "desired_time_to": "23:59:59",
+            "execution_address": "asasas",
+            "address": "asasas",
+            "executor_comment": null,
+            "customer_comment": null,
+            "status": "open",
+            "created_at": "2020-09-13T06:22:29.000000Z",
+            "author": {
+                "id": 13,
+                "name": "Admin",
+                "email": "hanterrian@gmail.com",
+                "phone": null,
+                "last_name": null,
+                "patronymic": null,
+                "description": null,
+                "gender": null,
+                "date_of_birth": null,
+                "company_type": null,
+                "company_name": null,
+                "company_site": null,
+                "last_activity": null,
+                "country": null,
+                "region": null,
+                "city": null
+            },
+            "currency": {
+                "id": 1,
+                "title": "UAH"
+            },
+            "country": {
+                "id": 1,
+                "title": "Test country"
+            },
+            "region": {
+                "id": 1,
+                "title": "Test region"
+            },
+            "city": {
+                "id": 1,
+                "title": "Test city"
+            },
+            "images": [
+                {
+                    "id": 10,
+                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_0.png"
+                },
+                {
+                    "id": 11,
+                    "src": "http:\/\/job.locale\/storage\/order\/2020\/09\/13\/13_order_1.webp"
+                }
+            ],
+            "categories": [
+                {
+                    "id": 1,
+                    "title": "Тест en"
+                }
+            ]
+        }
+    ],
+    "links": {
+        "first": "http:\/\/localhost\/api\/v1\/order\/order?page=1",
+        "last": "http:\/\/localhost\/api\/v1\/order\/order?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&amp;laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http:\/\/localhost\/api\/v1\/order\/order?page=1",
+                "label": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &amp;raquo;",
+                "active": false
+            }
+        ],
+        "path": "http:\/\/localhost\/api\/v1\/order\/order",
+        "per_page": 15,
+        "to": 5,
+        "total": 5
+    }
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -775,7 +1113,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":7}'
+    -d '{"order":11}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/add-executor"
@@ -788,7 +1126,7 @@ let headers = {
 };
 
 let body = {
-    "order": 7
+    "order": 11
 }
 
 fetch(url, {
@@ -799,10 +1137,16 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (200):</p>
+<p>Example response (422):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "User add to executor"
+    "message": "The given data was invalid.",
+    "errors": {
+        "order": [
+            "The selected order is invalid."
+        ]
+    },
+    "status": 422
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-black">POST</small>
@@ -819,7 +1163,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":16}'
+    -d '{"order":11}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/remove-executor"
@@ -832,7 +1176,7 @@ let headers = {
 };
 
 let body = {
-    "order": 16
+    "order": 11
 }
 
 fetch(url, {
@@ -869,7 +1213,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":15}'
+    -d '{"order":19}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/select-executor"
@@ -882,7 +1226,7 @@ let headers = {
 };
 
 let body = {
-    "order": 15
+    "order": 19
 }
 
 fetch(url, {
@@ -919,7 +1263,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"order":17}'
+    -d '{"order":4}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/order/order/add-view"
@@ -932,7 +1276,7 @@ let headers = {
 };
 
 let body = {
-    "order": 17
+    "order": 4
 }
 
 fetch(url, {
@@ -1072,11 +1416,27 @@ fetch(url, {
     .then(response =&gt; response.json())
     .then(json =&gt; console.log(json));</code></pre>
 <blockquote>
-<p>Example response (500):</p>
+<p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
+    "data": {
+        "id": 18,
+        "name": "Scribe",
+        "email": "scribe@locale.dev",
+        "phone": null,
+        "last_name": null,
+        "patronymic": null,
+        "description": null,
+        "gender": null,
+        "date_of_birth": null,
+        "company_type": null,
+        "company_name": null,
+        "company_site": null,
+        "last_activity": null,
+        "country": null,
+        "region": null,
+        "city": null
+    }
 }</code></pre>
 <h3>Request</h3>
 <p><small class="badge badge-green">GET</small>
@@ -1124,19 +1484,19 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=adipisci" \
-    -F "last_name=commodi" \
-    -F "patronymic=veritatis" \
-    -F "description=at" \
+    -F "name=nemo" \
+    -F "last_name=eius" \
+    -F "patronymic=consequatur" \
+    -F "description=est" \
     -F "gender=1" \
-    -F "date_of_birth=2020-10-25" \
+    -F "date_of_birth=2020-12-06" \
     -F "company_type=company" \
-    -F "company_name=optio" \
-    -F "company_site=http://www.goldner.com/" \
-    -F "country=error" \
-    -F "region=qui" \
-    -F "city=dolores" \
-    -F "photo=@C:\OpenServer\userdata\temp\php7CA4.tmp" </code></pre>
+    -F "company_name=tempora" \
+    -F "company_site=http://www.trantow.com/corporis-officia-fuga-et-placeat-consequuntur-blanditiis-mollitia.html" \
+    -F "country=natus" \
+    -F "region=aut" \
+    -F "city=ea" \
+    -F "photo=@C:\OpenServer\userdata\temp\php4B92.tmp" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://job.cijworld.com/api/v1/user/profile"
 );
@@ -1148,18 +1508,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'adipisci');
-body.append('last_name', 'commodi');
-body.append('patronymic', 'veritatis');
-body.append('description', 'at');
+body.append('name', 'nemo');
+body.append('last_name', 'eius');
+body.append('patronymic', 'consequatur');
+body.append('description', 'est');
 body.append('gender', '1');
-body.append('date_of_birth', '2020-10-25');
+body.append('date_of_birth', '2020-12-06');
 body.append('company_type', 'company');
-body.append('company_name', 'optio');
-body.append('company_site', 'http://www.goldner.com/');
-body.append('country', 'error');
-body.append('region', 'qui');
-body.append('city', 'dolores');
+body.append('company_name', 'tempora');
+body.append('company_site', 'http://www.trantow.com/corporis-officia-fuga-et-placeat-consequuntur-blanditiis-mollitia.html');
+body.append('country', 'natus');
+body.append('region', 'aut');
+body.append('city', 'ea');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {

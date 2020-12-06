@@ -13,7 +13,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"role":"executor","email":"antonio.gibson@example.org","password":"reprehenderit","country_id":"ut","region_id":"incidunt","city_id":"porro","name":"eius","last_name":"sunt","patronymic":"dignissimos","phone":"suscipit","description":"quia","gender":"1","date_of_birth":"2020-10-25","company_type":"company","company_name":"delectus","company_site":"http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"}'
+    -d '{"role":"excepturi","email":"nam","password":"et","country_id":3,"region_id":14,"city_id":20,"name":"quis","last_name":"nostrum","patronymic":"enim","phone":"dolorum","description":"libero","gender":12,"date_of_birth":"ea","company_type":"sed","company_name":"saepe","company_site":"neque","password_confirmation":"eum"}'
 
 ```
 
@@ -28,22 +28,23 @@ let headers = {
 };
 
 let body = {
-    "role": "executor",
-    "email": "antonio.gibson@example.org",
-    "password": "reprehenderit",
-    "country_id": "ut",
-    "region_id": "incidunt",
-    "city_id": "porro",
-    "name": "eius",
-    "last_name": "sunt",
-    "patronymic": "dignissimos",
-    "phone": "suscipit",
-    "description": "quia",
-    "gender": "1",
-    "date_of_birth": "2020-10-25",
-    "company_type": "company",
-    "company_name": "delectus",
-    "company_site": "http:\/\/www.wolff.com\/neque-possimus-molestiae-nulla-autem-tempore-consequatur.html"
+    "role": "excepturi",
+    "email": "nam",
+    "password": "et",
+    "country_id": 3,
+    "region_id": 14,
+    "city_id": 20,
+    "name": "quis",
+    "last_name": "nostrum",
+    "patronymic": "enim",
+    "phone": "dolorum",
+    "description": "libero",
+    "gender": 12,
+    "date_of_birth": "ea",
+    "company_type": "sed",
+    "company_name": "saepe",
+    "company_site": "neque",
+    "password_confirmation": "eum"
 }
 
 fetch(url, {
@@ -62,7 +63,14 @@ fetch(url, {
 {
     "message": "The given data was invalid.",
     "errors": {
+        "role": [
+            "The selected role is invalid."
+        ],
+        "email": [
+            "The email must be a valid email address."
+        ],
         "password": [
+            "The password must be at least 8 characters.",
             "The password confirmation does not match."
         ],
         "country_id": [
@@ -73,6 +81,18 @@ fetch(url, {
         ],
         "city_id": [
             "The selected city id is invalid."
+        ],
+        "gender": [
+            "The selected gender is invalid."
+        ],
+        "date_of_birth": [
+            "The date of birth does not match the format Y-m-d."
+        ],
+        "company_type": [
+            "The selected company type is invalid."
+        ],
+        "company_site": [
+            "The company site format is invalid."
         ]
     },
     "status": 422
@@ -84,53 +104,56 @@ fetch(url, {
  **`api/v1/auth/register`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>role</b></code>&nbsp; <small>string</small>     <br>
-    The value must be one of <code>customer</code> or <code>executor</code>.
-
-<code><b>email</b></code>&nbsp; <small>string</small>     <br>
-    The value must be a valid email address.
-
-<code><b>password</b></code>&nbsp; <small>string</small>     <br>
+<code><b>role</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     
 
-<code><b>country_id</b></code>&nbsp; <small>string</small>     <br>
+<code><b>email</b></code>&nbsp; <small>email</small>         <i>optional</i>    <br>
     
 
-<code><b>region_id</b></code>&nbsp; <small>string</small>     <br>
+<code><b>password</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     
 
-<code><b>city_id</b></code>&nbsp; <small>string</small>     <br>
+<code><b>country_id</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br>
     
 
-<code><b>name</b></code>&nbsp; <small>string</small>     <br>
+<code><b>region_id</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br>
     
 
-<code><b>last_name</b></code>&nbsp; <small>string</small>     <br>
+<code><b>city_id</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br>
     
 
-<code><b>patronymic</b></code>&nbsp; <small>string</small>     <br>
+<code><b>name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     
 
-<code><b>phone</b></code>&nbsp; <small>string</small>     <br>
+<code><b>last_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     
 
-<code><b>description</b></code>&nbsp; <small>string</small>     <br>
+<code><b>patronymic</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     
 
-<code><b>gender</b></code>&nbsp; <small>string</small>     <br>
-    The value must be one of <code>1</code> or <code>2</code>.
+<code><b>phone</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
 
-<code><b>date_of_birth</b></code>&nbsp; <small>string</small>     <br>
-    The value must be a valid date in the format Y-m-d.
+<code><b>description</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
 
-<code><b>company_type</b></code>&nbsp; <small>string</small>     <br>
-    The value must be one of <code>personal</code> or <code>company</code>.
+<code><b>gender</b></code>&nbsp; <small>integer</small>         <i>optional</i>    <br>
+    
+
+<code><b>date_of_birth</b></code>&nbsp; <small>date</small>         <i>optional</i>    <br>
+    
+
+<code><b>company_type</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
 
 <code><b>company_name</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
     
 
-<code><b>company_site</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
-    The value must be a valid URL.
+<code><b>company_site</b></code>&nbsp; <small>url</small>         <i>optional</i>    <br>
+    
+
+<code><b>password_confirmation</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
 
 
 
@@ -146,7 +169,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/register-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"moore.maximillia@example.com"}'
+    -d '{"email":"marilou.nolan@example.org"}'
 
 ```
 
@@ -161,7 +184,7 @@ let headers = {
 };
 
 let body = {
-    "email": "moore.maximillia@example.com"
+    "email": "marilou.nolan@example.org"
 }
 
 fetch(url, {
@@ -204,7 +227,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"user@dev.dev","password":"********","remember_me":true,"verification_token":"aut"}'
+    -d '{"email":"user@dev.dev","password":"********","remember_me":false,"verification_token":"impedit"}'
 
 ```
 
@@ -221,8 +244,8 @@ let headers = {
 let body = {
     "email": "user@dev.dev",
     "password": "********",
-    "remember_me": true,
-    "verification_token": "aut"
+    "remember_me": false,
+    "verification_token": "impedit"
 }
 
 fetch(url, {
@@ -275,7 +298,7 @@ curl -X POST \
     "https://job.cijworld.com/api/v1/auth/login-token" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"fjenkins@example.org","token":"temporibus"}'
+    -d '{"email":"voluptatem","token":"ut","remember_me":true}'
 
 ```
 
@@ -290,8 +313,9 @@ let headers = {
 };
 
 let body = {
-    "email": "fjenkins@example.org",
-    "token": "temporibus"
+    "email": "voluptatem",
+    "token": "ut",
+    "remember_me": true
 }
 
 fetch(url, {
@@ -304,12 +328,17 @@ fetch(url, {
 ```
 
 
-> Example response (500):
+> Example response (422):
 
 ```json
 {
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
+    "message": "The given data was invalid.",
+    "errors": {
+        "email": [
+            "The email must be a valid email address."
+        ]
+    },
+    "status": 422
 }
 ```
 
@@ -318,10 +347,13 @@ fetch(url, {
  **`api/v1/auth/login-token`**
 
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<code><b>email</b></code>&nbsp; <small>string</small>     <br>
-    The value must be a valid email address.
+<code><b>email</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
 
-<code><b>token</b></code>&nbsp; <small>string</small>     <br>
+<code><b>token</b></code>&nbsp; <small>string</small>         <i>optional</i>    <br>
+    
+
+<code><b>remember_me</b></code>&nbsp; <small>boolean</small>         <i>optional</i>    <br>
     
 
 

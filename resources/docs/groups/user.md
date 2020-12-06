@@ -38,12 +38,28 @@ fetch(url, {
 ```
 
 
-> Example response (500):
+> Example response (200):
 
 ```json
 {
-    "message": "Whoops, looks like something went wrong",
-    "status": 500
+    "data": {
+        "id": 18,
+        "name": "Scribe",
+        "email": "scribe@locale.dev",
+        "phone": null,
+        "last_name": null,
+        "patronymic": null,
+        "description": null,
+        "gender": null,
+        "date_of_birth": null,
+        "company_type": null,
+        "company_name": null,
+        "company_site": null,
+        "last_activity": null,
+        "country": null,
+        "region": null,
+        "city": null
+    }
 }
 ```
 
@@ -116,19 +132,19 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: multipart/form-data" \
     -H "Accept: application/json" \
-    -F "name=adipisci" \
-    -F "last_name=commodi" \
-    -F "patronymic=veritatis" \
-    -F "description=at" \
+    -F "name=nemo" \
+    -F "last_name=eius" \
+    -F "patronymic=consequatur" \
+    -F "description=est" \
     -F "gender=1" \
-    -F "date_of_birth=2020-10-25" \
+    -F "date_of_birth=2020-12-06" \
     -F "company_type=company" \
-    -F "company_name=optio" \
-    -F "company_site=http://www.goldner.com/" \
-    -F "country=error" \
-    -F "region=qui" \
-    -F "city=dolores" \
-    -F "photo=@C:\OpenServer\userdata\temp\php7CA4.tmp" 
+    -F "company_name=tempora" \
+    -F "company_site=http://www.trantow.com/corporis-officia-fuga-et-placeat-consequuntur-blanditiis-mollitia.html" \
+    -F "country=natus" \
+    -F "region=aut" \
+    -F "city=ea" \
+    -F "photo=@C:\OpenServer\userdata\temp\php4B92.tmp" 
 ```
 
 ```javascript
@@ -143,18 +159,18 @@ let headers = {
 };
 
 const body = new FormData();
-body.append('name', 'adipisci');
-body.append('last_name', 'commodi');
-body.append('patronymic', 'veritatis');
-body.append('description', 'at');
+body.append('name', 'nemo');
+body.append('last_name', 'eius');
+body.append('patronymic', 'consequatur');
+body.append('description', 'est');
 body.append('gender', '1');
-body.append('date_of_birth', '2020-10-25');
+body.append('date_of_birth', '2020-12-06');
 body.append('company_type', 'company');
-body.append('company_name', 'optio');
-body.append('company_site', 'http://www.goldner.com/');
-body.append('country', 'error');
-body.append('region', 'qui');
-body.append('city', 'dolores');
+body.append('company_name', 'tempora');
+body.append('company_site', 'http://www.trantow.com/corporis-officia-fuga-et-placeat-consequuntur-blanditiis-mollitia.html');
+body.append('country', 'natus');
+body.append('region', 'aut');
+body.append('city', 'ea');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
