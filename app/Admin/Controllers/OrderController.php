@@ -14,6 +14,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+/**
+ * Class OrderController
+ * @package App\Admin\Controllers
+ */
 class OrderController extends AdminController
 {
     /**
@@ -32,8 +36,11 @@ class OrderController extends AdminController
     {
         $grid = new Grid(new Order());
 
+        /** @var array $list */
+        $list = User::getItems();
+
         $grid->column('id', __('Id'));
-        $grid->column('user_id', __('User'))->select(User::getItems());
+        $grid->column('user_id', __('User'))->select($list);
         $grid->column('type', __('Type'));
         $grid->column('title', __('Title'));
         $grid->column('price', __('Price'));
@@ -42,10 +49,10 @@ class OrderController extends AdminController
         $grid->column('region_id', __('Region'));
         $grid->column('city_id', __('City'));
         $grid->column('status', __('Status'));
-        $grid->column('working_at', __('Working at'))->date('Y-m-d H:i:s');
-        $grid->column('closed_at', __('Closed at'))->date('Y-m-d H:i:s');
-        $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
-        $grid->column('updated_at', __('Updated at'))->date('Y-m-d H:i:s');
+        $grid->column('working_at', __('Working at'))->date();
+        $grid->column('closed_at', __('Closed at'))->date();
+        $grid->column('created_at', __('Created at'))->date();
+        $grid->column('updated_at', __('Updated at'))->date();
 
         $grid->filter(function (Grid\Filter $filter) {
             $filter->like('title', __('Title'));

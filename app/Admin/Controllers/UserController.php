@@ -8,6 +8,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+/**
+ * Class UserController
+ * @package App\Admin\Controllers
+ */
 class UserController extends AdminController
 {
     /**
@@ -44,6 +48,7 @@ class UserController extends AdminController
      * Make a show builder.
      *
      * @param mixed $id
+     *
      * @return Show
      */
     protected function detail($id)

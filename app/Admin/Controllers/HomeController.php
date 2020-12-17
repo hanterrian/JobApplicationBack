@@ -8,8 +8,17 @@ use Encore\Admin\Layout\Column;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 
+/**
+ * Class HomeController
+ * @package App\Admin\Controllers
+ */
 class HomeController extends Controller
 {
+    /**
+     * @param Content $content
+     *
+     * @return Content
+     */
     public function index(Content $content)
     {
         return $content
