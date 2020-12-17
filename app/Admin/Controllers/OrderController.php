@@ -119,7 +119,7 @@ class OrderController extends AdminController
         $form->select('selected_user_id', __('Selected user'))->options(User::getItems('id', 'name'));
         $form->select('type', __('Type'))->options(Order::getTypes())->required();
         $form->text('title', __('Title'))->required();
-        $form->textarea('description', __('Description'))->required();
+        $form->ckeditor('description', __('Description'))->required();
         $form->select('service_provision', __('Service provision'))->options(Order::getServiceProvisions())->required();
         $form->decimal('price', __('Price'))->required();
         $form->select('currency_id', __('Currency'))->options(Currency::getItems())->required();
@@ -137,10 +137,10 @@ class OrderController extends AdminController
         $form->datetime('working_at', __('Working at'))->default(date('Y-m-d H:i:s'));
         $form->datetime('closed_at', __('Closed at'))->default(date('Y-m-d H:i:s'));
         $form->multipleSelect('categories', __('Categories'))->options(Category::getItems());
-        $form->morphMany('images', __('Images'), function (Form\NestedForm $form) {
-            $form->file('src');
-            $form->number('sort')->default(0);
-        });
+        $form->multipleImage('images', __('Images'))
+            ->pathColumn('src')
+            ->downloadable(false)
+            ->removable();
 
         return $form;
     }
