@@ -19,14 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        /** @var LengthAwarePaginator|Order[] $paginator */
-        $paginator = Order::where([
-            'status' => [
-                Order::STATUS_OPEN,
-                Order::STATUS_IN_PROGRESS
-            ]
-        ])->paginate();
+        echo trans('home.greeting');
 
-        return view('home.index', ['paginator' => $paginator]);
+        return view('home.index');
     }
 }
