@@ -18,6 +18,8 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "joedixon/laravel-translation": "^1.1",
+        "laravel-admin-ext/ckeditor": "^1.0",
         "laravel-admin-ext/config": "^1.1",
         "laravel-admin-ext/helpers": "^1.2",
         "laravel-admin-ext/media-manager": "^1.1",

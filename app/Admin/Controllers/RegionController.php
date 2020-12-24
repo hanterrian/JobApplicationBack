@@ -11,6 +11,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+/**
+ * Class RegionController
+ * @package App\Admin\Controllers
+ */
 class RegionController extends AdminController
 {
     /**
@@ -40,15 +44,15 @@ class RegionController extends AdminController
         $grid->column('sort', __('Sort'));
         $grid->column('published', __('Published'))->switch();
 
-        $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
-        $grid->column('updated_at', __('Updated at'))->date('Y-m-d H:i:s');
+        $grid->column('created_at', __('Created at'))->date();
+        $grid->column('updated_at', __('Updated at'))->date();
 
         $grid->filter(function (Grid\Filter $filter) {
             $filter->like('translation.title', __('Title'));
             $filter->equal('country_id', __('Country'))->select(Country::getItems());
             $filter->equal('published', __('Published'))->select([
-                0 => __('No'),
-                1 => __('Yes')
+                __('No'),
+                __('Yes')
             ]);
         });
 

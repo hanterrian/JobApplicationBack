@@ -8,6 +8,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+/**
+ * Class CurrencyController
+ * @package App\Admin\Controllers
+ */
 class CurrencyController extends AdminController
 {
     /**
@@ -39,6 +43,7 @@ class CurrencyController extends AdminController
      * Make a show builder.
      *
      * @param mixed $id
+     *
      * @return Show
      */
     protected function detail($id)

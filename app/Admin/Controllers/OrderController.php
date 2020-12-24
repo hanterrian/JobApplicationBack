@@ -14,6 +14,10 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
+/**
+ * Class OrderController
+ * @package App\Admin\Controllers
+ */
 class OrderController extends AdminController
 {
     /**
@@ -32,8 +36,11 @@ class OrderController extends AdminController
     {
         $grid = new Grid(new Order());
 
+        /** @var array $list */
+        $list = User::getItems();
+
         $grid->column('id', __('Id'));
-        $grid->column('user_id', __('User'))->select(User::getItems());
+        $grid->column('user_id', __('User'))->select($list);
         $grid->column('type', __('Type'));
         $grid->column('title', __('Title'));
         $grid->column('price', __('Price'));
@@ -42,10 +49,10 @@ class OrderController extends AdminController
         $grid->column('region_id', __('Region'));
         $grid->column('city_id', __('City'));
         $grid->column('status', __('Status'));
-        $grid->column('working_at', __('Working at'))->date('Y-m-d H:i:s');
-        $grid->column('closed_at', __('Closed at'))->date('Y-m-d H:i:s');
-        $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
-        $grid->column('updated_at', __('Updated at'))->date('Y-m-d H:i:s');
+        $grid->column('working_at', __('Working at'))->date();
+        $grid->column('closed_at', __('Closed at'))->date();
+        $grid->column('created_at', __('Created at'))->date();
+        $grid->column('updated_at', __('Updated at'))->date();
 
         $grid->filter(function (Grid\Filter $filter) {
             $filter->like('title', __('Title'));
@@ -112,7 +119,7 @@ class OrderController extends AdminController
         $form->select('selected_user_id', __('Selected user'))->options(User::getItems('id', 'name'));
         $form->select('type', __('Type'))->options(Order::getTypes())->required();
         $form->text('title', __('Title'))->required();
-        $form->textarea('description', __('Description'))->required();
+        $form->ckeditor('description', __('Description'))->required();
         $form->select('service_provision', __('Service provision'))->options(Order::getServiceProvisions())->required();
         $form->decimal('price', __('Price'))->required();
         $form->select('currency_id', __('Currency'))->options(Currency::getItems())->required();
@@ -130,10 +137,10 @@ class OrderController extends AdminController
         $form->datetime('working_at', __('Working at'))->default(date('Y-m-d H:i:s'));
         $form->datetime('closed_at', __('Closed at'))->default(date('Y-m-d H:i:s'));
         $form->multipleSelect('categories', __('Categories'))->options(Category::getItems());
-        $form->morphMany('images', __('Images'), function (Form\NestedForm $form) {
-            $form->file('src');
-            $form->number('sort')->default(0);
-        });
+        $form->multipleImage('images', __('Images'))
+            ->pathColumn('src')
+            ->downloadable(false)
+            ->removable();
 
         return $form;
     }
