@@ -13,6 +13,7 @@
         "artesaos/seotools": "^0.19.1",
         "astrotomic/laravel-translatable": "^11.8",
         "barryvdh/laravel-ide-helper": "^2.7",
+        "cakephp/chronos": "^2.0",
         "encore/laravel-admin": "^1.8",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",

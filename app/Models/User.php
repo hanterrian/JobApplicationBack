@@ -115,8 +115,23 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function getGender(): ?string
     {
-        $genders = self::getGenders();
-        return $genders[$this->gender] ?? null;
+        return Arr::get(self::getGenders(), $this->gender);
+    }
+
+    public static function getCompanyTypes(): array
+    {
+        return [
+            self::COMPANY_TYPE_COMPANY => __('Company'),
+            self::COMPANY_TYPE_PERSONAL => __('Personal'),
+        ];
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCompanyType(): ?string
+    {
+        return Arr::get(self::getCompanyTypes(), $this->company_type);
     }
 
     /**
