@@ -15902,6 +15902,119 @@
      
 }
 
+    namespace Kris\LaravelFormBuilder\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class FormBuilder {
+                    /**
+         * Fire an event.
+         *
+         * @param object $event
+         * @return array|null 
+         * @static 
+         */ 
+        public static function fireEvent($event)
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->fireEvent($event);
+        }
+                    /**
+         * Create a Form instance.
+         *
+         * @param string $formClass The name of the class that inherits \Kris\LaravelFormBuilder\Form.
+         * @param array $options|null
+         * @param array $data|null
+         * @return \Form 
+         * @static 
+         */ 
+        public static function create($formClass, $options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->create($formClass, $options, $data);
+        }
+                    /**
+         * 
+         *
+         * @param $items
+         * @param array $options
+         * @param array $data
+         * @return mixed 
+         * @static 
+         */ 
+        public static function createByArray($items, $options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->createByArray($items, $options, $data);
+        }
+                    /**
+         * 
+         *
+         * @param $form
+         * @param $items
+         * @static 
+         */ 
+        public static function buildFormByArray($form, $items)
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->buildFormByArray($form, $items);
+        }
+                    /**
+         * Get instance of the empty form which can be modified
+         * Get the plain form class.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getFormClass()
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->getFormClass();
+        }
+                    /**
+         * Set the plain form class.
+         *
+         * @param string $class
+         * @static 
+         */ 
+        public static function setFormClass($class)
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->setFormClass($class);
+        }
+                    /**
+         * Get instance of the empty form which can be modified.
+         *
+         * @param array $options
+         * @param array $data
+         * @return \Kris\LaravelFormBuilder\Form 
+         * @static 
+         */ 
+        public static function plain($options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->plain($options, $data);
+        }
+                    /**
+         * Set depedencies and options on existing form instance
+         *
+         * @param \Kris\LaravelFormBuilder\Form $instance
+         * @param array $options
+         * @param array $data
+         * @return \Kris\LaravelFormBuilder\Form 
+         * @static 
+         */ 
+        public static function setDependenciesAndOptions($instance, $options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->setDependenciesAndOptions($instance, $options, $data);
+        }
+         
+    }
+     
+}
+
     namespace Encore\Admin\Facades { 
             /**
      * Class Admin.
@@ -16540,119 +16653,6 @@
         {
                         /** @var \Facade\FlareClient\Flare $instance */
                         return $instance->group($groupName, $properties);
-        }
-         
-    }
-     
-}
-
-    namespace Kris\LaravelFormBuilder\Facades { 
-            /**
-     * 
-     *
-     */ 
-        class FormBuilder {
-                    /**
-         * Fire an event.
-         *
-         * @param object $event
-         * @return array|null 
-         * @static 
-         */ 
-        public static function fireEvent($event)
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->fireEvent($event);
-        }
-                    /**
-         * Create a Form instance.
-         *
-         * @param string $formClass The name of the class that inherits \Kris\LaravelFormBuilder\Form.
-         * @param array $options|null
-         * @param array $data|null
-         * @return \Form 
-         * @static 
-         */ 
-        public static function create($formClass, $options = [], $data = [])
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->create($formClass, $options, $data);
-        }
-                    /**
-         * 
-         *
-         * @param $items
-         * @param array $options
-         * @param array $data
-         * @return mixed 
-         * @static 
-         */ 
-        public static function createByArray($items, $options = [], $data = [])
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->createByArray($items, $options, $data);
-        }
-                    /**
-         * 
-         *
-         * @param $form
-         * @param $items
-         * @static 
-         */ 
-        public static function buildFormByArray($form, $items)
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->buildFormByArray($form, $items);
-        }
-                    /**
-         * Get instance of the empty form which can be modified
-         * Get the plain form class.
-         *
-         * @return string 
-         * @static 
-         */ 
-        public static function getFormClass()
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->getFormClass();
-        }
-                    /**
-         * Set the plain form class.
-         *
-         * @param string $class
-         * @static 
-         */ 
-        public static function setFormClass($class)
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->setFormClass($class);
-        }
-                    /**
-         * Get instance of the empty form which can be modified.
-         *
-         * @param array $options
-         * @param array $data
-         * @return \Kris\LaravelFormBuilder\Form 
-         * @static 
-         */ 
-        public static function plain($options = [], $data = [])
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->plain($options, $data);
-        }
-                    /**
-         * Set depedencies and options on existing form instance
-         *
-         * @param \Kris\LaravelFormBuilder\Form $instance
-         * @param array $options
-         * @param array $data
-         * @return \Kris\LaravelFormBuilder\Form 
-         * @static 
-         */ 
-        public static function setDependenciesAndOptions($instance, $options = [], $data = [])
-        {
-                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
-                        return $instance->setDependenciesAndOptions($instance, $options, $data);
         }
          
     }
@@ -21054,13 +21054,13 @@ namespace  {
             class Validator extends \Illuminate\Support\Facades\Validator {}
             class View extends \Illuminate\Support\Facades\View {}
             class SEO extends \Artesaos\SEOTools\Facades\SEOTools {}
+            class FormBuilder extends \Kris\LaravelFormBuilder\Facades\FormBuilder {}
             class SEOMeta extends \Artesaos\SEOTools\Facades\SEOMeta {}
             class OpenGraph extends \Artesaos\SEOTools\Facades\OpenGraph {}
             class Twitter extends \Artesaos\SEOTools\Facades\TwitterCard {}
             class JsonLd extends \Artesaos\SEOTools\Facades\JsonLd {}
             class Admin extends \Encore\Admin\Facades\Admin {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
-            class FormBuilder extends \Kris\LaravelFormBuilder\Facades\FormBuilder {}
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}
      
