@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-//Auth::routes(['verify' => true]);
-//
-//Route::get('register', [
-//    'as' => 'register',
-//    'uses' => 'Auth\RegisterController@selectType'
-//]);
-//
-//Route::get('register/{type?}', [
-//    'as' => 'register-type',
-//    'uses' => 'Auth\RegisterController@showForm'
-//]);
-//
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('auth')->group(function () {
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
+    Route::post('/login', [LoginController::class, 'auth'])->name('auth');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+});
 
 Route::get('sitemap.xml', function () {
     // create new sitemap object

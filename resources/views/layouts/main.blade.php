@@ -24,7 +24,7 @@
     {!! SEO::generate() !!}
 </head>
 <body>
-<div class="container-fluid" id="app">
+<div class="flex flex-col h-screen bg-gray-100" id="app">
     @yield('content')
 </div>
 
