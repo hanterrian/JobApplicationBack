@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 
+        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -227,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
+        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
     ],
 
 ];

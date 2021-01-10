@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 8.19.0.
+ * Generated for Laravel 8.21.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -7338,7 +7338,7 @@
                     /**
          * Queue a new e-mail message for sending.
          *
-         * @param string|array $view
+         * @param \Illuminate\Contracts\Mail\Mailable|string|array $view
          * @param string|null $queue
          * @return mixed 
          * @static 
@@ -8099,6 +8099,92 @@
                         return $instance->setConnectionName($name);
         }
                     /**
+         * Migrate the delayed jobs that are ready to the regular queue.
+         *
+         * @param string $from
+         * @param string $to
+         * @return array 
+         * @static 
+         */ 
+        public static function migrateExpiredJobs($from, $to)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->migrateExpiredJobs($from, $to);
+        }
+                    /**
+         * Delete a reserved job from the queue.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\RedisJob $job
+         * @return void 
+         * @static 
+         */ 
+        public static function deleteReserved($queue, $job)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        $instance->deleteReserved($queue, $job);
+        }
+                    /**
+         * Delete a reserved job from the reserved queue and release it.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\RedisJob $job
+         * @param int $delay
+         * @return void 
+         * @static 
+         */ 
+        public static function deleteAndRelease($queue, $job, $delay)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        $instance->deleteAndRelease($queue, $job, $delay);
+        }
+                    /**
+         * Delete all of the jobs from the queue.
+         *
+         * @param string $queue
+         * @return int 
+         * @static 
+         */ 
+        public static function clear($queue)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->clear($queue);
+        }
+                    /**
+         * Get the queue or return the default.
+         *
+         * @param string|null $queue
+         * @return string 
+         * @static 
+         */ 
+        public static function getQueue($queue)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getQueue($queue);
+        }
+                    /**
+         * Get the connection for the queue.
+         *
+         * @return \Illuminate\Redis\Connections\Connection 
+         * @static 
+         */ 
+        public static function getConnection()
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getConnection();
+        }
+                    /**
+         * Get the underlying Redis instance.
+         *
+         * @return \Illuminate\Contracts\Redis\Factory 
+         * @static 
+         */ 
+        public static function getRedis()
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getRedis();
+        }
+                    /**
          * Get the backoff for an object-based queue handler.
          *
          * @param mixed $job
@@ -8107,7 +8193,7 @@
          */ 
         public static function getJobBackoff($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\SyncQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobBackoff($job);
         }
                     /**
@@ -8119,7 +8205,7 @@
          */ 
         public static function getJobExpiration($job)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\SyncQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobExpiration($job);
         }
                     /**
@@ -8131,7 +8217,7 @@
          */ 
         public static function createPayloadUsing($callback)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        \Illuminate\Queue\SyncQueue::createPayloadUsing($callback);
+                        \Illuminate\Queue\RedisQueue::createPayloadUsing($callback);
         }
                     /**
          * Set the IoC container instance.
@@ -8142,7 +8228,7 @@
          */ 
         public static function setContainer($container)
         {            //Method inherited from \Illuminate\Queue\Queue         
-                        /** @var \Illuminate\Queue\SyncQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -8403,6 +8489,10 @@
             /**
      * 
      *
+     * @method static \Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder funnel(string $name)
+     * @method static \Illuminate\Redis\Limiters\DurationLimiterBuilder throttle(string $name)
+     * @see \Illuminate\Redis\RedisManager
+     * @see \Illuminate\Contracts\Redis\Factory
      */ 
         class Redis {
                     /**
@@ -9109,7 +9199,6 @@
          *
          * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR']
          * @param int $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
-         * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
          * @static 
          */ 
         public static function setTrustedProxies($proxies, $trustedHeaderSet)
@@ -9779,7 +9868,6 @@
          *
          * @param bool $asResource If true, a resource will be returned
          * @return string|resource The request body content or a resource to read the body stream
-         * @throws \LogicException
          * @static 
          */ 
         public static function getContent($asResource = false)
@@ -16458,6 +16546,119 @@
      
 }
 
+    namespace Kris\LaravelFormBuilder\Facades { 
+            /**
+     * 
+     *
+     */ 
+        class FormBuilder {
+                    /**
+         * Fire an event.
+         *
+         * @param object $event
+         * @return array|null 
+         * @static 
+         */ 
+        public static function fireEvent($event)
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->fireEvent($event);
+        }
+                    /**
+         * Create a Form instance.
+         *
+         * @param string $formClass The name of the class that inherits \Kris\LaravelFormBuilder\Form.
+         * @param array $options|null
+         * @param array $data|null
+         * @return \Form 
+         * @static 
+         */ 
+        public static function create($formClass, $options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->create($formClass, $options, $data);
+        }
+                    /**
+         * 
+         *
+         * @param $items
+         * @param array $options
+         * @param array $data
+         * @return mixed 
+         * @static 
+         */ 
+        public static function createByArray($items, $options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->createByArray($items, $options, $data);
+        }
+                    /**
+         * 
+         *
+         * @param $form
+         * @param $items
+         * @static 
+         */ 
+        public static function buildFormByArray($form, $items)
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->buildFormByArray($form, $items);
+        }
+                    /**
+         * Get instance of the empty form which can be modified
+         * Get the plain form class.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getFormClass()
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->getFormClass();
+        }
+                    /**
+         * Set the plain form class.
+         *
+         * @param string $class
+         * @static 
+         */ 
+        public static function setFormClass($class)
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->setFormClass($class);
+        }
+                    /**
+         * Get instance of the empty form which can be modified.
+         *
+         * @param array $options
+         * @param array $data
+         * @return \Kris\LaravelFormBuilder\Form 
+         * @static 
+         */ 
+        public static function plain($options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->plain($options, $data);
+        }
+                    /**
+         * Set depedencies and options on existing form instance
+         *
+         * @param \Kris\LaravelFormBuilder\Form $instance
+         * @param array $options
+         * @param array $data
+         * @return \Kris\LaravelFormBuilder\Form 
+         * @static 
+         */ 
+        public static function setDependenciesAndOptions($instance, $options = [], $data = [])
+        {
+                        /** @var \Kris\LaravelFormBuilder\FormBuilder $instance */
+                        return $instance->setDependenciesAndOptions($instance, $options, $data);
+        }
+         
+    }
+     
+}
+
     namespace Collective\Html { 
             /**
      * 
@@ -17162,6 +17363,19 @@
                         /** @var \Collective\Html\FormBuilder $instance */
                         return $instance->componentCall($method, $parameters);
         }
+                    /**
+         * 
+         *
+         * @see \Kris\LaravelFormBuilder\FormBuilderServiceProvider::boot()
+         * @param mixed $name
+         * @param mixed $value
+         * @param mixed $options
+         * @static 
+         */ 
+        public static function customLabel($name, $value, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::customLabel($name, $value, $options);
+        }
          
     }
             /**
@@ -17564,6 +17778,26 @@
         {
                         /** @var \Collective\Html\HtmlBuilder $instance */
                         return $instance->componentCall($method, $parameters);
+        }
+         
+    }
+            /**
+     * 
+     *
+     */ 
+        class FormBuilder {
+                    /**
+         * 
+         *
+         * @see \Kris\LaravelFormBuilder\FormBuilderServiceProvider::boot()
+         * @param mixed $name
+         * @param mixed $value
+         * @param mixed $options
+         * @static 
+         */ 
+        public static function customLabel($name, $value, $options = [])
+        {
+                        return \Collective\Html\FormBuilder::customLabel($name, $value, $options);
         }
          
     }
@@ -20826,6 +21060,7 @@ namespace  {
             class JsonLd extends \Artesaos\SEOTools\Facades\JsonLd {}
             class Admin extends \Encore\Admin\Facades\Admin {}
             class Flare extends \Facade\Ignition\Facades\Flare {}
+            class FormBuilder extends \Kris\LaravelFormBuilder\Facades\FormBuilder {}
             class Form extends \Collective\Html\FormFacade {}
             class Html extends \Collective\Html\HtmlFacade {}
      
