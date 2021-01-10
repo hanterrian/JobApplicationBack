@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Scripts -->
+@livewireStyles
+
+<!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -25,5 +27,7 @@
 <div class="container-fluid" id="app">
     @yield('content')
 </div>
+
+@livewireScripts
 </body>
 </html>
