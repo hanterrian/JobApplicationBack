@@ -3,7 +3,6 @@
 namespace App\View\Components\Form;
 
 use Illuminate\View\Component;
-use phpseclib\Crypt\Random;
 
 /**
  * Class TextField
@@ -31,7 +30,7 @@ class TextField extends Component
         $this->name = $name;
         $this->label = $label;
         $this->value = $value;
-        $this->id = Random::string(6);
+        $this->id = $name . '_' . rand(1000, 9999);
     }
 
     public function render()

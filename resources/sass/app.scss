@@ -14,7 +14,7 @@
  *
  * See: https://github.com/laravel-frontend-presets/tall/issues/7
  */
- input:invalid, textarea:invalid, select:invalid {
+input:invalid, textarea:invalid, select:invalid {
     box-shadow: none;
 }
 
@@ -52,4 +52,24 @@
 
 [x-cloak] {
     display: none;
+}
+
+.login_form {
+    @apply grid place-items-center mx-2 my-20
+}
+
+.text_field_block {
+    @apply block
+}
+
+.text_field_label {
+    @apply text-gray-700
+}
+
+.text_field_input {
+    @apply block w-full border-gray-300 rounded-md focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 sm:text-sm sm:leading-5
+}
+
+.text_field_input_error {
+    @apply border-red-600
 }
