@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Form;
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
 use phpseclib\Crypt\Random;
 
@@ -26,11 +27,11 @@ class PasswordField extends Component
      * @param $label
      * @param $value
      */
-    public function __construct($name, $label, $value)
+    public function __construct($name, $label, $value = null)
     {
         $this->name = $name;
         $this->label = $label;
-        $this->value = $value;
+        $this->value = $value ?? Request::old($name);
         $this->id = $name . '_' . rand(1000, 9999);
     }
 

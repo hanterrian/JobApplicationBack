@@ -24,7 +24,9 @@
     {!! SEO::generate() !!}
 </head>
 <body>
-<div class="flex flex-col h-screen bg-gray-100" id="app">
+<div class="container-fluid" id="app">
+    <x-flash-message/>
+
     @yield('content')
 </div>
 

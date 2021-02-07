@@ -1,9 +1,9 @@
-<label for="{{$id}}" class="text_field_block">
-    <span class="text_field_label">{{$label}}</span>
-    <input class="text_field_input @error($name) text_field_input_error @enderror" type="text" id="{{$id}}" name="{{$name}}" value="{{$value}}"/>
+<div class="form-group">
+    <label for="{{$id}}">{{$label}}</label>
+    <input class="form-control @error($name) is-invalid @enderror" type="text" id="{{$id}}" name="{{$name}}" value="{{$value}}"/>
     @error($name)
-    <span class="text_field_error">
+    <div class="invalid-feedback">
         {{$message}}
-    </span>
+    </div>
     @enderror
-</label>
+</div>

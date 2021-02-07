@@ -1,0 +1,23 @@
+.login_form {
+    @apply grid place-items-center mx-2 my-20
+}
+
+.text_field_block {
+    @apply block
+}
+
+.text_field_label {
+    @apply text-gray-700
+}
+
+.text_field_input {
+    @apply block w-full border-gray-300 rounded-md
+
+    //&:focus {
+    //    @apply border-blue-300 ring ring-blue-200 ring-opacity-50 sm:text-sm sm:leading-5
+    //}
+}
+
+.text_field_input_error {
+    @apply border-red-600
+}

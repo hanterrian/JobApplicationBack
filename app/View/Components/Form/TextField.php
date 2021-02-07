@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Form;
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\View\Component;
 
 /**
@@ -25,11 +26,11 @@ class TextField extends Component
      * @param string $label
      * @param string $value
      */
-    public function __construct($name, $label, $value)
+    public function __construct($name, $label, $value = null)
     {
         $this->name = $name;
         $this->label = $label;
-        $this->value = $value;
+        $this->value = $value ?? Request::old($name);
         $this->id = $name . '_' . rand(1000, 9999);
     }
 
