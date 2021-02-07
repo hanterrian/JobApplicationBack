@@ -83,6 +83,7 @@ class TwoFactorAuth extends Model
             'provider' => $provider,
         ])
             ->where('created_at', '>', now()->subMinutes(10))
+            ->orderBy('created_at')
             ->first();
     }
 

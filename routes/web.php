@@ -20,6 +20,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::prefix('auth')->group(function () {
     Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('/login', [LoginController::class, 'auth'])->name('auth');
+    Route::get('/verify/{hash}', [LoginController::class, 'verify'])->name('verify');
+    Route::post('/verify/{hash}', [LoginController::class, 'verifyCheck'])->name('verify-check');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
 

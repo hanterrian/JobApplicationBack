@@ -85,6 +85,12 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePatronymic($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePhoto($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRegionId($value)
+ * @property string|null $auth_code
+ * @property string|null $auth_hash
+ * @property int|null $auth_try
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAuthCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAuthHash($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereAuthTry($value)
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -163,6 +169,10 @@ class User extends Authenticatable implements MustVerifyEmail
         //
         'last_activity',
         'is_verified',
+        //
+        'auth_code',
+        'auth_hash',
+        'auth_try',
     ];
 
     /**

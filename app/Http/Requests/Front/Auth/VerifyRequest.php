@@ -5,19 +5,19 @@ namespace App\Http\Requests\Front\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class LoginRequest
+ * Class VerifyRequest
  * @package App\Http\Requests\Front\Auth
  *
- * @property string $email
- * @property string $password
+ * @property string $code
+ * @property bool $remember
  */
-class LoginRequest extends FormRequest
+class VerifyRequest extends FormRequest
 {
     public function rules()
     {
         return [
-            'email' => ['email', 'max:255', 'required'],
-            'password' => ['max:255', 'required'],
+            'code' => ['string', 'min:8', 'max:8', 'required'],
+            'remember' => ['boolean'],
         ];
     }
 
