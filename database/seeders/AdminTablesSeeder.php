@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use DB;
+use Encore\Admin\Auth\Database\Menu;
+use Encore\Admin\Auth\Database\Permission;
+use Encore\Admin\Auth\Database\Role;
 use Illuminate\Database\Seeder;
 
 class AdminTablesSeeder extends Seeder
@@ -14,22 +18,22 @@ class AdminTablesSeeder extends Seeder
     public function run()
     {
         // base tables
-        Encore\Admin\Auth\Database\Menu::truncate();
-        Encore\Admin\Auth\Database\Menu::insert(
+        Menu::truncate();
+        Menu::insert(
             [
 
             ]
         );
 
-        Encore\Admin\Auth\Database\Permission::truncate();
-        Encore\Admin\Auth\Database\Permission::insert(
+        Permission::truncate();
+        Permission::insert(
             [
 
             ]
         );
 
-        Encore\Admin\Auth\Database\Role::truncate();
-        Encore\Admin\Auth\Database\Role::insert(
+        Role::truncate();
+        Role::insert(
             [
 
             ]
