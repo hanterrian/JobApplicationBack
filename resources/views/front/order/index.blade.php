@@ -19,6 +19,9 @@
                         <a class="btn btn-outline-primary" href="{{route('orders.show',['order'=>$model])}}">
                             {{__('View')}}
                         </a>
+                        <a class="btn btn-outline-success" href="{{route('chat',['order'=>$model])}}">
+                            {{__('Chat')}}
+                        </a>
 
                         @if($model->user_id === Auth::id())
                             <a class="btn btn-outline-warning" href="{{route('orders.edit',['order'=>$model])}}">

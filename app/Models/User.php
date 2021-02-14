@@ -91,6 +91,10 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereAuthCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereAuthHash($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereAuthTry($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Chat[] $chats
+ * @property-read int|null $chats_count
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ChatMessage[] $messages
+ * @property-read int|null $messages_count
  */
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -232,5 +236,21 @@ class User extends Authenticatable implements MustVerifyEmail
     public function permissions()
     {
         return $this->belongsToMany(Permission::class, 'user_has_permissions');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany(ChatMessage::class);
     }
 }

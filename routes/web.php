@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Front\ChatController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -20,12 +21,20 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('orders', OrderController::class);
 
+Route::prefix('chat')->group(function () {
+    Route::get('list', [ChatController::class, 'index'])->name('chats');
+    Route::get('view/{order}', [ChatController::class, 'view'])->name('chat');
+    Route::post('create/{order}', [ChatController::class, 'create'])->name('chat-create');
+    Route::post('update/{order}/{message}', [ChatController::class, 'update'])->name('chat-update');
+    Route::post('delete/{order}/{message}', [ChatController::class, 'delete'])->name('chat-delete');
+});
+
 Route::prefix('auth')->group(function () {
-    Route::get('/login', [LoginController::class, 'login'])->name('login');
-    Route::post('/login', [LoginController::class, 'auth'])->name('auth');
-    Route::get('/verify/{hash}', [LoginController::class, 'verify'])->name('verify');
-    Route::post('/verify/{hash}', [LoginController::class, 'verifyCheck'])->name('verify-check');
-    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('login', [LoginController::class, 'login'])->name('login');
+    Route::post('login', [LoginController::class, 'auth'])->name('auth');
+    Route::get('verify/{hash}', [LoginController::class, 'verify'])->name('verify');
+    Route::post('verify/{hash}', [LoginController::class, 'verifyCheck'])->name('verify-check');
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::get('sitemap.xml', function () {
