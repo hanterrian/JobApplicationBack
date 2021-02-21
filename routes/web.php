@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Front\ChatController;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Front\MessageController;
 use App\Http\Controllers\Front\OrderController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,12 +22,17 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('orders', OrderController::class);
 
-Route::prefix('chat')->group(function () {
+Route::prefix('messages')->middleware('auth')->group(function () {
+    Route::get('list', [MessageController::class, 'index'])->name('messages');
+    Route::post('create/{order}', [MessageController::class, 'store'])->name('message-create');
+    Route::post('update/{order}/{message}', [MessageController::class, 'update'])->name('message-update');
+    Route::post('delete/{order}/{message}', [MessageController::class, 'delete'])->name('message-delete');
+});
+
+Route::prefix('chat')->middleware('auth')->group(function () {
     Route::get('list', [ChatController::class, 'index'])->name('chats');
     Route::get('view/{order}', [ChatController::class, 'view'])->name('chat');
-    Route::post('create/{order}', [ChatController::class, 'create'])->name('chat-create');
-    Route::post('update/{order}/{message}', [ChatController::class, 'update'])->name('chat-update');
-    Route::post('delete/{order}/{message}', [ChatController::class, 'delete'])->name('chat-delete');
+    Route::get('create/{order}', [ChatController::class, 'create'])->name('chat-create');
 });
 
 Route::prefix('auth')->group(function () {

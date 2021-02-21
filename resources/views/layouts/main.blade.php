@@ -7,7 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@livewireStyles
+    @if(Auth::check())
+        <meta name="user" content="{{ Auth::id() }}">
+    @endif
+
+    @livewireStyles
 
 <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>

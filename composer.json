@@ -20,6 +20,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "joedixon/laravel-translation": "^1.1",
         "kris/laravel-form-builder": "^1.40",
+        "larasocket/larasocket-driver": "^1.0",
         "laravel-admin-ext/ckeditor": "^1.0",
         "laravel-admin-ext/config": "^1.1",
         "laravel-admin-ext/helpers": "^1.2",
@@ -35,7 +36,8 @@
         "laravelium/sitemap": "^8.0.1",
         "livewire/livewire": "^2.3",
         "mateusjunges/laravel-acl": "^2.4",
-        "predis/predis": "^1.1"
+        "predis/predis": "^1.1",
+        "pusher/pusher-php-server": "^5.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

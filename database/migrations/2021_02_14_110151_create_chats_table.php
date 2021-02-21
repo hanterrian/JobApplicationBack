@@ -17,10 +17,14 @@ class CreateChatsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('order_id')->nullable(true);
+            $table->unsignedBigInteger('owner_id')->nullable(true);
+            $table->unsignedBigInteger('user_id')->nullable(true);
 
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('set null');
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

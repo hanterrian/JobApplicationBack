@@ -26,7 +26,7 @@ class TextareaField extends Component
      * @param $label
      * @param $value
      */
-    public function __construct($name, $label, $value)
+    public function __construct($name, $label, $value = null)
     {
         $this->name = $name;
         $this->label = $label;

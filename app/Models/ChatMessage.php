@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ChatMessage whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ChatMessage whereUserId($value)
  * @mixin \Eloquent
+ * @property int $viewed
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatMessage whereViewed($value)
  */
 class ChatMessage extends Model
 {

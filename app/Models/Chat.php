@@ -10,10 +10,14 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property int|null $order_id
+ * @property int|null $owner_id
+ * @property int|null $user_id
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ChatMessage[] $messages
  * @property-read int|null $messages_count
+ * @property-read \App\Models\User|null $owner
+ * @property-read \App\Models\User|null $user
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
  * @property-read int|null $users_count
  * @method static \Illuminate\Database\Eloquent\Builder|Chat newModelQuery()
@@ -22,12 +26,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Chat whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Chat whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Chat whereOrderId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereOwnerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Chat whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Chat whereUserId($value)
  * @mixin \Eloquent
  */
 class Chat extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['order_id', 'user_id', 'owner_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -38,10 +46,26 @@ class Chat extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function owner()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class);
     }
 }
