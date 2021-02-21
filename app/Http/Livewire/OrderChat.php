@@ -11,20 +11,21 @@ class OrderChat extends Component
 {
     public Chat $chat;
 
-    public ChatMessage $message;
+    public $message;
 
     protected $rules = [
-        'message.message' => ['required', 'max:2000']
+        'message' => ['required', 'max:2000']
     ];
 
     public function send()
     {
         $this->validate();
 
-        $this->message->chat_id = $this->chat->id;
-        $this->message->user_id = Auth::id();
-
-        $this->message->save();
+        ChatMessage::create([
+            'chat_id' => $this->chat->id,
+            'user_id' => Auth::id(),
+            'message' => $this->message
+        ]);
     }
 
     public function render()

@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="{{$id}}">{{$label}}</label>
-    <input class="form-control @error($name) is-invalid @enderror" type="text" id="{{$id}}" name="{{$name}}" value="{{$value}}"/>
+    <textarea class="form-control @error($name) is-invalid @enderror" id="{{$id}}" name="{{$name}}">{{$value}}</textarea>
     @error($name)
     <div class="invalid-feedback">
         {{$message}}

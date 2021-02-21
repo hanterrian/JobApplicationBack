@@ -35,6 +35,8 @@ class ChatMessage extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['chat_id', 'user_id', 'message', 'viewed'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
