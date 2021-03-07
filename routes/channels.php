@@ -17,8 +17,12 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
     return (int)$user->id === (int)$id;
 });
 
-Broadcast::channel('chat.{roomId}', function ($user, $roomId) {
-    if ($user->canJoinRoom($roomId)) {
+Broadcast::channel('user.{userId}', function ($user, $userId) {
+    return $user->id === $userId;
+});
+
+Broadcast::channel('private-chat.{chatId}', function ($user, $chatId) {
+    if ($user->canJoinRoom((int)$chatId)) {
         return ['id' => $user->id, 'name' => $user->name];
     }
 });

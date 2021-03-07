@@ -253,4 +253,28 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(ChatMessage::class);
     }
+
+    /**
+     * @param int $chatId
+     *
+     * @return bool
+     */
+    public function canJoinRoom(int $chatId): bool
+    {
+        /** @var Chat $chat */
+        $chat = Chat::whereId($chatId)->first();
+
+        if (!$chat) {
+            return false;
+        }
+
+        /** @var User $user */
+        $user = $chat->users->where('id', $this->id)->first();
+
+        if ($user) {
+            return true;
+        }
+
+        return false;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Events\ChatSender;
 use App\Models\Chat;
 use App\Models\ChatMessage;
 use Illuminate\Support\Facades\Auth;
@@ -21,11 +22,13 @@ class OrderChat extends Component
     {
         $this->validate();
 
-        ChatMessage::create([
+        $message = ChatMessage::create([
             'chat_id' => $this->chat->id,
             'user_id' => Auth::id(),
             'message' => $this->message
         ]);
+
+        broadcast(new ChatSender(Auth::user(), $this->chat, $message));
     }
 
     public function render()
