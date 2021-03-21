@@ -23,6 +23,23 @@ export default {
         axios.get('/messages?chat=' + this.$props.chat_id)
             .then(response => this.messages = response.data.data)
             .catch(error => console.log(error));
+
+        Echo.private('chat.' + this.$props.chat_id)
+            .listen('ChatSender', (data) => {
+                console.log(data);
+                this.messages.push(data.message);
+            });
+
+        Echo.join('online-chat.' + this.$props.chat_id)
+            .here(users => (console.log(users)))
+            .joining(user => {
+                console.log('Join');
+                console.log(user);
+            })
+            .leaving(user => {
+                console.log('Leave');
+                console.log(user);
+            });
     },
     data() {
         return {
@@ -32,10 +49,13 @@ export default {
     },
     methods: {
         send() {
-            axios.post('/messages', {
-                chat: this.$props.chat_id,
-                message: this.message,
-            });
+            axios
+                .post('/messages', {
+                    chat: this.$props.chat_id,
+                    message: this.message,
+                })
+                .then(response => this.messages.push(response.data.data))
+                .catch(error => console.log(error));
         },
     },
 };

@@ -21,8 +21,22 @@ Broadcast::channel('user.{userId}', function ($user, $userId) {
     return $user->id === $userId;
 });
 
-Broadcast::channel('private-chat.{chatId}', function ($user, $chatId) {
+Broadcast::channel('chat.{chatId}', function ($user, $chatId) {
+    /** @var \App\Models\User $user */
     if ($user->canJoinRoom((int)$chatId)) {
         return ['id' => $user->id, 'name' => $user->name];
     }
+
+    return false;
+});
+
+Broadcast::channel('online-chat.{chatId}', function ($user, $chatId) {
+    if (Auth::check()) {
+        /** @var \App\Models\User $user */
+        if ($user->canJoinRoom((int)$chatId)) {
+            return ['id' => $user->id];
+        }
+    }
+    
+    return false;
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Events\ChatConnected;
 use App\Http\Controllers\Controller;
 use App\Models\Chat;
 use App\Models\Order;
@@ -67,7 +68,7 @@ class ChatController extends Controller
         $chat = Chat::firstOrNew([
             'order_id' => $order->id,
             'user_id' => $user->id,
-            'owner_id' => $ownerUser->id
+            'owner_id' => $ownerUser->id,
         ]);
 
         if (!$chat->exists) {

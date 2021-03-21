@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Http\Resources\Chat\ChatMessageResource;
 use App\Models\Chat;
 use App\Models\ChatMessage;
 use App\Models\User;
@@ -45,6 +46,13 @@ class ChatSender implements ShouldBroadcast
     public function join(User $user)
     {
         return $user->id === $this->user->id;
+    }
+
+    public function broadcastWith()
+    {
+        return [
+            'message' => new ChatMessageResource($this->message),
+        ];
     }
 
     public function broadcastOn()

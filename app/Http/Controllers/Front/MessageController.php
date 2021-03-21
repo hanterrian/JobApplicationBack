@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Events\ChatSender;
+use App\Events\TestEvetnSender;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Front\Message\MessageRequest;
 use App\Http\Resources\Chat\ChatMessageCollection;
@@ -56,6 +58,8 @@ class MessageController extends Controller
             'user_id' => $user->id,
             'message' => $request->message,
         ]);
+
+        broadcast(new ChatSender($user, $chat, $message))->toOthers();
 
         return new ChatMessageResource($message);
     }
