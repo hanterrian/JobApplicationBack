@@ -35,7 +35,8 @@
         "laravel-echo": "^1.10.0",
         "postcss": "^8.2.7",
         "postcss-import": "^14.0.0",
-        "pusher-js": "^7.0.3"
+        "pusher-js": "^7.0.3",
+        "sqlite3": "^5.0.2"
     },
     "babel": {
         "presets": [

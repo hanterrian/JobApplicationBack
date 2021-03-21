@@ -1,13 +1,15 @@
 {
-    "authHost": "http://localhost",
+    "authHost": "http://job.locale",
     "authEndpoint": "/broadcasting/auth",
-    "clients": [],
+    "clients": [
+        {
+            "appId": "1ab47e722ae4daac",
+            "key": "e8264796701c5918f883d5704b833013"
+        }
+    ],
     "database": "redis",
     "databaseConfig": {
-        "redis": {
-            "port": "6379",
-            "host": "localhost"
-        },
+        "redis": {},
         "sqlite": {
             "databasePath": "/database/laravel-echo-server.sqlite"
         }
