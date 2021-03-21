@@ -9,9 +9,9 @@
         <div class="chat_text">
             <div class="form-group">
                 <label for="message">Message</label>
-                <textarea id="message" ref="message" class="form-control"></textarea>
+                <textarea id="message" ref="message" class="form-control" v-model="message"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="button" class="btn btn-primary" @click="send">Submit</button>
         </div>
     </div>
 </template>
@@ -26,9 +26,17 @@ export default {
     },
     data() {
         return {
+            message: null,
             messages: [],
         };
     },
-    methods: {},
+    methods: {
+        send() {
+            axios.post('/messages', {
+                chat: this.$props.chat_id,
+                message: this.message,
+            });
+        },
+    },
 };
 </script>
