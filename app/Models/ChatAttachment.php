@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\ChatAttachment
@@ -22,8 +23,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ChatAttachment whereSrc($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ChatAttachment whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatAttachment whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ChatAttachment onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ChatAttachment withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ChatAttachment withoutTrashed()
  */
 class ChatAttachment extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 }

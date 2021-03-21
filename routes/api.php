@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\v1\Auth\LoginController;
 use App\Http\Controllers\Api\v1\Auth\LogoutController;
 use App\Http\Controllers\Api\v1\Auth\RegisterController;
+use App\Http\Controllers\Api\v1\Chat\MessageController;
 use App\Http\Controllers\Api\v1\Location\CityController;
 use App\Http\Controllers\Api\v1\Location\CountryController;
 use App\Http\Controllers\Api\v1\Location\RegionController;
@@ -59,6 +60,9 @@ Route::group(['middleware' => ['json.response']], function () {
             Route::resource('countries', CountryController::class)->only(['index']);
             Route::resource('regions', RegionController::class)->only(['index']);
             Route::resource('cities', CityController::class)->only(['index']);
+        });
+        Route::group(['prefix' => 'chat'], function () {
+            Route::resource('messages', MessageController::class)->middleware(['auth:api']);
         });
     });
 });

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * App\Models\ChatMessage
@@ -30,27 +31,37 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property int $viewed
  * @method static \Illuminate\Database\Eloquent\Builder|ChatMessage whereViewed($value)
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|ChatMessage whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|ChatMessage onlyTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ChatMessage withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|ChatMessage withoutTrashed()
  */
 class ChatMessage extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = ['chat_id', 'user_id', 'message', 'viewed'];
 
+    protected $casts = [
+        'viewed' => 'boolean',
+    ];
+
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function chat()
     {
-        return $this->hasOne(Chat::class);
+        return $this->belongsTo(Chat::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

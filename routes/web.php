@@ -22,12 +22,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('orders', OrderController::class);
 
-Route::prefix('messages')->middleware('auth')->group(function () {
-    Route::get('list', [MessageController::class, 'index'])->name('messages');
-    Route::post('create/{order}', [MessageController::class, 'store'])->name('message-create');
-    Route::post('update/{order}/{message}', [MessageController::class, 'update'])->name('message-update');
-    Route::post('delete/{order}/{message}', [MessageController::class, 'delete'])->name('message-delete');
-});
+Route::resource('messages', MessageController::class)->middleware('auth');
 
 Route::prefix('chat')->middleware('auth')->group(function () {
     Route::get('list', [ChatController::class, 'index'])->name('chats');

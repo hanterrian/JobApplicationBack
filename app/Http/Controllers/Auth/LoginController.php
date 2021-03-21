@@ -8,6 +8,7 @@ use App\Http\Requests\Front\Auth\LoginRequest;
 use App\Http\Requests\Front\Auth\VerifyRequest;
 use App\Models\TwoFactorAuth;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -93,6 +94,12 @@ class LoginController extends Controller
         if ($user) {
             if (TwoFactorAuth::checkToken($user, $request->code, TwoFactorAuth::PROVIDER_EMAIL)) {
                 Auth::login($user, $request->remember);
+
+                $token = $user->createToken(config('app.name'));
+
+                $token->token->expires_at = $request->remember ? Carbon::now()->addMonth() : Carbon::now()->addDay();
+
+                $token->token->save();
 
                 return redirect()->route('home')->with('success', __('You are Login successful.'));
             }

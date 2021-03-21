@@ -23,6 +23,7 @@ class CreateChatMessagesTable extends Migration
 
             $table->boolean('viewed')->default(false);
 
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('chat_id')->references('id')->on('chats')->onDelete('cascade');
