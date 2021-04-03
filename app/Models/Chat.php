@@ -33,8 +33,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Chat extends Model
 {
-    use HasFactory;
-
     protected $fillable = ['order_id', 'user_id', 'owner_id'];
 
     /**
@@ -46,19 +44,19 @@ class Chat extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function owner()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

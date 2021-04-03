@@ -39,7 +39,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class ChatMessage extends Model
 {
-    use HasFactory;
     use SoftDeletes;
 
     protected $fillable = ['chat_id', 'user_id', 'message', 'viewed'];

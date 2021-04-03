@@ -31,6 +31,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class ChatAttachment extends Model
 {
-    use HasFactory;
     use SoftDeletes;
 }
