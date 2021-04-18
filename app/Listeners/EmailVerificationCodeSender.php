@@ -42,7 +42,11 @@ class EmailVerificationCodeSender
                 $class = new RegisterVerificationMail($event->token);
             }
 
-            Mail::to($event->user)->send($class);
+            try {
+                Mail::to($event->user)->send($class);
+            } catch (\Exception $e) {
+                \Log::error("Email send error: " . $e->getMessage());
+            }
         }
     }
 }
