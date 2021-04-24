@@ -1,0 +1,19 @@
+.card-grid {
+    @apply grid gap-4 grid-cols-1 lg:grid-cols-3
+}
+
+.card {
+    @apply flex border rounded shadow
+}
+
+.card-header {
+    @apply place-self-start px-4 py-2 w-full border-gray-100 border-b
+}
+
+.card-body {
+    @apply flex-auto place-self-center px-4 py-2 w-full
+}
+
+.card-footer {
+    @apply place-self-end px-4 py-3 bg-gray-100 w-full
+}

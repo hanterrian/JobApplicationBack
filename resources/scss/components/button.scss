@@ -1,0 +1,36 @@
+.btn-group {
+    @apply flex
+}
+
+.btn {
+    @apply bg-transparent font-semibold border rounded px-4 py-2 mr-2 cursor-pointer w-min
+}
+
+.btn-mini {
+    @apply text-sm px-2 py-1
+}
+
+.btn-default {
+    @apply text-gray-600 border-gray-600
+    hover:bg-gray-600 hover:text-white hover:border-transparent
+}
+
+.btn-primary {
+    @apply text-blue-600 border-blue-600
+    hover:bg-blue-600 hover:text-white hover:border-transparent
+}
+
+.btn-success {
+    @apply text-green-600 border-green-600
+    hover:bg-green-600 hover:text-white hover:border-transparent
+}
+
+.btn-warning {
+    @apply text-yellow-600 border-yellow-600
+    hover:bg-yellow-600 hover:text-white hover:border-transparent
+}
+
+.btn-danger {
+    @apply text-red-600 border-red-600
+    hover:bg-red-600 hover:text-white hover:border-transparent
+}

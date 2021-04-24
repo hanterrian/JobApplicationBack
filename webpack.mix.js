@@ -21,6 +21,10 @@ mix.js('resources/js/app.js', 'public/js/app.js')
     .disableNotifications();
 
 mix.options({
+    processCssUrls: false,
+});
+
+mix.options({
     watchOptions: {
         ignored: /node_modules/,
     },
