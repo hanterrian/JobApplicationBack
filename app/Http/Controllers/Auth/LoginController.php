@@ -41,6 +41,7 @@ class LoginController extends Controller
      * @param LoginRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function auth(LoginRequest $request)
     {
@@ -53,6 +54,8 @@ class LoginController extends Controller
             $hash = Str::random();
 
             $user->update(['auth_hash' => $hash]);
+
+            TwoFactorAuth::clearTokens($user);
 
             $token = TwoFactorAuth::createToken($user, TwoFactorAuth::PROVIDER_EMAIL);
 

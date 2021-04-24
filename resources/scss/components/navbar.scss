@@ -1,0 +1,35 @@
+.main-navbar {
+    @apply flex shadow px-4 py-2 items-center justify-between flex-wrap
+}
+
+.main-navbar .main-navbar__brand {
+    @apply flex items-center flex-grow flex-shrink lg:pb-0
+}
+
+.main-navbar .main-navbar__menu-toggle {
+    @apply block lg:hidden
+}
+
+.main-navbar .main-navbar__menu-toggle .toggle-button {
+    @apply flex items-center px-3 py-2 text-base outline-none
+}
+
+.main-navbar .main-navbar__menu-container {
+    @apply w-full flex-grow flex lg:items-center lg:w-auto lg:block
+}
+
+.main-navbar .main-navbar__menu-container .main-navbar__menu-container-list {
+    @apply lg:flex-grow lg:float-right
+}
+
+.main-navbar__menu-container-list ul {
+    @apply list-none
+}
+
+.main-navbar__menu-container-list ul li {
+    @apply lg:inline-flex lg:ml-2
+}
+
+.main-navbar__menu-container-list ul li {
+    @apply hover:underline
+}

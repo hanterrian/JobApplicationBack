@@ -34,9 +34,9 @@ Route::prefix('chat')->middleware('auth')->group(function () {
 Route::prefix('auth')->group(function () {
     Route::get('login', [LoginController::class, 'login'])->name('login');
     Route::post('login', [LoginController::class, 'auth'])->name('auth');
-    Route::get('verify/{hash}', [LoginController::class, 'verify'])->name('verify');
-    Route::post('verify/{hash}', [LoginController::class, 'verifyCheck'])->name('verify-check');
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+    Route::get('login/verify/{hash}', [LoginController::class, 'verify'])->name('verify');
+    Route::post('login/verify/{hash}', [LoginController::class, 'verifyCheck'])->name('verify-check');
+    Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
 Route::get('sitemap.xml', function () {

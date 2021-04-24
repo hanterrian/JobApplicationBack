@@ -38,11 +38,13 @@ class LoginController extends Controller
         if (!Auth::validate($credentials)) {
             return response()->json([
                 'message' => 'You cannot sign with those credentials',
-                'errors' => 'Unauthorised'
+                'errors' => 'Unauthorised',
             ], 401);
         }
 
         $user = User::whereEmail($request->email)->first();
+
+        TwoFactorAuth::clearTokens($user);
 
         $token = TwoFactorAuth::createToken($user, TwoFactorAuth::PROVIDER_EMAIL);
 
@@ -50,11 +52,11 @@ class LoginController extends Controller
             event(new UserValidateTokenSend($user, $token, UserValidateTokenSend::TYPE_EMAIL_CODE));
 
             return response()->json([
-                'message' => __('api.login.send')
+                'message' => __('api.login.send'),
             ]);
         } else {
             return response()->json([
-                'message' => __('api.login.error')
+                'message' => __('api.login.error'),
             ], 500);
         }
     }
@@ -74,21 +76,21 @@ class LoginController extends Controller
     {
         $user = User::where([
             'email' => $request->email,
-            'is_verified' => true
+            'is_verified' => true,
         ])
             ->first();
 
         if (!TwoFactorAuth::checkToken($user, $request->token, TwoFactorAuth::PROVIDER_EMAIL)) {
             return response()->json([
                 'message' => 'Token not valid',
-                'errors' => 'Unauthorised'
+                'errors' => 'Unauthorised',
             ], 401);
         }
 
         if (!Auth::loginUsingId($user->id)) {
             return response()->json([
                 'message' => 'You cannot sign with those credentials',
-                'errors' => 'Unauthorised'
+                'errors' => 'Unauthorised',
             ], 401);
         }
 
@@ -100,7 +102,7 @@ class LoginController extends Controller
         return response()->json([
             'token_type' => 'Bearer',
             'token' => $token->accessToken,
-            'expires_at' => Carbon::parse($token->token->expires_at)->toDateTimeString()
+            'expires_at' => Carbon::parse($token->token->expires_at)->toDateTimeString(),
         ]);
     }
 

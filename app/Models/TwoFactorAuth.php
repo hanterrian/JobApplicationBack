@@ -88,6 +88,18 @@ class TwoFactorAuth extends Model
     }
 
     /**
+     * @param User $user
+     *
+     * @throws \Exception
+     */
+    public static function clearTokens(User $user)
+    {
+        TwoFactorAuth::where([
+            'user_id' => $user->id,
+        ])->delete();
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
