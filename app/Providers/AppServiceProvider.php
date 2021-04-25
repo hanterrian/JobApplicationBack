@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
             Config::load();
         }
 
-        Paginator::useBootstrap();
+        Paginator::defaultView('components/paginator');
 
         Carbon::setLocale(app()->getLocale());
     }

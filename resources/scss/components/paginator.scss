@@ -1,0 +1,61 @@
+.pagination {
+    @apply flex items-center justify-between px-4 py-3 border-t border-gray-200 sm:px-6
+}
+
+.pagination .icon {
+    @apply w-5 h-5
+}
+
+.pagination-mobile {
+    @apply flex justify-between flex-1 sm:hidden
+}
+
+.pagination-mobile .page {
+    @apply relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md
+}
+
+.pagination-mobile .first-page {
+}
+
+.pagination-mobile .prev-page {
+}
+
+.pagination-mobile .next-page {
+}
+
+.pagination-mobile .last-page {
+}
+
+.pagination-desktop {
+    @apply hidden sm:flex-1 sm:flex sm:items-center sm:justify-between
+}
+
+.pagination-desktop .page {
+    @apply relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 hover:text-blue-500 focus:z-10 focus:outline-none focus:border-blue-300 transition ease-in-out duration-150
+}
+
+.pagination-desktop_block {
+    @apply relative z-0 inline-flex shadow-sm
+}
+
+.pagination-desktop .first-page {
+}
+
+.pagination-desktop .prev-page {
+}
+
+.pagination-desktop .dots {
+}
+
+.pagination-desktop .page {
+}
+
+.pagination-desktop .current-page {
+    @apply text-white bg-blue-500 border-blue-500
+}
+
+.pagination-desktop .next-page {
+}
+
+.pagination-desktop .last-page {
+}

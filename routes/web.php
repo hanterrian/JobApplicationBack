@@ -39,6 +39,10 @@ Route::prefix('auth')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
+Route::get('markup', function () {
+    return view('markup');
+})->middleware('auth');
+
 Route::get('sitemap.xml', function () {
     // create new sitemap object
     $sitemap = App::make('sitemap');
