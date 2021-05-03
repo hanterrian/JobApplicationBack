@@ -26,9 +26,7 @@ Route::resource('messages', MessageController::class)->middleware('auth');
 
 Route::prefix('chat')->middleware('auth')->group(function () {
     Route::get('list/{order}', [ChatController::class, 'index'])->name('chats');
-    Route::get('view/{order}', [ChatController::class, 'view'])->name('chat');
-    Route::get('view-owner/{order}/{chat}', [ChatController::class, 'viewOwner'])->name('chat-owner');
-    Route::get('create/{order}', [ChatController::class, 'create'])->name('chat-create');
+    Route::get('view/{order}/{chat?}', [ChatController::class, 'view'])->name('chat');
 });
 
 Route::prefix('auth')->group(function () {
