@@ -24,10 +24,20 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.main-container {
+    @apply w-full
+}
+
+.content {
+    @apply px-2
+}
+
 @import "components/navbar";
 @import "components/button";
 @import "components/card";
 @import "components/paginator";
+@import "components/alert";
+@import "components/chat";
 
 @import "components/forms/field";
 

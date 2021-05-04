@@ -268,6 +268,10 @@ class User extends Authenticatable implements MustVerifyEmail
             return false;
         }
 
+        if ($chat->owner_id === $this->id || $chat->user_id === $this->id) {
+            return true;
+        }
+
         /** @var User $user */
         $user = $chat->users->where('id', $this->id)->first();
 

@@ -28,7 +28,7 @@
     {!! SEO::generate() !!}
 </head>
 <body>
-<div class="container-fluid" id="app">
+<div class="main-container" id="app">
     <div class="main-navbar">
         <a href="{{ route('home') }}" class="main-navbar__brand">
             App
@@ -53,6 +53,7 @@
                     </li>
 
                     @if(Auth::check())
+                        <li>{{ Auth::user()->name }}</li>
                         <li>
                             <a href="{{ route('logout') }}">Logout</a>
                         </li>
@@ -67,7 +68,9 @@
     </div>
     <x-flash-message/>
 
-    @yield('content')
+    <section class="content">
+        @yield('content')
+    </section>
 </div>
 
 @livewireScripts

@@ -2327,6 +2327,15 @@ select {
   -webkit-font-smoothing: antialiased;
 }
 
+.main-container {
+  width: 100%;
+}
+
+.content {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .main-navbar {
   display: flex;
   flex-wrap: wrap;
@@ -2760,6 +2769,38 @@ select {
   border-color: rgba(59, 130, 246, var(--tw-border-opacity));
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.alert {
+  --tw-border-opacity: 1;
+  border-color: rgba(55, 65, 81, var(--tw-border-opacity));
+  border-radius: 0.25rem;
+  border-width: 1px;
+  margin-bottom: 0.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.alert.alert-success {
+  --tw-border-opacity: 1;
+  border-color: rgba(4, 120, 87, var(--tw-border-opacity));
+}
+
+.alert.alert-info {
+  --tw-border-opacity: 1;
+  border-color: rgba(29, 78, 216, var(--tw-border-opacity));
+}
+
+.alert.alert-warning {
+  --tw-border-opacity: 1;
+  border-color: rgba(180, 83, 9, var(--tw-border-opacity));
+}
+
+.alert.alert-danger {
+  --tw-border-opacity: 1;
+  border-color: rgba(185, 28, 28, var(--tw-border-opacity));
 }
 
 .field-group {

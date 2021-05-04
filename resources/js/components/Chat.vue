@@ -1,5 +1,5 @@
 <template>
-    <div class="chat">Example chat
+    <div class="chat">{{ this.$props.label }}
         <div class="alert" :class="message.owner ? 'alert-success' : 'alert-info'" v-for="message in messages" :key="message.id">
             <div class="chat_message">{{ message.message }}</div>
             <div class="chat_message_data">
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-    props: ['chat_id'],
+    props: ['chat_id', 'label'],
     mounted() {
         axios.get('/messages?chat=' + this.$props.chat_id)
             .then(response => this.messages = response.data.data)
@@ -27,6 +27,7 @@ export default {
         Echo.private('chat.' + this.$props.chat_id)
             .listen('ChatSender', (data) => {
                 console.log(data);
+                data.message.owner = false;
                 this.messages.push(data.message);
             });
 
@@ -54,7 +55,11 @@ export default {
                     chat: this.$props.chat_id,
                     message: this.message,
                 })
-                .then(response => this.messages.push(response.data.data))
+                .then(response => {
+                    var data = response.data.data;
+                    data.owner = true;
+                    this.messages.push(data);
+                })
                 .catch(error => console.log(error));
         },
     },
